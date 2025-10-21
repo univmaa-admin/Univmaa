@@ -11,7 +11,7 @@ export default function SecurityPolicyPage() {
         <section className="relative w-full h-screen flex items-center justify-center text-white">
           {/* Fixed Background */}
           <div
-            className="absolute inset-0  bg-fixed  bg-center"
+              className="absolute inset-0 md:bg-cover bg-fixed  bg-center bg-no-repeat"
             style={{
               backgroundImage: "url('/image/policyimg.jpg')",
             }}
