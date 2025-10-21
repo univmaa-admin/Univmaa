@@ -38,7 +38,7 @@ function SalesforceShowcase() {
 
   return (
     <div
-      className="min-h-screen bg-cover bg-center flex items-center justify-center"
+      className="min-h-[700px] md:min-h-[700px]   bg-cover bg-center flex items-center justify-center"
       style={{ backgroundImage: "url('/backgrounds/grid-bg.png')" }}
     >
       <AnimatePresence mode="wait">
@@ -254,7 +254,7 @@ function OrbitAnimation() {
 /* ---------------- Agentforce Animation ---------------- */
 function AgentforceAnimation() {
   return (
-    <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-[900px]  flex items-center justify-center">
+    <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-[900px] flex items-center justify-center">
       <motion.img
         src={astroagentforce}
         alt="Agentforce Robot"
