@@ -24,7 +24,7 @@ export default function SalesCloudPage() {
     <>
       <Navbar />
       {/* ========================== Section 1 ========================== */}
-      <section className="bg-[#0D1117] text-white px-6 md:px-52 py-16 pt-32 grid md:grid-cols-2 gap-10 items-center relative">
+      <section className="bg-[#0D1117] text-white px-6 md:px-10 md:pr-16 py-16 pt-32 grid md:grid-cols-2 gap-10 items-center relative overflow-hidden">
         {/* Left Content */}
         <ServiceDyanamic serviceKey="sales-cloud" />
         {/* Right Form */}
