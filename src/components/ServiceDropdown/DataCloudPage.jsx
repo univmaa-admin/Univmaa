@@ -87,7 +87,7 @@ export default function DataCloudPage() {
     <>
       <Navbar />
       {/* ========================== Section 1 ========================== */}
-      <section className="bg-[#0D1117] text-white pt-32 px-6 md:px-52 py-16 grid md:grid-cols-2 gap-10 items-center relative">
+      <section className="bg-[#0D1117] text-white pt-32 px-6  md:px-10 md:pr-16  py-16 grid md:grid-cols-2 gap-10 items-center relative">
         {/* Left Content */}
         <ServiceDyanamic serviceKey="data-cloud" />
         {/* Right Form */}
@@ -146,7 +146,7 @@ export default function DataCloudPage() {
       {/* ========================== Section 3 ========================== */}
       <motion.section
         ref={ref}
-        className="bg-black text-white px-6 md:px-20 py-16 grid md:grid-cols-2 gap-10 items-center"
+        className="bg-black text-white px-6 md:px-20 py-16 grid  md:grid-cols-2 gap-10 items-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -169,7 +169,7 @@ export default function DataCloudPage() {
           </p>
 
           {/* Counter Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 mt-8">
             <motion.div
               variants={fadeInUp}
               className="bg-blue-700 p-6 rounded-lg text-center hover:cursor-pointer"
