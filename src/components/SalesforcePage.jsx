@@ -254,7 +254,7 @@ function OrbitAnimation() {
 /* ---------------- Agentforce Animation ---------------- */
 function AgentforceAnimation() {
   return (
-    <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-[28rem] md:h-[24rem] flex items-center justify-center">
+    <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-[900px]  flex items-center justify-center">
       <motion.img
         src={astroagentforce}
         alt="Agentforce Robot"
