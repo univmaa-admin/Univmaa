@@ -97,7 +97,7 @@ export default function ContactPage() {
 
       {/* Contact Info */}
       <motion.div
-        className="grid md:grid-cols-3 gap-10 px-8 md:px-4 py-14"
+        className="grid sm:grid-cols-3  gap-10 px-8 md:ps-10 py-14"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -185,7 +185,7 @@ export default function ContactPage() {
 
       {/* ===== Contact Form Section ===== */}
       <motion.div
-        className="min-h-screen flex items-center justify-center px-6 py-16"
+        className="min-h-screen md:min-h-[200px]  flex items-center justify-center px-6 py-16"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.9 }}
