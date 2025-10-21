@@ -264,7 +264,7 @@ export default function TermsAndConditions() {
           You may contact <strong>Univmaa Technology</strong> with any questions
           or inquiries regarding these terms and conditions by email at{" "}
           <a
-            href="mailto:contact@univmaa.com"
+            href="mailto:helpdesk@univmaa.com"
             className="text-blue-600 underline"
           >
             Website Inquiry
