@@ -137,7 +137,7 @@ export default function MarketingCloudPage() {
     <>
       <Navbar />
       {/* ========================== Section 1 ========================== */}
-      <section className="bg-[#0D1117] pt-32 text-white px-6 md:px-16 md:pr-16 py-16 grid md:grid-cols-2 gap-10 items-center relative overflow-hidden">
+      <section className="bg-[#0D1117] pt-32 text-white px-6  py-16 grid md:grid-cols-2 gap-10 items-center relative overflow-hidden">
         {/* Left Content */}
         <ServiceDyanamic serviceKey="marketing-cloud" />
         {/* Right Form */}
