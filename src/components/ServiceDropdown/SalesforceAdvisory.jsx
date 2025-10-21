@@ -161,7 +161,7 @@ const SalesforceAdvisory = () => {
         </section>
 
         {/* Accordion + Form Section */}
-        <section className="px-4 sm:px-6 md:px-12 lg:px-20 py-12 grid md:grid-cols-2 gap-8 items-start">
+        <section className="px-4 sm:px-6  lg:px-20 py-12 grid md:grid-cols-2 gap-8 items-start">
           {/* Accordion */}
           <motion.div
             initial={{ opacity: 0, x: -80 }}
@@ -182,7 +182,7 @@ const SalesforceAdvisory = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-b from-purple-600 to-black p-6 sm:p-8 rounded-2xl shadow-lg w-full sm:w-3/4 max-w-md mx-auto mt-12 sm:mt-28"
+            className="bg-gradient-to-b from-purple-600 to-black p-6 sm:p-8 md:w-5/6 rounded-2xl shadow-lg w-full sm:w-3/4 max-w-md mx-auto mt-12 sm:mt-28"
           >
             <h3 className="text-lg md:text-xl font-semibold mb-6">
               Fill the form to get started
