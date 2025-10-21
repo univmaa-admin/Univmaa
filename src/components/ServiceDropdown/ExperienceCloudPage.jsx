@@ -248,7 +248,7 @@ export default function ExperienceCloudPage() {
         </motion.p>
 
         {/* Industries Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           {[
             "Manufacturing",
             "Finance",
