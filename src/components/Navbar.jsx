@@ -98,7 +98,7 @@ const Navbar = () => {
                   Salesforce Implementation
                 </NavLink>
                 {/* Submenu */}
-                <ul className="absolute left-full top-0 bg-white text-black shadow-lg w-64 z-50 opacity-0 translate-x-2 invisible group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0 transition-all duration-300 ease-in-out">
+                <ul className="absolute left-full top-0 bg-white text-black shadow-lg w-64 z-50 opacity-0 translate-x-2 invisible group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0 transition-all duration-300 ease-in-out max-lg:hidden">
                   <li>
                     <NavLink
                       to="/salescloud"
