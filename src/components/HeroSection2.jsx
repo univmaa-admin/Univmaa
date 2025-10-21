@@ -81,7 +81,7 @@ const HeroSection2 = () => {
   return (
     <>
       <section
-        className="relative hero-section md:p-16 px-10 sm:py-32 py-24 flex flex-col md:flex-row items-center md:justify-between justify-center md:gap-24 w-full md:min-h-screen transition-all duration-1000"
+        className="relative hero-section  px-10 sm:py-32 py-24 flex flex-col md:flex-row items-center md:justify-center justify-center w-full md:min-h-screen transition-all duration-1000"
         id="home"
         style={{
           backgroundImage: `linear-gradient(rgba(22, 22, 22, 0.712), rgba(0, 0, 0, 0.801)), url(${backgrounds[bgIndex]})`,
