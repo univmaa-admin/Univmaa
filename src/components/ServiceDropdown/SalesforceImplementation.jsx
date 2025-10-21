@@ -126,7 +126,7 @@ const SalesforceImplementation = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-slate-950 text-white pb-10">
+      <div className="min-h-screen bg-slate-950 text-white pb-10 overflow-hidden">
         {/* Hero Section */}
         <motion.section
           className="container mx-auto px-4 sm:px-6  pt-28 sm:pt-36 md:pt-40 pb-16 sm:pb-24 grid grid-cols-1 md:grid-cols-2 items-center gap-10"
