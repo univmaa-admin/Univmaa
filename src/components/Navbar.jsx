@@ -50,7 +50,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="logo"
-              className="w-28 h-auto object-contain cursor-pointer"
+              className="w-28 h-auto object-contain p-3 cursor-pointer"
             />
           </NavLink>
         </div>
