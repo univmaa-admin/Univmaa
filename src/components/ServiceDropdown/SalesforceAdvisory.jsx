@@ -114,9 +114,9 @@ const SalesforceAdvisory = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-[#0B0B1A] text-white font-sans">
+      <div className="bg-[#0B0B1A] text-white font-sans">
         {/* Hero Section */}
-        <section className="px-4 sm:px-6 md:px-12 lg:px-20 pt-20 sm:pt-28 md:pt-36 mb-32 py-12 grid md:grid-cols-2 gap-8 items-center">
+        <section className="px-4 sm:px-6 lg:px-20 pt-20 sm:pt-28 md:pt-36 mb-32 py-12 grid  gap-8 items-center">
           {/* Left */}
           <motion.div
             initial={{ opacity: 0, y: 80 }}
@@ -130,8 +130,13 @@ const SalesforceAdvisory = () => {
             </h1>
             <p className="text-gray-300 mb-6 text-sm sm:text-base">
               Unlock unmatched success with our Salesforce Advisory & Consulting
-              Services. <br />
-              Make informed decisions about your Salesforce strategy.
+              Services. Make informed, strategic decisions that maximize the
+              value of your Salesforce investment. Our Salesforce Advisory team
+              empowers organizations to define a clear CRM vision, optimize
+              business processes, and accelerate digital transformation. From
+              strategy and architecture to governance and roadmap planning, we
+              guide you at every step to ensure your Salesforce ecosystem aligns
+              with your business goals.
             </p>
             <button
               className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-medium shadow-md hover:opacity-90 transition"
