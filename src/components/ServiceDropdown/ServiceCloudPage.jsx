@@ -23,7 +23,7 @@ export default function ServiceCloudPage() {
     <>
       <Navbar />
       {/* ========================== Section 1 ========================== */}
-      <section className="bg-[#0D1117] pt-28 text-white px-6 md:px-52 py-16 grid md:grid-cols-2 gap-10 items-center relative">
+      <section className="bg-[#0D1117] pt-28 text-white px-6 md:px-16 md:pr-16 py-16 grid md:grid-cols-2 gap-10 items-center relative overflow-hidden">
         {/* Left Content */}
         <ServiceDyanamic serviceKey="service-cloud" />
         {/* Right Form */}
@@ -82,7 +82,7 @@ export default function ServiceCloudPage() {
 
       {/* ========================== Section 3 ========================== */}
       <motion.section
-        className="bg-black text-white px-6 md:px-20 py-16 grid md:grid-cols-2 gap-10 items-center"
+        className="bg-black text-white px-6 md:px-8 py-16 grid md:grid-cols-2 gap-10 items-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
