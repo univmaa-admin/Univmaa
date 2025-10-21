@@ -362,13 +362,13 @@ export default function DataCloudPage() {
               {/* Close Button */}
               <button
                 onClick={() => setShowModal(null)}
-                className="absolute top-3 right-3 text-gray-300 hover:text-white text-2xl"
+                className="absolute top-0 right-3 text-gray-300 hover:text-white text-2xl"
               >
                 ✖
               </button>
 
               {/* Modal Content */}
-              <h3 className="text-2xl font-bold mb-4">{showModal.title}</h3>
+              <h3 className="text-xl font-bold mb-4">{showModal.title}</h3>
               <img
                 src={showModal.img}
                 alt={showModal.title}
