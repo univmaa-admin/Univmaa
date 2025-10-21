@@ -120,7 +120,7 @@ export default function SalesforceCpqPage() {
       <Navbar />
       <div className="bg-[#0B0E1A] text-white">
         {/* ================= HERO SECTION ================= */}
-        <section className="bg-[#0D1117] text-white pt-32 px-6 md:px-52 py-16 grid md:grid-cols-2 gap-10 items-center relative">
+        <section className="bg-[#0D1117] text-white pt-32 px-6 md:px-16 md:pr-20 overflow-hidden py-16 grid md:grid-cols-2 gap-10 items-center relative">
           <ServiceDyanamic serviceKey="cpq-cloud" />
           {/* Right Form */}
           <FillTheForm />
