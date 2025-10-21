@@ -138,7 +138,7 @@ export default function AgentforcePage() {
     <>
       <Navbar />
       {/* ========================== Section 1 ========================== */}
-      <section className="bg-[#0D1117] text-white pt-32  md:px-10 md:pr-16  px-6 py-16 grid md:grid-cols-2 gap-10 items-center relative">
+      <section className="bg-[#0D1117] text-white pt-32  px-6 py-16 grid md:grid-cols-2 gap-10 items-center relative">
         {/* Left Content */}
         <ServiceDyanamic serviceKey="agentforce" />
         {/* Right Form */}
