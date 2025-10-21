@@ -67,8 +67,8 @@ const Contact = () => {
           {[
             {
               icon: <IoMdMail className="text-indigo-600 text-2xl" />,
-              text: "helpdesk@univmaaa.com",
-              link: "mailto:helpdesk@univmaaa.com",
+              text: "helpdesk@univmaa.com",
+              link: "mailto:helpdesk@univmaa.com",
             },
             {
               icon: <FiPhoneCall className="text-indigo-600 text-2xl" />,
