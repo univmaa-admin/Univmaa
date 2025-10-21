@@ -52,7 +52,7 @@ const FillTheForm = () => {
     <div
       id="form"
       data-aos="fade-left"
-      className="bg-gradient-to-b from-purple-600 to-black p-8 rounded-2xl  md:w-[420px] shadow-lg w-4/4 max-w-md mx-auto mt-20"
+      className="bg-gradient-to-b from-purple-600 to-black p-8 rounded-2xl  md:w-[370px] shadow-lg w-4/4 max-w-md mx-auto mt-20"
     >
       <h3 className="text-2xl font-bold text-center mb-6">Fill the form</h3>
       {success ? (
