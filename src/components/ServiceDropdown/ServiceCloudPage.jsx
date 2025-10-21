@@ -94,7 +94,7 @@ export default function ServiceCloudPage() {
             Put Customers at the Heart of Your Business with{" "}
             <span className="text-blue-400">Data & AI</span>
           </h2>
-          <p className="text-gray-300 mb-4 text-lg">
+          <p className="text-gray-300 tracking-wide mb-4 text-lg">
             By harnessing the power of AI, Service Cloud provides predictive
             insights, automates routine tasks, and personalizes interactions,
             allowing your service teams to focus on what matters most—resolving
@@ -150,7 +150,7 @@ export default function ServiceCloudPage() {
         </motion.p>
 
         {/* Industries Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
           {[
             "Manufacturing",
             "Finance",
