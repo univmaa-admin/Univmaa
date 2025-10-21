@@ -129,14 +129,14 @@ const SalesforceImplementation = () => {
       <div className="min-h-screen bg-slate-950 text-white pb-10">
         {/* Hero Section */}
         <motion.section
-          className="container mx-auto px-4 sm:px-6 md:px-20 pt-28 sm:pt-36 md:pt-40 pb-16 sm:pb-24 grid grid-cols-1 md:grid-cols-2 items-center gap-10"
+          className="container mx-auto px-4 sm:px-6  pt-28 sm:pt-36 md:pt-40 pb-16 sm:pb-24 grid grid-cols-1 md:grid-cols-2 items-center gap-10"
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
           {/* Left Text */}
-          <div className="text-center md:text-left md:ps-24">
+          <div className="text-center md:text-left md:ps-4">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
               Salesforce <br />
               <span className="text-purple-400">Implementation Services</span>
@@ -248,7 +248,7 @@ const SalesforceImplementation = () => {
 
         {/* Products + Form */}
         <motion.section
-          className="container mx-auto px-6 md:px-20 py-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-start"
+          className="container mx-auto px-6 sm:ms-11   md:px-2 py-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-start"
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -256,7 +256,7 @@ const SalesforceImplementation = () => {
         >
           {/* Accordion */}
           <div>
-            <h2 className="text-2xl sm:text-3xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl  font-bold mb-6">
               Salesforce Products We Implement
             </h2>
             <div className="space-y-3">
@@ -316,7 +316,7 @@ const SalesforceImplementation = () => {
 
           {/* Form */}
           <motion.div
-            className="bg-gradient-to-b from-purple-600 to-black p-6 sm:p-8 rounded-2xl shadow-lg w-full max-w-md mx-auto mt-20 md:mt-28"
+            className="bg-gradient-to-b from-purple-600 to-black p-6 sm:p-8 md:ms-6 rounded-2xl shadow-lg w-full max-w-md mx-auto mt-20 md:mt-28"
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
