@@ -156,7 +156,7 @@ export default function MarketingCloudPage() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10 ">
+        <div className="grid md:ps-16 gap-10 ">
           {/* Studios */}
           <div className="bg-gradient-to-b from-blue-700 to-purple-900 w-full md:w-5/6 rounded-xl shadow-lg p-6">
             <h3 className="text-xl font-semibold mb-6 text-center">
