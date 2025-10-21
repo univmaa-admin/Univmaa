@@ -45,7 +45,7 @@ export default function ExperienceCloudPage() {
     <>
       <Navbar />
       {/* ========================== Section 1 ========================== */}
-      <section className="bg-[#0D1117] pt-32 text-white px-6 md:px-52 py-16 grid md:grid-cols-2 gap-10 items-center relative">
+      <section className="bg-[#0D1117] pt-32 text-white px-6 md:px-16 md:pr-20 py-16 grid md:grid-cols-2 gap-10 items-center relative">
         {/* Left Content */}
         <ServiceDyanamic serviceKey="experience-cloud" />
         {/* Right Form */}
@@ -105,7 +105,7 @@ export default function ExperienceCloudPage() {
 
       {/* ========================== Section 3 ========================== */}
       <motion.section
-        className="bg-black text-white px-6 md:px-20 py-16 grid md:grid-cols-2 gap-10 items-center"
+        className="bg-black text-white  md:px-20 py-16 grid md:grid-cols-2 gap-10 items-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -115,7 +115,7 @@ export default function ExperienceCloudPage() {
         <motion.div
           variants={fadeInUp}
           transition={{ duration: 0.8 }}
-          className="ps-12"
+          className="ps-7"
         >
           <h2 className="text-4xl md:text-4xl font-bold mb-6">
             Establish A Single Point Ecosystem for{" "}
