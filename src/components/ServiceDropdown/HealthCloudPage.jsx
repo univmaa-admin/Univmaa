@@ -22,7 +22,7 @@ export default function HealthCloudPage() {
     <>
       <Navbar />
       {/* ========================== Section 1 ========================== */}
-      <section className="bg-[#0D1117] pt-32 text-white px-6 md:px-52 py-16 grid md:grid-cols-2 gap-10 items-center relative">
+      <section className="bg-[#0D1117] pt-32 text-white px-6 md:px-16 md:pr-20 py-16 grid md:grid-cols-2 gap-10 items-center relative">
         {/* Left Content */}
         <ServiceDyanamic serviceKey="health-cloud" />
         {/* Right Form */}
@@ -81,7 +81,7 @@ export default function HealthCloudPage() {
 
       {/* ========================== Section 3 ========================== */}
       <motion.section
-        className="bg-black text-white px-6 md:px-20 py-16 grid md:grid-cols-2 gap-10 items-center"
+        className="bg-black text-white md:px-16 py-16 grid md:grid-cols-2 gap-10 items-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -91,9 +91,9 @@ export default function HealthCloudPage() {
         <motion.div
           variants={fadeInUp}
           transition={{ duration: 0.8 }}
-          className="ps-10"
+          className="ps-6 md:ps-0"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl p md:text-4xl font-bold mb-6">
             Accelerate Healthcare Innovation with
             <span className="text-blue-400"> Data & AI</span>
           </h2>
