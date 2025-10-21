@@ -14,7 +14,7 @@ const SalesforceRevenueCloud = () => {
     <>
       <Navbar />
       <div className="bg-[#0D0D2B] text-white font-sans">
-        <section className="bg-[#0D1117] text-white pt-32 px-6 md:px-16 md:pr-20 py-16 grid md:grid-cols-2 gap-10 items-center relative overflow-hidden">
+        <section className="bg-[#0D1117] text-white pt-32 px-6 py-16 grid md:grid-cols-2 gap-10 items-center relative overflow-hidden">
           {/* Left Content */}
           <ServiceDyanamic serviceKey="revenue-cloud" />
           {/* Right Form */}
