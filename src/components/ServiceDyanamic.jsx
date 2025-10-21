@@ -129,7 +129,7 @@ const ServiceDyanamic = ({ serviceKey }) => {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 sm:ps-14">
       {/* Heading & Content */}
       <h2 className="text-3xl md:text-5xl font-bold">
         {service.title.split(" ")[0]}{" "}
@@ -178,7 +178,7 @@ const ServiceDyanamic = ({ serviceKey }) => {
                   <h3 className="text-2xl font-bold text-gray-800 mb-3 text-center md:text-left">
                     {service.modalTitle}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm sm:text-base text-center md:text-left">
+                  <p className="text-gray-600 leading-relaxed text-sm sm:text-base text-left md:text-left">
                     {service.modalDesc}
                   </p>
                 </div>
