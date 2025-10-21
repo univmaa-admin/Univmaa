@@ -130,10 +130,10 @@ export default function ApplicationForm() {
               Join a team that values innovation, growth, and people.
               <br /> Apply today or send your CV <br />
               <a
-                href="mailto:helpdesk@univmaaa.com"
+                href="mailto:helpdesk@univmaa.com"
                 className="text-sky-400 hover:underline break-words"
               >
-                helpdesk@univmaaa.com
+                helpdesk@univmaa.com
               </a>
             </motion.p>
           </div>
