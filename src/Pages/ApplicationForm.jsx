@@ -368,7 +368,7 @@ export default function ApplicationForm() {
           >
             Perks & Benefits 🎁
           </motion.h2>
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {[
               {
                 icon: "💻",
@@ -411,7 +411,7 @@ export default function ApplicationForm() {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-white">
             Why Build Your Career With Us?
           </h2>
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {[
               {
                 icon: <Briefcase className="w-10 h-10 text-sky-400" />,
