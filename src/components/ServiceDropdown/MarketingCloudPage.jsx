@@ -137,7 +137,7 @@ export default function MarketingCloudPage() {
     <>
       <Navbar />
       {/* ========================== Section 1 ========================== */}
-      <section className="bg-[#0D1117] pt-32 text-white px-6  py-16 grid md:grid-cols-2 gap-10 items-center relative overflow-hidden">
+      <section className="bg-[#0D1117] pt-32 text-white px-6 md:px-16 md:pr-16 py-16 grid md:grid-cols-2 gap-10 items-center relative overflow-hidden">
         {/* Left Content */}
         <ServiceDyanamic serviceKey="marketing-cloud" />
         {/* Right Form */}
@@ -145,7 +145,7 @@ export default function MarketingCloudPage() {
       </section>
 
       {/* ========================== Section 2 (Accordion) ========================== */}
-      <section className="bg-[#071426] text-white px-6 md:px-20 py-16">
+      <section className="bg-[#071426] text-white px-6 md:px-20  py-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold">
             Be on Top of Your Marketing Game
@@ -156,9 +156,9 @@ export default function MarketingCloudPage() {
           </p>
         </div>
 
-        <div className="grid md:ps-16 gap-10 ">
+        <div className="grid md:grid-cols-2 ">
           {/* Studios */}
-          <div className="bg-gradient-to-b from-blue-700 to-purple-900 w-full md:w-5/6 rounded-xl shadow-lg p-6">
+          <div className="bg-gradient-to-b from-blue-700 to-purple-900 w-full  rounded-xl shadow-lg p-6">
             <h3 className="text-xl font-semibold mb-6 text-center">
               Marketing Cloud Studios
             </h3>
@@ -181,7 +181,7 @@ export default function MarketingCloudPage() {
           </div>
 
           {/* Builders */}
-          <div className="bg-gradient-to-b from-blue-700 to-purple-900 w-full md:w-5/6 rounded-xl shadow-lg p-6">
+          <div className="bg-gradient-to-b from-blue-700 to-purple-900 w-full md:ms-6 rounded-xl shadow-lg p-6">
             <h3 className="text-xl font-semibold mb-6 text-center">
               Marketing Cloud Builders
             </h3>
@@ -322,7 +322,7 @@ export default function MarketingCloudPage() {
         </motion.p>
 
         {/* Industries Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {[
             "Manufacturing",
             "Finance",
