@@ -138,7 +138,7 @@ export default function AgentforcePage() {
     <>
       <Navbar />
       {/* ========================== Section 1 ========================== */}
-      <section className="bg-[#0D1117] text-white pt-32 px-6 md:px-52 py-16 grid md:grid-cols-2 gap-10 items-center relative">
+      <section className="bg-[#0D1117] text-white pt-32  md:px-10 md:pr-16  px-6 py-16 grid md:grid-cols-2 gap-10 items-center relative">
         {/* Left Content */}
         <ServiceDyanamic serviceKey="agentforce" />
         {/* Right Form */}
@@ -252,7 +252,7 @@ export default function AgentforcePage() {
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
         transition={{ staggerChildren: 0.2 }}
-        className="bg-[#0D1117] text-white px-6 md:px-20 py-20 text-center"
+        className="bg-[#0D1117] text-white px-6 md:px-1 py-20 text-center"
       >
         {/* Title */}
         <motion.h2
@@ -263,7 +263,7 @@ export default function AgentforcePage() {
         </motion.h2>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
           {[
             {
               title: "Consultation",
