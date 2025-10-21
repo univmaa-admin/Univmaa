@@ -86,7 +86,7 @@ export default function MuleSoftIntegrationSection() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 mt-12 gap-10 items-center">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 mt-12 gap-2 items-center">
           {/* Left Content */}
           <ServiceDyanamic serviceKey="mulesoft" />
           {/* Right Form */}
