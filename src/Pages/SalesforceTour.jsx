@@ -654,10 +654,7 @@ export default function SalesforceTour() {
                     alt="slide"
                     loading="eager"
                     className="md:w-1/2 rounded-xl shadow-lg object-contain 
-               max-h-36 sm:max-h-64 mx-auto"
-                    {/* initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5 }} */}
+                     max-h-36 sm:max-h-64 mx-auto"
                   />
 
                   <div className="flex-1 text-center md:text-left mt-4 md:mt-0">
