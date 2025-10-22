@@ -42,6 +42,7 @@ export default function HomeNotification() {
                 <img
                   src={homemodal2}
                   alt="Dreamforce 2026"
+                  loading="eager"
                   className="rounded-lg shadow-lg border border-gray-200 w-full max-h-48 sm:max-h-64 md:max-h-80 object-cover"
                 />
               </div>
