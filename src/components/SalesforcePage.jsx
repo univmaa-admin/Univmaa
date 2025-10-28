@@ -5,6 +5,7 @@ import img3 from "../assets/animation-img-3.png";
 import img4 from "../assets/animation-img-4.png";
 import img5 from "../assets/animation-img-5.png";
 import img6 from "../assets/animation-img-6.png";
+import salesforcepage from "../assets/salesforcepage.webp";
 import astroagentforce from "../assets/astroagentforce-fly.png";
 import logo from "../assets/salesforcelogo.jpg";
 import business from "../assets/business.jpg";
@@ -38,8 +39,10 @@ function SalesforceShowcase() {
 
   return (
     <div
-      className="min-h-[700px] md:min-h-[700px]   bg-cover bg-center flex items-center justify-center"
-      style={{ backgroundImage: "url('/backgrounds/grid-bg.png')" }}
+      className="min-h-[500px] md:min-h-[500px] pt-14  bg-cover bg-center flex items-center justify-center"
+      style={{
+        backgroundImage: `url(${salesforcepage})`,
+      }}
     >
       <AnimatePresence mode="wait">
         {index === 0 ? (
@@ -49,14 +52,14 @@ function SalesforceShowcase() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 1 }}
-            className="flex flex-col md:flex-row items-center justify-center w-full px-6 sm:px-10 md:px-20 gap-10 md:gap-20"
+            className="flex flex-col md:flex-row items-center justify-center w-full  px-6 sm:px-10 md:px-20 gap-10 md:gap-20"
           >
             {/* Left text */}
-            <div className="max-w-xl text-center md:text-left">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            <div className="max-w-xl text-center md:text-left md:p-10">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-blue-950 leading-tight">
                 Salesforce <span className="text-blue-500">Data Cloud</span>
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6">
+              <p className="text-base sm:text-lg md:text-xl text-black mb-6  [word-spacing:-0.05em] sm:[word-spacing:-0.25em] md:[word-spacing:-0.05em]">
                 Unify customer data, personalize experiences and empower
                 decisions with Salesforce Data Cloud. Bring your entire
                 organization together around enhanced customer experience.
@@ -66,7 +69,7 @@ function SalesforceShowcase() {
                   navigate("/datacloud");
                   window.scrollTo(0, 0);
                 }}
-                className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-md shadow-md hover:opacity-90 transition text-sm sm:text-base"
+                className="bg-white text-blue-500 hover:bg-blue-500 hover:text-white px-6 py-3 rounded-md shadow-md hover:opacity-90 transition text-sm sm:text-base"
               >
                 Know More ➝
               </button>
@@ -82,24 +85,25 @@ function SalesforceShowcase() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 100 }}
             transition={{ duration: 1 }}
-            className="flex flex-col md:flex-row items-center justify-center w-full px-6 sm:px-10 md:px-20 gap-10 md:gap-20"
+            className="flex flex-col md:flex-row items-center sm:ms-32 justify-center w-full px-6 sm:px-10 md:px-20 gap-10 md:gap-10"
           >
             {/* Left text */}
             <div className="max-w-xl text-center md:text-left">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-blue-950 leading-tight">
                 Salesforce <span className="text-blue-500">Agentforce</span>
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6">
+              <p className="text-base sm:text-lg md:text-xl  text-black mb-6 [word-spacing:-0.05em] sm:[word-spacing:-0.25em] md:[word-spacing:-0.05em]">
                 Build and deploy AI agents that work with your team, delivering
                 next-gen AI-driven automation and personalized customer
                 interactions at every touchpoint with precision.
               </p>
+
               <button
                 onClick={() => {
                   navigate("/agentforce");
                   window.scrollTo(0, 0);
                 }}
-                className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-md shadow-md hover:opacity-90 transition text-sm sm:text-base"
+                className="bg-white text-blue-500  hover:bg-blue-500 hover:text-white px-6 py-3 rounded-md shadow-md hover:opacity-90 transition text-sm sm:text-base"
               >
                 Know More ➝
               </button>
@@ -181,9 +185,9 @@ function OrbitAnimation() {
 
   // Helper function for responsive radius
   function getRadius(width) {
-    if (width < 640) return 90; // mobile
+    if (width < 640) return 70; // mobile
     if (width < 1024) return 120; // tablet
-    return 160; // desktop
+    return 125; // desktop
   }
 
   // Helper function for responsive icon size
@@ -254,11 +258,11 @@ function OrbitAnimation() {
 /* ---------------- Agentforce Animation ---------------- */
 function AgentforceAnimation() {
   return (
-    <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-[900px] flex items-center justify-center">
+    <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-[900px]  flex items-center justify-evenly">
       <motion.img
         src={astroagentforce}
         alt="Agentforce Robot"
-        className="w-36 sm:w-52 md:w-[20rem] h-auto object-contain relative z-10"
+        className="w-36 sm:w-52 md:w-[20rem] h-auto sm:mr-44 object-contain relative z-10"
         animate={{ y: [-50, 50, -50] }}
         transition={{
           duration: 8,
@@ -273,32 +277,32 @@ function AgentforceAnimation() {
 /* ---------------- Partner Section ---------------- */
 function SalesforcePartner() {
   return (
-    <div className="bg-[#0B0E1A] text-white font-sans py-12 px-6 sm:px-10 md:px-20">
-      <div className="flex flex-col items-center gap-10">
-        {/* Top image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          className="w-full max-w-4xl"
-        >
-          <img
-            src={business}
-            alt="Salesforce Partner"
-            className="rounded-lg shadow-lg w-full object-cover filter brightness-75 hover:brightness-100 transition"
-          />
-        </motion.div>
+    <div className="bg-white text-white font-sans py-12 px-0 sm:px-0 md:px-0">
+      {/* Full-width image section */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1 }}
+        className="w-full"
+      >
+        <img
+          src={business}
+          alt="Salesforce Partner"
+          className="w-full h-[300px] ps-8 pr-8 sm:ps-28 sm:pr-28 sm:h-[500px] md:h-[500px] object-cover brightness-75  transition-all duration-500"
+        />
+      </motion.div>
 
-        {/* Text */}
+      {/* Text section */}
+      <div className="flex flex-col items-center gap-10 px-6 sm:px-10 md:px-20 mt-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
           className="text-center max-w-4xl"
         >
-          <p className="text-lg sm:text-2xl md:text-3xl font-semibold text-gray-100 mb-6 leading-snug">
+          <p className="text-lg sm:text-2xl md:text-2xl pb-11  text-blue-950 font-bold leading-snug">
             Empower your business with{" "}
-            <span className="font-extrabold text-yellow-400 animate-pulse">
+            <span className="font-extrabold text-blue-500 animate-pulse">
               Agentforce Bots
             </span>{" "}
             crafted to automate workflows and enhance customer engagement.

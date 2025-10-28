@@ -11,7 +11,6 @@ import bg4 from "../assets/hero-bg5.jpg";
 import homemodal from "../assets/homemodal.png";
 
 const HeroSection2 = () => {
-  // Typing animation text
   const staticText = "UNIVMAA Technologies";
   const animatedText = "is one of the fast-growing IT Consulting Companies.";
   const [displayedText, setDisplayedText] = useState("");
@@ -20,17 +19,15 @@ const HeroSection2 = () => {
 
   const navigate = useNavigate();
 
-  // ✅ FIXED Typing effect logic
+  // Typing effect
   useEffect(() => {
     let timeout;
     if (direction === "ltr" && index < animatedText.length) {
-      // forward typing
       timeout = setTimeout(() => {
         setDisplayedText((prev) => prev + animatedText.charAt(index));
         setIndex((prev) => prev + 1);
       }, 120);
     } else if (direction === "rtl" && index > 0) {
-      // ✅ fixed backward typing (erasing from the end cleanly)
       timeout = setTimeout(() => {
         setDisplayedText((prev) => prev.slice(0, -1));
         setIndex((prev) => prev - 1);
@@ -41,9 +38,7 @@ const HeroSection2 = () => {
 
   useEffect(() => {
     if (direction === "ltr" && index === animatedText.length) {
-      const reset = setTimeout(() => {
-        setDirection("rtl");
-      }, 3000);
+      const reset = setTimeout(() => setDirection("rtl"), 3000);
       return () => clearTimeout(reset);
     }
     if (direction === "rtl" && index === 0) {
@@ -56,16 +51,24 @@ const HeroSection2 = () => {
     }
   }, [index, direction, animatedText.length]);
 
-  // Background carousel
+  // Carousel
   const backgrounds = [bg2, bg3, bg1, bg4];
   const [bgIndex, setBgIndex] = useState(0);
+
+  // Preload
+  useEffect(() => {
+    backgrounds.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setBgIndex((prev) => (prev + 1) % backgrounds.length);
-    }, 4000);
+    }, 3000); // slower transition time for better feel
     return () => clearInterval(interval);
-  }, []);
+  }, [backgrounds.length]);
 
   const prevBg = () => {
     setBgIndex((prev) => (prev === 0 ? backgrounds.length - 1 : prev - 1));
@@ -75,21 +78,31 @@ const HeroSection2 = () => {
     setBgIndex((prev) => (prev === backgrounds.length - 1 ? 0 : prev + 1));
   };
 
-  // Modal
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
       <section
-        className="relative hero-section  px-10 sm:py-32 py-24 flex flex-col md:flex-row items-center md:justify-center justify-center w-full md:min-h-screen transition-all duration-1000"
         id="home"
-        style={{
-          backgroundImage: `linear-gradient(rgba(22, 22, 22, 0.712), rgba(0, 0, 0, 0.801)), url(${backgrounds[bgIndex]})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
+        className="relative hero-section px-10 sm:py-32 py-24 flex flex-col md:flex-row items-center md:justify-center justify-center w-full md:min-h-screen overflow-hidden"
       >
+        {/* ✅ Animated Background with Crossfade */}
+        <div className="absolute inset-0 w-full h-full">
+          <AnimatePresence>
+            <motion.div
+              key={bgIndex}
+              className="absolute inset-0 w-full h-full bg-cover bg-center"
+              style={{
+                backgroundImage: `linear-gradient(rgba(22,22,22,0.7), rgba(0,0,0,0.8)), url(${backgrounds[bgIndex]})`,
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.2, ease: "easeInOut" }}
+            />
+          </AnimatePresence>
+        </div>
+
         {/* Prev Button */}
         <button
           onClick={prevBg}
@@ -111,8 +124,8 @@ const HeroSection2 = () => {
           {backgrounds.map((_, i) => (
             <div
               key={i}
-              className={`w-3 h-3 rounded-full cursor-pointer ${
-                i === bgIndex ? "bg-white" : "bg-white/50"
+              className={`w-3 h-3 rounded-full cursor-pointer transition-all ${
+                i === bgIndex ? "bg-white scale-110" : "bg-white/50"
               }`}
               onClick={() => setBgIndex(i)}
             />
@@ -128,12 +141,13 @@ const HeroSection2 = () => {
             className="md:text-5xl text-xl font-bold text-white"
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-sky-500 to-blue-200">
-              {staticText}
-            </span>
-            <br />
+              {" "}
+              {staticText}{" "}
+            </span>{" "}
+            <br />{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-400">
-              {displayedText}
-              <span className="animate-pulse">|</span>
+              {" "}
+              {displayedText} <span className="animate-pulse">|</span>{" "}
             </span>
           </motion.h1>
 
@@ -150,7 +164,7 @@ const HeroSection2 = () => {
 
             <button
               onClick={() => setIsModalOpen(true)}
-              className="bg-violet-600 border-2 border-violet-600 text-white md:px-10 px-2 md:py-3 py-1 rounded-sm hover:bg-transparent hover:text-violet-400 duration-300"
+              className="bg-white text-blue-500 hover:bg-blue-500 hover:text-white px-6 py-3 rounded-md shadow-md hover:opacity-90 transition text-sm sm:text-base"
             >
               Get started
             </button>
@@ -178,31 +192,34 @@ const HeroSection2 = () => {
               exit={{ opacity: 0, scale: 0.8, y: 50 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
             >
-              <div className="bg-[#0B0E1A] rounded-xl shadow-2xl max-w-lg w-full p-4 sm:p-6 text-center border border-gray-700 max-h-[90vh] overflow-y-auto">
+              <div
+                className="bg-white rounded-xl md:mt-20
+                shadow-2xl max-w-lg w-full p-4 sm:p-6 text-center border border-gray-700 max-h-[90vh] overflow-y-auto"
+              >
                 <img
                   src={homemodal}
                   alt="Salesforce"
                   className="w-20 sm:w-40 mx-auto mb-2 sm:mb-4"
                 />
-                <h2 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 leading-snug">
+                <h2 className="text-xl sm:text-2xl  font-bold text-black mb-3 sm:mb-4 leading-snug">
                   We don’t just deliver projects — we build digital partnerships
                   that help businesses grow faster and smarter.
                 </h2>
-                <p className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4 font-medium uppercase tracking-wide">
+                <p className="text-black text-xs sm:text-sm mb-3 sm:mb-4 font-medium uppercase tracking-wide">
                   What We Deliver Beyond Code
                 </p>
-                <ul className="text-left text-gray-300 space-y-2 sm:space-y-3 mb-5 sm:mb-6 text-sm sm:text-base">
+                <ul className="text-left text-black space-y-2 sm:space-y-3 mb-5 sm:mb-6 text-sm sm:text-base">
                   <li className="flex items-start gap-2">
                     <span className="text-blue-500 font-bold">➝</span>
                     <span>
-                      <span className="font-semibold text-white">Growth:</span>{" "}
+                      <span className="font-semibold text-black">Growth:</span>{" "}
                       We design platforms that scale with your business.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-blue-500 font-bold">➝</span>
                     <span>
-                      <span className="font-semibold text-white">
+                      <span className="font-semibold text-black">
                         Innovation:
                       </span>{" "}
                       Bold ideas powered by Salesforce, AI, and Cloud.
@@ -211,14 +228,14 @@ const HeroSection2 = () => {
                   <li className="flex items-start gap-2">
                     <span className="text-blue-500 font-bold">➝</span>
                     <span>
-                      <span className="font-semibold text-white">Trust:</span>{" "}
+                      <span className="font-semibold text-black">Trust:</span>{" "}
                       Transparent processes, no jargon — just clarity.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-blue-500 font-bold">➝</span>
                     <span>
-                      <span className="font-semibold text-white">
+                      <span className="font-semibold text-black">
                         Reliability:
                       </span>{" "}
                       On-time, every time — your success is our priority.
@@ -228,7 +245,7 @@ const HeroSection2 = () => {
                 <div className="flex gap-4 justify-center">
                   <button
                     onClick={() => setIsModalOpen(false)}
-                    className="border border-gray-400 px-5 sm:px-6 py-2 rounded-md text-gray-300 hover:bg-gray-700 transition text-sm sm:text-base"
+                    className="border border-gray-400 px-5 sm:px-6 py-2 rounded-md text-blue-500 hover:bg-blue-500 hover:text-white transition text-sm sm:text-base"
                   >
                     Close
                   </button>

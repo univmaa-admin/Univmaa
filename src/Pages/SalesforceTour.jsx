@@ -2,21 +2,17 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import {
-  X,
-  ArrowLeft,
-  ArrowRight,
-  Rocket,
-  Users,
-  Cloud,
-  Award,
-} from "lucide-react";
+import { X, ArrowLeft, ArrowRight, Users } from "lucide-react";
 import tourImg001 from "../assets/tourimg001.png";
-import tourImg10 from "../assets/tourimg10.jpg";
 import tourImg2 from "../assets/tourimg2.jpeg";
 import tourImg4 from "../assets/tourimg4.jpeg";
 
-import tourImg5 from "../assets/tourImg5.jpg";
+import tourimgnew from "../assets/tourimgnew.webp";
+import tourimgnew2 from "../assets/tourimgnew2.webp";
+import tourimgnew3 from "../assets/tourimgnew3.png";
+import tourimgnew4 from "../assets/tourimgnew4.webp";
+
+import tourImg5 from "../assets/tourimg5.png";
 import tourImg6 from "../assets/tourimg6.jpg";
 import tourImg7 from "../assets/tourimg7.jpeg";
 import tourImg9 from "../assets/tourimg9.png";
@@ -27,51 +23,95 @@ import Footer from "../components/Footer";
 // Extended Salesforce Tour Slides
 const slides = [
   {
-    title: "Welcome to the Salesforce World 🚀",
+    title: "Welcome to the Salesforce World ",
     description:
-      "Salesforce is the world’s #1 CRM platform, trusted by over 150,000 companies including Fortune 500 leaders. \n\nThis is not just software – it’s an entire ecosystem of opportunities. By the end of this tour, you’ll understand how Salesforce can transform your career, no matter if you are a fresher or have years of experience in another technology.",
+      "Salesforce is the world’s #1 Customer Relationship Management (CRM) platform — trusted by over 150,000 organizations globally, including many Fortune 500 enterprises. But Salesforce is more than just a software platform — it’s a complete digital ecosystem that empowers businesses to innovate, automate, and connect with their customers in entirely new ways.\nFor professionals and freshers alike, Salesforce opens the door to endless opportunities.\nBy the end of this journey, you’ll discover how Salesforce is not only transforming businesses worldwide but also shaping the future of careers in cloud technology.",
     img: tourImg001,
+    tooltips: {
+      crm: "CRM stands for customer relationship management, which is a system for managing all of your company’s interactions with current and potential customers. The goal is simple: improve relationships to grow your business. CRM technology helps companies stay connected to customers, streamline processes and improve profitability.",
+    },
+  },
+
+  {
+    title: "What is Salesforce ? ",
+    description: [
+      "Salesforce is one of the fastest-growing technologies in the world. It is the worlds leading Cloud-based Customer Relationship Management ({{crm}}) platform.It helps companies manage interactions with their customers, automate business processes, and gain insights through analytics and AI.",
+      "It offers various cloud products like Sales Cloud, Service Cloud, Marketing Cloud, Experience Cloud, Health Cloud, Automotive Cloud, Education Cloud, and many more for industry-specific needs. Salesforce helps companies manage everything related to their customers — sales, marketing, and support — all in one place.",
+    ],
+    tooltips: {
+      crm: "CRM stands for customer relationship management, which is a system for managing all of your company’s interactions with current and potential customers. The goal is simple: improve relationships to grow your business. CRM technology helps companies stay connected to customers, streamline processes and improve profitability.",
+    },
+    img: tourimg01,
   },
   {
-    title: "What is Salesforce ? 💻",
+    title: "Why Salesforce Matters ",
     description:
-      "Salesforce is the world’s leading Customer Relationship Management (CRM) platform. It helps businesses manage sales, marketing, service, and customer interactions in one place. Built on the cloud, Salesforce offers powerful tools for automation, analytics, and app development, enabling companies to grow faster and build stronger customer relationships.",
-    img: tourImg10,
-  },
-  {
-    title: "Why Salesforce Matters 🌍",
-    description:
-      "Every business needs to manage customer relationships, sales, marketing, and support. That’s what Salesforce does better than anyone else.\n\n📈 Ranked #1 CRM for 10+ years\n🌐 Used across industries: Banking, Healthcare, Retail, IT, and more\n🤖 AI-driven future with Einstein AI\n\nBy learning Salesforce, you become part of the fastest-growing tech ecosystem in the world.",
+      "In today’s digital-first world, every organization strives to build stronger relationships with customers, streamline operations, and drive intelligent growth. Salesforce enables businesses to achieve exactly that — with unmatched innovation and scalability. As the #1 CRM platform for over a decade, it’s trusted across industries and powered by cutting-edge AI and automation. By learning Salesforce, you’re not just mastering a platform — you’re becoming part of a global ecosystem that empowers businesses and individuals alike to innovate, connect, and succeed in the digital era.",
     img: tourImg2,
   },
+
   {
-    title: "The Salesforce Ecosystem 🔥",
+    title: "The Salesforce Ecosystem ",
     description:
-      "The platform is more than CRM. It includes:\n\n☁️ Sales Cloud – manage leads and close deals\n☁️ Service Cloud – deliver world-class customer service\n☁️ Marketing Cloud – automate and personalize campaigns\n☁️ Commerce Cloud – power online stores\n📊 Analytics + AI – data-driven decisions\n\nMastering Salesforce means you can work in ANY domain, for ANY client.",
+      "The Salesforce Ecosystem is a powerful global community of customers, partners, developers, and innovators working together to shape the future of business. It extends far beyond a single platform — connecting people, technology, and industries to drive digital transformation worldwide. Built on trust, scalability, and AI-driven innovation, this ecosystem enables organizations to deliver seamless, data-driven, and personalized customer experiences.\n With over 150,000 organizations and millions of professionals contributing to its growth, Salesforce fosters continuous learning, collaboration, and innovation.",
     img: tourImg4,
   },
+
   {
-    title: "Career Paths in Salesforce 📈",
-    description:
-      "Your career can grow in multiple directions:\n\n👩‍💻 Admin → manage Salesforce configurations\n👨‍💻 Developer → build apps and custom solutions\n🧑‍🏫 Consultant → guide businesses on Salesforce adoption\n🏗 Architect → design scalable solutions\n📊 Business Analyst → bridge business & tech\n\n✨ By 2026, Salesforce will create 9.3M jobs worldwide. There’s huge demand and less supply of skilled talent — that’s YOUR opportunity.",
+    title: "Career Paths in Salesforce ",
+    description: (
+      <span>
+        Salesforce offers diverse career opportunities for both technical and
+        non-technical professionals. Roles include: <br />
+        <b>Salesforce Administrator</b> – manages users, automations, and system
+        configurations.
+        <br />
+        <b>Salesforce Developer</b> – builds custom applications using Apex,
+        LWC, and integrations.
+        <br />
+        <b>Salesforce Consultant</b> – translates business needs into effective
+        Salesforce solutions.
+        <br />
+        <b>Salesforce Architect</b> – designs scalable, enterprise-grade system
+        architectures.
+        <br />
+        <b>Business Analyst & Project Manager</b> – bridges the gap between
+        business and technology teams.
+      </span>
+    ),
     img: tourImg5,
   },
+
   {
-    title: "Why Now Is The Best Time ⏰",
+    title: "Why Now Is The Best Time ",
     description:
-      "Companies are rapidly shifting to cloud and digital solutions. Salesforce is at the center of this transformation.\n\n🌟 Freshers – You don’t need years of coding experience. You can start as an Admin and grow quickly.\n🌟 Professionals (Java, .NET, Testing, Support) – You can cross-skill into Salesforce with ease and get higher-paying roles.\n\n",
+      "The demand for Salesforce professionals is growing faster than ever across all industries.Over 9 million new Salesforce jobs are projected to be created by 2026 worldwide.Businesses are rapidly moving to the cloud and AI-powered CRM platforms.Salesforce’s continuous innovation in AI, Data, and Automation is shaping the future of work.A strong community, accessible learning paths, and global certifications make it easier than ever to start.\nWhether you’re a fresher or an experienced professional, this is the perfect time to enter the ecosystem.\nBegin now and position yourself for a high-demand, future-proof career in cloud technology.",
     img: tourImg6,
   },
   {
-    title: "Why Join Us? 💼",
+    title: "Why Join Us ",
     description:
-      "We don’t just train – we TRANSFORM careers. Here’s how:\n✅ One-to-One Mentorship from industry experts. \n✅ Hands-on Salesforce internships with real projects.\n✅ Cross-skilling program for IT professionals.\n✅ Certifications guidance (Salesforce Admin, Developer).\n✅ Placement support with top MNCs & partner companies.",
+      "At our Salesforce program, we don’t just provide training — we transform careers through real-world experience and expert guidance.\n✅ Personalized Mentorship from certified Salesforce professionals and industry leaders.\n✅ Hands-on Internships with live projects to build practical, job-ready skills.\n✅ Cross-Skilling Opportunities for IT and non-IT professionals to transition into Salesforce roles.\n✅ Comprehensive Certification Guidance for Salesforce Administrator and Developer paths.\n✅ Career Support & Placement Assistance with top MNCs and trusted partner companies.",
     img: tourImg7,
   },
+
   {
-    title: "Your Salesforce Career Starts Here 🌟",
-    description:
-      "Imagine this:\n- In 3 months, you gain Salesforce skills.\n- In 6 months, you’re project-ready.\n- In less than a year, you’re working in one of the fastest-growing tech fields.\n\nThe only thing between you and that career is your decision TODAY. We’ll provide the platform, guidance, and opportunities.\n\n🚀 Are you ready to step into the future with us?",
+    title: "Your Salesforce Career Starts Here",
+    description: (
+      <span>
+        Imagine launching your career in one of the world’s most in-demand
+        technologies.
+        <br />
+        In <b>3 months</b>, you’ll master essential Salesforce skills. <br /> In{" "}
+        <b>6 months</b>, you’ll be ready to contribute to real-world projects.
+        And <b>within a year</b>, you could be part of the global Salesforce
+        workforce driving digital transformation.
+        <br />
+        All it takes is a decision today — we’ll provide the right platform,
+        mentorship, and opportunities to help you succeed.Are you ready to begin
+        your journey into the future of cloud technology?
+      </span>
+    ),
     img: tourImg9,
     isFinal: true,
   },
@@ -110,6 +150,11 @@ export default function SalesforceTour() {
     passout: "",
     resume: null,
   });
+
+  const zoomIn = {
+    hidden: { opacity: 0, scale: 0.92 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.7 } },
+  };
 
   // Handle Web3Forms form submission
   const handleSubmit = async (e) => {
@@ -200,239 +245,291 @@ export default function SalesforceTour() {
     <>
       <Navbar />
       <div className="relative  overflow-x-hidden">
-        {/* 🌥 Floating Salesforce Clouds in Background (GLOBAL) */}
-        <div className="fixed inset-0 bg-[#0B0E1A] -z-10 pointer-events-none overflow-hidden">
-          {Array.from({ length: 15 }).map((_, i) => (
-            <motion.img
-              key={i}
+        <div className="relative h-screen flex items-center justify-start overflow-hidden">
+          {/* Background image */}
+          <div
+            className="absolute inset-0 lg:h-screen md:h-screen  lg:bg-cover md:bg-cover bg-fixed sm:bg-center md:bg-right bg-no-repeat"
+            style={{
+              backgroundImage: `url(${tourimgnew})`,
+              backgroundPosition: "top center",
+            }}
+          ></div>
+
+          {/* Left-to-right gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#001233]/95 via-[#001233]/60 to-transparent"></div>
+
+          {/* Content section aligned left */}
+          <div className="relative z-10 max-w-3xl pl-12 md:pl-24 text-left text-white">
+            <img
               src={tourimg01}
-              alt="cloud"
-              className="absolute w-24 opacity-20"
-              style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -50, 0],
-                x: [0, 30, 0],
-                opacity: [0.15, 0.35, 0.15],
-              }}
-              transition={{
-                duration: 10 + Math.random() * 6,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
+              alt="Salesforce"
+              className="w-48 mb-6 drop-shadow-lg"
             />
-          ))}
-        </div>
 
-        {/* 🔹 Salesforce Banner */}
-        <div className="relative z-10 flex flex-col sm:pt-32 items-center text-center py-20 px-6 bg-[#0B0E1A] text-white shadow-lg">
-          <img
-            src={tourimg01}
-            alt="Salesforce"
-            className="w-48 mb-6 drop-shadow-lg"
-          />
-          <h1 className="text-4xl font-bold mb-4">
-            Build Your Future with Salesforce 🚀
-          </h1>
-          <p className="max-w-2xl text-lg mb-6">
-            Whether you are a fresher or an experienced IT professional,
-            Salesforce offers endless opportunities to grow your career. Learn,
-            build, and transform your future with us.
-          </p>
-          <button
-            onClick={() => setOpen(true)}
-            className="px-6 py-3 bg-white text-blue-700 font-semibold rounded-xl shadow hover:bg-gray-100 transition"
-          >
-            Take a Tour
-          </button>
-        </div>
+            <h1 className="text-5xl font-bold leading-tight mb-6">
+              Build Your Future with
+              <span className="text-blue-400"> Salesforce</span>.
+            </h1>
 
-        {/* 🌟 Animated Features Section */}
-        <div className="relative z-10 py-20 px-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-          {[
-            {
-              icon: <Rocket size={48} />,
-              title: "High-Paying Jobs",
-              desc: "Salesforce professionals are among the top-paid in the IT industry.",
-            },
-            {
-              icon: <Users size={48} />,
-              title: "Global Community",
-              desc: "Join millions of Salesforce learners and experts across the world.",
-            },
-            {
-              icon: <Cloud size={48} />,
-              title: "Future-Proof Skills",
-              desc: "With AI + Cloud, Salesforce ensures long-term career growth.",
-            },
-          ].map((f, i) => (
-            <motion.div
-              key={i}
-              className="bg-white rounded-2xl shadow-lg p-8"
+            <p className="text-lg text-white/90 mb-8 max-w-xl">
+              Whether you are a fresher or an experienced IT professional,
+              Salesforce offers endless opportunities to grow your career.
+              Learn, build, and transform your future with us.
+            </p>
+
+            <button
+              onClick={() => setOpen(true)}
+              className="px-6 py-3 bg-white text-blue-700 font-semibold rounded-xl shadow hover:bg-gray-100 transition"
+            >
+              Take a Tour
+            </button>
+          </div>
+        </div>
+        {/*  */}
+        <section
+          className="relative py-24 px-6 overflow-hidden  bg-no-repeat bg-bottom lg:h-[800px] bg-gradient-to-b from-white to-blue-50"
+          style={{
+            backgroundImage: `url(${tourimgnew2})`,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center bottom",
+            backgroundSize: "contain",
+          }}
+        >
+          <div className="absolute inset-0 bg-white/25 backdrop-blur-[1px]"></div>
+          <div className="relative z-10 max-w-7xl mx-auto">
+            {/* Heading */}
+            <motion.h2
+              className="text-4xl font-bold text-center mt-[-50px] mb-4 md:mt-[-30px] text-blue-950"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.2 }}
-              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.6 }}
             >
-              <div className="text-blue-600 mb-4 flex justify-center">
-                {f.icon}
-              </div>
-              <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
-              <p className="text-gray-600">{f.desc}</p>
-            </motion.div>
-          ))}
-        </div>
+              Empowering the Next Generation of{" "}
+              <span className="text-blue-500">Salesforce Talent</span>
+            </motion.h2>
 
-        {/* 🔥 Animated Stats Section */}
-        <section className="relative z-10 py-20 px-6">
-          <h2 className="text-3xl font-bold text-center text-white mb-12">
-            🏆 Awards & Recognition
-          </h2>
-          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-            {[
-              "Ranked #1 CRM for 10+ Years",
-              "Trusted by 150K+ Companies",
-              "9.3M Jobs by 2026",
-            ].map((award, i) => (
-              <motion.div
-                key={i}
-                className="bg-gradient-to-r from-blue-100 to-indigo-100 p-8 rounded-2xl shadow-lg"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
-              >
-                <Award className="mx-auto text-blue-600 mb-4" size={48} />
-                <p className="text-lg font-semibold text-gray-800">{award}</p>
-              </motion.div>
-            ))}
-          </div>
-        </section>
+            <motion.p
+              className="text-lg text-center text-black max-w-3xl mx-auto mb-16"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              Step into the world of Salesforce innovation. Join a consulting
+              company that believes in empowering fresh minds to build smarter,
+              connected businesses through technology and creativity.
+            </motion.p>
 
-        {/* ⏳ Career Journey Timeline */}
-        <div className="relative z-10 py-20 px-6 max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-white mb-12">
-            Your Salesforce Career Journey
-          </h2>
-          <div className="flex flex-col space-y-8 relative border-l-4 border-blue-600 pl-6">
-            {[
-              "Start with Salesforce Training",
-              "Work on Real-Time Projects",
-              "Get Certified (Admin / Developer)",
-              "Join as Intern or Cross-Skill",
-              "Land Your Dream Job 🚀",
-            ].map((step, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
-                className="bg-white shadow-md rounded-xl p-6 relative"
-              >
-                <span className="absolute -left-10 top-4 w-6 h-6 bg-blue-600 rounded-full border-4 border-white shadow" />
-                <p className="text-lg font-semibold text-gray-800">{step}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        <section className="relative z-10 py-20 px-6 bg-[#0B0E1A] text-white text-center">
-          <motion.h2
-            className="text-4xl font-bold mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            🌍 The Future with Salesforce
-          </motion.h2>
-          <motion.p
-            className="max-w-3xl mx-auto text-lg"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-          >
-            By 2030, Salesforce will empower millions of businesses worldwide,
-            creating limitless opportunities for skilled professionals.
-            <br /> Start today — be part of this digital revolution!
-          </motion.p>
-        </section>
-
-        {/* 💡 Why Freshers Love Salesforce */}
-        <div className="relative z-10 py-20 px-6 ">
-          <h2 className="text-3xl font-bold text-center text-white mb-12">
-            Why Freshers Choose Salesforce 🚀
-          </h2>
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "No Heavy Coding",
-                desc: "You don’t need strong coding background — Salesforce Admin roles are perfect for beginners.",
-                icon: "💻",
-              },
-              {
-                title: "Faster Career Start",
-                desc: "Land your first IT job in months, not years. Freshers with Salesforce skills are in high demand.",
-                icon: "⚡",
-              },
-              {
-                title: "High Salary Packages",
-                desc: "Entry-level Salesforce Admin salaries are higher than many developer/tester roles.",
-                icon: "💰",
-              },
-            ].map((f, i) => (
-              <motion.div
-                key={i}
-                className="bg-white p-8 rounded-xl shadow-lg text-center"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
-              >
-                <div className="text-5xl mb-4">{f.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
-                <p className="text-gray-600">{f.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* 📈 Fresher to Pro Path */}
-        <section className="relative z-50 py-20 px-6">
-          <h2 className="text-3xl font-bold text-center text-white mb-16">
-            Your Growth Path with Salesforce
-          </h2>
-
-          <div className="relative sm:max-w-xl max-w-2xl mx-auto">
             {/* Cards */}
-            <div className="flex flex-col gap-4 relative">
-              {roles.map((role, i) => (
-                <div
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {[
+                {
+                  icon: "🎓",
+                  title: "Learn from Real Projects",
+                  desc: "Gain hands-on experience through enterprise-grade Salesforce projects guided by certified experts.",
+                },
+                {
+                  icon: "🚀",
+                  title: "Accelerate Your Growth",
+                  desc: "Our structured learning and mentorship framework helps you grow from trainee to Salesforce professional faster.",
+                },
+                {
+                  icon: "🌍",
+                  title: "Be Part of a Global Ecosystem",
+                  desc: "Collaborate with consultants and clients across industries, solving real business challenges worldwide.",
+                },
+              ].map((item, i) => (
+                <motion.div
                   key={i}
-                  className={`flex items-center ${
-                    i % 2 === 0 ? "justify-start" : "justify-end"
-                  } relative`}
+                  className="relative bg-white rounded-2xl p-8 text-left shadow-lg hover:shadow-2xl transition-all duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.2 }}
                 >
-                  {/* Card */}
-                  <div
-                    className="bg-white rounded-xl shadow-lg p-11 text-center w-72 relative z-10 
-                              transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                    data-aos="flip-up"
-                  >
-                    <h3 className="text-lg font-semibold text-gray-800">
-                      {role}
-                    </h3>
-                  </div>
-                </div>
+                  {/* Teal border strip like the reference image */}
+                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-teal-400 rounded-t-2xl"></div>
+
+                  <div className="text-5xl mb-4">{item.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-900">
+                    {item.title}
+                  </h3>
+                  <p className="text-black">{item.desc}</p>
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
+        {/* Why choose Univmaa */}
+        <section className="relative z-10 py-20 md:mt-[-90px]  px-6  text-gray-900 overflow-hidden">
+          {/* Background blur or light texture (optional) */}
+          <div
+            className="absolute inset-0  opacity-10"
+            style={{
+              backgroundImage: `url(${tourimgnew3})`,
+            }}
+          ></div>
+
+          <motion.h2
+            className="text-4xl font-bold text-center text-blue-950 md:mt-[-40px] mt-[-60px] mb-6 relative z-10"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Why Choose Us to Start Your{" "}
+            <span className="text-blue-500"> Salesforce Career</span>
+          </motion.h2>
+
+          <motion.p
+            className="text-lg text-center text-black max-w-3xl mx-auto mb-16 relative z-10"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            We don’t just hire talent — we invest in people. Join a company that
+            values innovation, mentorship, and continuous growth.
+          </motion.p>
+
+          <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: "🌱",
+                title: "Continuous Learning",
+                desc: "Access structured learning paths, Salesforce certifications, and leadership workshops.",
+                color: "from-green-400 to-green-600",
+              },
+              {
+                icon: "🤝",
+                title: "Collaborative Culture",
+                desc: "Work alongside supportive mentors and teammates who help you thrive from day one.",
+                color: "from-blue-400 to-blue-600",
+              },
+              {
+                icon: "💡",
+                title: "Innovation Projects",
+                desc: "Be part of digital transformation journeys that redefine industries and customer experiences.",
+                color: "from-purple-400 to-indigo-600",
+              },
+              {
+                icon: "🎯",
+                title: "Fast-Track Growth",
+                desc: "Accelerate your career through recognition, performance-driven growth, and real impact.",
+                color: "from-pink-400 to-rose-600",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.2 }}
+                className="relative group rounded-2xl overflow-hidden shadow-lg backdrop-blur-md bg-white/60 border border-white/30 transition-transform duration-300 hover:-translate-y-3"
+              >
+                {/* Gradient top strip */}
+                <div
+                  className={`h-2 w-full bg-gradient-to-r ${item.color}`}
+                ></div>
+
+                <div className="p-8 text-center">
+                  <div className="text-5xl mb-4">{item.icon}</div>
+                  <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                  <p className="text-black mb-4">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+        {/* Why Join Our Saesforce Pratice */}
+
+        <section className="relative z-20 py-24 px-6 h-[1250px] ">
+          {/* Decorative gradient orbs */}
+
+          <motion.h2
+            className="text-4xl font-bold text-blue-950 text-center mt-[-100px] md:mt-[-90px] mb-6 relative z-10"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Why Join Our{" "}
+            <span className="text-blue-500">
+              Salesforce Consulting Practice
+            </span>
+          </motion.h2>
+
+          <motion.p
+            className="text-lg text-center text-black max-w-3xl mx-auto mb-16 relative z-10"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            We are more than a consulting firm — we are a launchpad for talent
+            that blends curiosity, innovation, and execution excellence. Joining
+            us means becoming part of a culture that values growth, diversity,
+            and real impact.
+          </motion.p>
+
+          {/* Timeline Path */}
+          <div className="relative max-w-6xl mx-auto mt-12 px-4">
+            {/* Vertical Connector Line */}
+            <div className="absolute left-1/2 top-0 w-1 h-full bg-gradient-to-b from-blue-400 to-indigo-500 transform -translate-x-1/2 hidden md:block"></div>
+
+            {[
+              {
+                title: "Global Project Exposure",
+                desc: "Work with leading enterprises across regions — learning international consulting practices and delivery standards.",
+                color: "from-green-400 to-green-600",
+              },
+              {
+                title: "Innovation Labs",
+                desc: "Contribute to building accelerators, reusable frameworks, and AI-driven Salesforce solutions.",
+                color: "from-blue-400 to-blue-600",
+              },
+              {
+                title: "Mentorship & Community",
+                desc: "Grow under the mentorship of senior consultants while networking with Salesforce Trailblazers worldwide.",
+                color: "from-purple-400 to-indigo-600",
+              },
+              {
+                title: "Purpose-Driven Growth",
+                desc: "Thrive in an environment that rewards learning, creativity, and client success.",
+                color: "from-pink-400 to-rose-600",
+              },
+            ].map((step, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.2 }}
+                className={`relative flex flex-col md:flex-row items-center mb-20 ${
+                  i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                }`}
+              >
+                {/* Text Card */}
+                <div
+                  className={`relative lg:max-w-xl md:max-w-md bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300 ${
+                    i % 2 === 0
+                      ? "md:ml-auto md:text-left md:pr-10"
+                      : "md:mr-auto md:text-left md:pl-10"
+                  }`}
+                >
+                  {/* Gradient Bar on Top */}
+                  <div
+                    className={`absolute top-0 left-0 w-full h-2 rounded-t-2xl bg-gradient-to-r ${step.color}`}
+                  ></div>
+
+                  {/* Text Content */}
+                  <h3 className="text-xl font-bold text-gray-900 mt-4 mb-3">
+                    {step.title}
+                  </h3>
+                  <p className="text-black leading-relaxed">{step.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
         {/* 🗺 Your First 100 Days */}
-        <div className="relative z-10 py-20 px-6">
-          <h2 className="text-3xl font-bold text-center text-white mb-12">
-            Your First 100 Days in Salesforce
+        <div className="relative mb-[-80px] lg:mb-4  md:mb-[-90px]  md:mt-[-70px] lg:mt-[-120px] mt-56 py-20 px-6">
+          <h2 className="text-3xl font-bold text-center mt-[-30px] text-blue-950 mb-12">
+            Your First 100{" "}
+            <span className="text-blue-500">Days in Salesforce</span>
           </h2>
           <div className="max-w-4xl mx-auto space-y-6">
             {[
@@ -455,44 +552,46 @@ export default function SalesforceTour() {
         </div>
 
         {/* 🌈 Call to Action Section */}
-        <div className="relative z-10">
-          <div
-            className="bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-700 
-                  text-white py-16 md:py-10 px-6 mb-5 
-                  max-w-5xl mx-auto rounded-2xl md:rounded-[2.5rem] shadow-lg text-center"
-          >
+
+        <motion.section
+          className="relative px-6 md:px-20 py-20 text-center
+          bg-no-repeat bg-contain bg-bottom md:bg-contain md:bg-bottom lg:bg-cover
+          overflow-hidden"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+          style={{
+            backgroundImage: `url(${tourimgnew4})`,
+          }}
+        >
+          {/* Transparent white box with shadow */}
+          <div className="relative z-10   lg:max-w-2xl lg:ms-[260px] lg:mt-[-20px]  mx-auto backdrop-blur-0 shadow-2xl rounded-2xl p-4">
             <motion.h2
-              className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 leading-snug"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              variants={zoomIn}
+              className=" md:text-4xl text-xl font-bold mb-6 text-black"
             >
-              🚀 Ready to Build Your Salesforce Career?
+              Ready to Build Your Salesforce Career?
             </motion.h2>
 
             <motion.p
-              className="max-w-xl sm:max-w-2xl mx-auto text-base sm:text-lg mb-6 sm:mb-8 px-2"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
+              variants={zoomIn}
+              className="text-black max-w-2xl md:mt-2 mt-[-20px] mx-auto mb-10"
             >
-              Don’t wait for the future — create it with Salesforce. Join our
-              Internship & Cross-Skill Program today and start your journey
-              toward a high-paying, future-proof career.
+              Don’t just look for a job. Build a career with impact. Let’s grow
+              together at Univmaa.
             </motion.p>
 
             <motion.button
               onClick={() => setFormOpen(true)}
-              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-700 font-bold 
-                 rounded-lg sm:rounded-xl shadow-md hover:bg-gray-100 transition 
+              className="px-6 sm:px-8 py-3 mt-[-90px] sm:py-4 bg-white text-[#0176d3] hover:bg-[#0176d3] hover:text-white font-bold 
+                 rounded-lg sm:rounded-xl shadow-md  transition 
                  text-sm sm:text-base"
             >
               Apply Now
             </motion.button>
           </div>
-        </div>
+        </motion.section>
 
         <AnimatePresence>
           {formOpen && (
@@ -503,7 +602,7 @@ export default function SalesforceTour() {
               exit={{ opacity: 0 }}
             >
               <motion.div
-                className="bg-gray-900 text-white rounded-2xl mt-11 shadow-xl w-[90%] max-w-lg p-8 relative"
+                className="bg-slate-200  text-black rounded-2xl h-[600px] mt-16 shadow-xl w-[90%] max-w-lg p-4 relative"
                 initial={{ y: 50, opacity: 0, scale: 0.95 }}
                 animate={{ y: 0, opacity: 1, scale: 1 }}
                 exit={{ y: 50, opacity: 0, scale: 0.95 }}
@@ -512,7 +611,7 @@ export default function SalesforceTour() {
                 {/* Close */}
                 <button
                   onClick={() => setFormOpen(false)}
-                  className="absolute top-3 right-3 text-gray-400 hover:text-white"
+                  className="absolute top-3 right-3 text-black hover:text-red-700"
                 >
                   <X size={28} />
                 </button>
@@ -523,13 +622,13 @@ export default function SalesforceTour() {
 
                 <form
                   onSubmit={handleSubmit}
-                  className="space-y-4 text-gray-300  text-[8px]"
+                  className="space-y-4 text-gray-300   text-[8px]"
                   encType="multipart/form-data"
                 >
                   <input
                     type="text"
                     placeholder="Full Name"
-                    className="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
+                    className="w-full px-4 py-3 rounded-lg placeholder-black text-[12px] border  border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
                     required
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -537,7 +636,7 @@ export default function SalesforceTour() {
                   <input
                     type="email"
                     placeholder="Email Address"
-                    className="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
+                    className="w-full px-4 py-3 rounded-lg border placeholder-black text-[12px] border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
                     required
                     value={form.email}
                     onChange={(e) =>
@@ -547,7 +646,7 @@ export default function SalesforceTour() {
                   <input
                     type="tel"
                     placeholder="Phone Number"
-                    className="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
+                    className="w-full px-4 py-3 rounded-lg border placeholder-black text-[12px] border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
                     required
                     value={form.phone}
                     onChange={(e) =>
@@ -557,7 +656,7 @@ export default function SalesforceTour() {
                   <input
                     type="text"
                     placeholder="Address"
-                    className="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
+                    className="w-full px-4 py-3 rounded-lg border placeholder-black text-[12px] border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
                     required
                     value={form.address}
                     onChange={(e) =>
@@ -567,7 +666,7 @@ export default function SalesforceTour() {
                   <input
                     type="text"
                     placeholder="Education"
-                    className="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
+                    className="w-full px-4 py-3 rounded-lg border placeholder-black text-[12px] border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
                     required
                     value={form.education}
                     onChange={(e) =>
@@ -577,7 +676,7 @@ export default function SalesforceTour() {
                   <input
                     type="text"
                     placeholder="Skills"
-                    className="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
+                    className="w-full px-4 py-3 rounded-lg border placeholder-black text-[12px] border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
                     required
                     value={form.skills}
                     onChange={(e) =>
@@ -587,7 +686,7 @@ export default function SalesforceTour() {
                   <input
                     type="text"
                     placeholder="Years of Passout"
-                    className="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
+                    className="w-full px-4 py-3 rounded-lg border placeholder-black text-[12px] border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
                     required
                     value={form.passout}
                     onChange={(e) =>
@@ -598,7 +697,7 @@ export default function SalesforceTour() {
                     type="url"
                     value={form.resume}
                     placeholder="Resume Link (Google Drive/Dropbox/OneDrive)"
-                    className="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 text-gray-400"
+                    className="w-full px-4 py-3 rounded-lg border placeholder-black text-[12px] border-gray-700 text-gray-400"
                     required
                     onChange={(e) =>
                       setForm({ ...form, resume: e.target.value })
@@ -607,7 +706,7 @@ export default function SalesforceTour() {
 
                   <button
                     type="submit"
-                    className="w-full py-3 bg-gradient-to-r from-sky-500 to-purple-600 rounded-lg font-semibold hover:opacity-90 transition text-white"
+                    className="w-full py-3 bg-white text-[#0176d3] hover:bg-[#0176d3] hover:text-white text-sm rounded-lg font-semibold hover:opacity-90 transition"
                   >
                     Submit Application →
                   </button>
@@ -633,7 +732,7 @@ export default function SalesforceTour() {
               <motion.div
                 key={step}
                 className="bg-white rounded-2xl shadow-xl sm:w-[95%] max-w-5xl relative 
-           overflow-hidden max-h-[70vh] sm:max-h-[80vh] overflow-y-auto"
+                 overflow-hidden max-h-[70vh] sm:max-h-[80vh] overflow-y-auto"
                 initial={{ y: 50, opacity: 0, scale: 0.95 }}
                 animate={{ y: 0, opacity: 1, scale: 1 }}
                 exit={{ y: 50, opacity: 0, scale: 0.95 }}
@@ -649,21 +748,50 @@ export default function SalesforceTour() {
 
                 {/* Slide Content */}
                 <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-6 p-4 sm:p-8 pt-12 sm:pt-8">
+                  {/* Image Section */}
                   <motion.img
+                    key={slides[step].img}
                     src={slides[step].img}
                     alt="slide"
                     loading="eager"
-                    className="md:w-1/2 rounded-xl shadow-lg object-contain 
-                     max-h-36 sm:max-h-64 mx-auto"
+                    className="md:w-1/2 rounded-xl object-contain max-h-36 sm:max-h-96 mx-auto"
                   />
 
+                  {/* Text Section */}
                   <div className="flex-1 text-center md:text-left mt-4 md:mt-0">
                     <h2 className="text-lg sm:text-2xl font-bold text-blue-700 mb-2 sm:mb-4">
                       {slides[step].title}
                     </h2>
-                    <p className="text-gray-700 text-start whitespace-pre-line text-sm sm:text-lg leading-relaxed">
-                      {slides[step].description}
-                    </p>
+
+                    <div className="text-black text-start whitespace-pre-line text-sm sm:text-lg leading-relaxed">
+                      {Array.isArray(slides[step].description)
+                        ? slides[step].description.map((line, i) => (
+                            <p key={i} className="mb-2">
+                              {line.split(/(\{\{.+?\}\})/g).map((part, j) => {
+                                const match = part.match(/^\{\{(.+?)\}\}$/);
+                                if (match) {
+                                  const key = match[1].trim();
+                                  const tooltip = slides[step].tooltips?.[key];
+                                  return tooltip ? (
+                                    <span
+                                      key={j}
+                                      className="relative group cursor-help text-blue-600"
+                                    >
+                                      {key.toUpperCase()}
+                                      <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover:block bg-blue-500 text-white text-xs rounded-md px-3 py-2 w-max max-w-xs z-50">
+                                        {tooltip}
+                                      </span>
+                                    </span>
+                                  ) : (
+                                    <span key={j}>{part}</span>
+                                  );
+                                }
+                                return part;
+                              })}
+                            </p>
+                          ))
+                        : slides[step].description}
+                    </div>
 
                     {/* Final Slide CTA */}
                     {slides[step].isFinal && (
@@ -692,7 +820,7 @@ export default function SalesforceTour() {
                       className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm sm:text-base ${
                         step === 0
                           ? "bg-gray-200 text-gray-500 cursor-not-allowed"
-                          : "bg-gray-100 hover:bg-gray-200"
+                          : "bg-white text-[#0176d3] hover:bg-[#0176d3] hover:text-white"
                       }`}
                     >
                       <ArrowLeft size={16} /> Back
@@ -704,7 +832,7 @@ export default function SalesforceTour() {
                       className={`flex items-center gap-2 px-3 py-2  rounded-lg text-sm sm:text-base ${
                         step === slides.length - 1
                           ? "bg-gray-200 text-gray-500 cursor-not-allowed"
-                          : "bg-blue-600 text-white hover:bg-blue-700"
+                          : "bg-white text-[#0176d3] hover:bg-[#0176d3] hover:text-white"
                       }`}
                     >
                       Next <ArrowRight size={16} />

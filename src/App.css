@@ -191,3 +191,17 @@ h3 {
     background-color: red !important;
   }
 }
+/* ✅ Add this to your CSS file or Tailwind layer */
+/* @media (max-width: 1024px) {
+  section {
+    background-size: contain !important;
+    background-position: bottom !important;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    background-size: contain !important;
+    background-position: bottom !important;
+  }
+} */

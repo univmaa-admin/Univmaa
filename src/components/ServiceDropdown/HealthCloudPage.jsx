@@ -4,11 +4,15 @@ import Navbar from "../Navbar";
 import Footer from "../Footer";
 import { useNavigate } from "react-router-dom";
 import ServiceDyanamic from "../ServiceDyanamic.jsx";
-import healthimg from "../../assets/healthimg.png";
-import marketingimg3 from "../../assets/marketingimg3.png";
-import icon from "../../assets/icon.jpg";
 import RequestForConsultation from "../RequestForConsultation";
+
+import healthcloudnew from "../../assets/healthcloudnew.webp";
+import healthcloudnew2 from "../../assets/healthcloudnew2.webp";
+import healthcloudnew3 from "../../assets/healthcloudnew3.webp";
+import healthcloudnewvideo from "../../assets/healthcloudnewvideo.webm";
+
 import FillTheForm from "../FillTheForm";
+import FaqDynamic from "../FaqDynamic.jsx";
 // 🚀 Section Variants for Smooth Scroll Animations
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
@@ -22,7 +26,18 @@ export default function HealthCloudPage() {
     <>
       <Navbar />
       {/* ========================== Section 1 ========================== */}
-      <section className="bg-[#0D1117] pt-32 text-white px-6  py-16 grid md:grid-cols-2 gap-10 items-center overflow-hidden relative">
+      <section
+        className="pt-32  px-6  py-16 grid lg:grid-cols-2 md:grid-cols-1 gap-10 items-center overflow-hidden relative"
+        style={{
+          backgroundImage: `
+      linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0)),
+      url(${healthcloudnew2})
+    `,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         {/* Left Content */}
         <ServiceDyanamic serviceKey="health-cloud" />
         {/* Right Form */}
@@ -30,11 +45,17 @@ export default function HealthCloudPage() {
       </section>
       {/* ========================== Section 2 ========================== */}
       <motion.section
-        className="bg-black text-white px-6 md:px-20 py-16 grid md:grid-cols-2 gap-10 items-center"
+        className=" text-black px-6 bg-no-repeat md:px-20 py-16 grid lg:grid-cols-2 md:grid-cols-1  items-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         transition={{ staggerChildren: 0.3 }}
+        style={{
+          backgroundSize: "contain",
+          backgroundPosition: "bottom",
+          backgroundRepeat: "no-repeat",
+          backgroundImage: `url(${healthcloudnew3})`,
+        }}
       >
         {/* Left Illustration */}
         <motion.div
@@ -43,23 +64,27 @@ export default function HealthCloudPage() {
           className="flex justify-center"
         >
           <img
-            src={marketingimg3}
+            src={healthcloudnew}
             alt="Data-Driven Selling"
-            className="w-80 md:w-[420px]"
+            className="w-80 lg:w-[420px] md:mb-28 md:w-[390px] mt-[-90px] md:mt-[-69px] lg:mt-0 lg:mb-0"
           />
         </motion.div>
 
         {/* Right Content */}
-        <motion.div variants={fadeInUp} transition={{ duration: 0.8 }}>
+        <motion.div
+          variants={fadeInUp}
+          className="md:mt-[-100px]"
+          transition={{ duration: 0.8 }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Empower Your Healthcare Team with{" "}
             <span className="text-sky-500">Health-Driven Insights</span>
           </h2>
-          <p className="text-gray-300 mb-4 text-lg">
+          <p className="text-black mb-4 text-lg">
             The rules for patient engagement have evolved! Today’s patients are
             empowered, informed, and expect personalized healthcare experiences.
           </p>
-          <p className="text-gray-300 mb-6 text-lg">
+          <p className="text-black mb-6 text-lg">
             Salesforce Health Cloud is a robust platform designed to help your
             healthcare team deliver personalized care, manage patient
             relationships, and improve operational efficiency with features like
@@ -71,8 +96,8 @@ export default function HealthCloudPage() {
               navigate("/contactus");
               window.scrollTo(0, 0); // 👈 reset scroll
             }}
-            whileHover={{ scale: 1.05 }}
-            className="inline-block px-6 py-3 bg-gradient-to-r hover:cursor-pointer from-blue-500 to-purple-600 rounded-md font-semibold"
+            className="inline-block px-6 py-3 bg-gradient-to-r hover:cursor-pointer bg-white text-[#0176d3] hover:bg-[#0176d3] hover:text-white
+          rounded-md font-semibold"
           >
             Let’s Connect ➝
           </motion.a>
@@ -81,7 +106,7 @@ export default function HealthCloudPage() {
 
       {/* ========================== Section 3 ========================== */}
       <motion.section
-        className="bg-black text-white md:px-16 py-16 grid md:grid-cols-2 gap-10 items-center"
+        className=" text-black md:px-16 py-16 grid lg:grid-cols-2 md:grid-cols-1 gap-10 items-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -91,19 +116,19 @@ export default function HealthCloudPage() {
         <motion.div
           variants={fadeInUp}
           transition={{ duration: 0.8 }}
-          className="ps-6 md:ps-0"
+          className="ps-6 md:ps-0  md:mt-[-80px] mt-[-70px] lg:ms-36 md:ms-4 lg:w-[600px]"
         >
           <h2 className="text-3xl p md:text-4xl font-bold mb-6">
             Accelerate Healthcare Innovation with
-            <span className="text-blue-400"> Data & AI</span>
+            <span className="text-blue-500"> Data & AI</span>
           </h2>
-          <p className="text-gray-300 mb-4 text-xl">
+          <p className="text-black mb-4 text-xl">
             Combine the power of Data Cloud with the intelligence of Einstein AI
             to transform the way healthcare organizations deliver care. Data
             Cloud unifies patient records, medical histories, and clinical data
             into a single, trusted source of truth.
           </p>
-          <p className="text-gray-300 mb-6 text-xl">
+          <p className="text-black mb-6 text-xl">
             Einstein AI turns this data into actionable insights—predicting
             patient needs, streamlining administrative tasks, and personalizing
             care journeys. Let AI handle the complexity so your teams can focus
@@ -116,79 +141,37 @@ export default function HealthCloudPage() {
         <motion.div
           variants={fadeInUp}
           transition={{ duration: 0.8 }}
-          className="flex justify-center"
+          className="flex justify-center mt-[-50px] md:mt-0 h-[270px]"
         >
-          <img src={healthimg} alt="Data & AI" className="w-96 md:w-[500px]" />
+          <video
+            src={healthcloudnewvideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-auto rounded-lg"
+          ></video>
         </motion.div>
       </motion.section>
 
       {/* ========================== Section 4 ========================== */}
       <motion.section
-        className="bg-[#071426] text-white px-6 md:px-20 py-16 text-center"
+        className="bg-white text-black mt-[-90px] px-6 md:mt-[-90px] md:px-20 py-16"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         transition={{ staggerChildren: 0.2 }}
       >
         <motion.h2
-          className="text-3xl md:text-4xl font-bold mb-4"
+          className="text-3xl md:text-4xl  font-bold text-center mb-4 text-gray-900"
           variants={fadeInUp}
         >
-          Industries We Serve
+          Optimize Health Cloud with Univmaa
+          <span className="text-blue-500"> Our Offerings</span>
         </motion.h2>
-        <motion.p
-          className="text-gray-300 mb-10"
-          variants={fadeInUp}
-          transition={{ duration: 0.8 }}
-        >
-          As a company committed to excellence, we offer solutions that meet
-          your unique & evolving business needs.
-        </motion.p>
 
-        {/* Industries Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-          {[
-            "Manufacturing",
-            "Finance",
-            "Healthcare",
-            "Retail",
-            "Hi-tech",
-            "Real Estate",
-          ].map((industry, i) => (
-            <motion.div
-              key={i}
-              className="p-6 bg-[#0c1b33] rounded-lg shadow hover:shadow-lg cursor-pointer"
-              variants={fadeInUp}
-              whileHover={{ scale: 1.05 }}
-            >
-              <img
-                src={icon}
-                alt={industry}
-                className="w-12 h-12 mx-auto mb-3"
-              />
-              <p className="font-semibold">{industry}</p>
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
-
-      {/* ========================== Section 5 ========================== */}
-      <motion.section
-        className="bg-black text-white px-6 md:px-20 py-16"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        transition={{ staggerChildren: 0.2 }}
-      >
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-4"
-          variants={fadeInUp}
-        >
-          Optimize Health Cloud with Univmaa{" "}
-          <span className="text-blue-400">Our Offerings</span>
-        </motion.h2>
         <motion.p
-          className="text-center text-gray-300 mb-12"
+          className="text-center text-black mb-12 text-xl max-w-3xl mx-auto"
           variants={fadeInUp}
         >
           Enhance patient outcomes with efficiency, automation, and intelligence
@@ -196,7 +179,7 @@ export default function HealthCloudPage() {
         </motion.p>
 
         {/* Offerings Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
           {[
             {
               title: "Comprehensive Patient Profiles",
@@ -218,29 +201,31 @@ export default function HealthCloudPage() {
               title: "Health Cloud Einstein",
               desc: "Leverage AI-driven insights to predict patient needs, identify at-risk populations, and recommend proactive interventions for better outcomes.",
             },
-            // ✅ New content added
             {
               title: "Data Security & Compliance",
               desc: "Ensure HIPAA-compliant, secure storage and sharing of sensitive health data, giving patients and providers peace of mind.",
-              highlight: true, // optional if you want this to be highlighted
             },
           ].map((item, i) => (
             <motion.div
               key={i}
               variants={fadeInUp}
-              className={`p-6 rounded-lg shadow ${
-                item.highlight ? "bg-[#0c1b33]" : "bg-[#0c1b33]"
-              }`}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.03 }}
+              className="relative bg-white rounded-xl shadow-md hover:shadow-lg transition-all p-8 border border-gray-100"
             >
-              <h3 className="font-bold text-lg mb-3">{item.title}</h3>
-              <p className="text-gray-300 text-sm">{item.desc}</p>
+              {/* Orange Top Accent Bar */}
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-[#d17dfe] rounded-t-xl" />
+
+              <h3 className="font-bold text-xl text-center text-[#032d60] mt-4 mb-3">
+                {item.title}
+              </h3>
+              <p className="text-black text-md leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
         </div>
       </motion.section>
 
       {/* ========================== Section 6 - CTA ========================== */}
+      <FaqDynamic />
       <RequestForConsultation />
       <Footer />
     </>

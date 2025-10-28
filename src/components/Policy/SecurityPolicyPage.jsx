@@ -11,7 +11,7 @@ export default function SecurityPolicyPage() {
         <section className="relative w-full h-screen flex items-center justify-center text-white">
           {/* Fixed Background */}
           <div
-              className="absolute inset-0 md:bg-cover bg-fixed  bg-center bg-no-repeat"
+            className="absolute inset-0 md:bg-cover bg-fixed  bg-center bg-no-repeat"
             style={{
               backgroundImage: "url('/image/policyimg.jpg')",
             }}
@@ -43,7 +43,7 @@ export default function SecurityPolicyPage() {
         </section>
 
         {/* Scrollable Content */}
-        <section className="relative bg-[#0B0E1A] text-white py-16 px-6 md:px-20 lg:px-40 leading-relaxed">
+        <section className="relative  text-black py-16 px-6 md:px-20 lg:px-40 leading-relaxed">
           <p>
             UNIVMAA is a Salesforce-based company specializing in delivering
             secure and scalable cloud solutions. We provide end-to-end

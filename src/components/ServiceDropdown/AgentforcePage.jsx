@@ -16,15 +16,23 @@ import agentforceImg1 from "../../assets/agentforceimg.png";
 import agentforceImg2 from "../../assets/agentforceimg2.jpg";
 import agentforceImg3 from "../../assets/agentforceimg3.png";
 import agentforceimg4 from "../../assets/agentforceimg4.jpeg";
-import agentforceimg5 from "../../assets/agentforceimg5.jpeg";
-import agentforceImg6 from "../../assets/agentforceimg6.jpeg";
-import agentforceImg7 from "../../assets/agentforceimg7.jpeg";
-import agentforceImg8 from "../../assets/agentforceimg8.jpeg";
-import agentforceImg9 from "../../assets/agentforceimg9.jpeg";
-import marketingimg2 from "../../assets/marketingimg2.png";
+import agentforce from "../../assets/agentforce.jpeg";
+import agentbg from "../../assets/agentforce.jpeg";
+import agentbg2 from "../../assets/agentbg2.webp";
+import agentbg3 from "../../assets/agentbg3.png";
+import agentforcebg from "../../assets/agentforcebg.webp";
+import agent1 from "../../assets/agent1.png";
+import agent2 from "../../assets/agent2.png";
+import agent3 from "../../assets/agent3.png";
+import agent4 from "../../assets/agent4.png";
+import agent5 from "../../assets/agent5.png";
 import ServiceDyanamic from "../ServiceDyanamic.jsx";
 import RequestForConsultation from "../RequestForConsultation.jsx";
 import FillTheForm from "../FillTheForm.jsx";
+import FaqDynamic from "../FaqDynamic.jsx";
+import { ChevronLeft, ChevronRight, Monitor } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import styles from "./AgentForce.module.css";
 
 // 🚀 Section Variants for Smooth Scroll Animations
 const fadeInUp = {
@@ -37,7 +45,7 @@ const FAQItem = ({ q, a }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border border-gray-700 rounded-lg overflow-hidden">
+    <div className="border  border-gray-700 rounded-lg overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex justify-between items-center px-4 py-3 text-left focus:outline-none"
@@ -72,6 +80,37 @@ const FAQItem = ({ q, a }) => {
 };
 
 export default function AgentforcePage() {
+  const slides = [
+    {
+      title: "The most complete enterprise agentic platform.",
+      desc: "Agentforce is a complete, extensible, and open platform, letting you build and deploy digital labour for your customers and employees leveraging the existing workflows, data, and integrations that power your business today. Agentforce can take action across every channel and be integrated into any system, making it easy to add agentic automation across your entire business.",
+      bg: agentforcebg,
+      img: agent1,
+      links: [{ text: "Book Demo", icon: <Headphones size={18} /> }],
+    },
+    {
+      title: "Tools to manage the entire agent lifecycle.",
+      desc: "Build, test, and supervise Agentforce with low-code and pro-code tools to deploy AI agents with confidence. AI powered assistance helps you configure Agentforce from natural language, and helps batch test at scale. Powerful supervision tools help you understand how Agentforce is performing and gives suggestions on how to refine the configuration.",
+      bg: agentforcebg,
+      img: agent2,
+      links: [{ text: "Book Demo", icon: <Headphones size={18} /> }],
+    },
+    {
+      title: "Relevant, accurate results for every business.",
+      desc: "The Atlas Reasoning Engine is how Agentforce understands, decides, and acts autonomously to provide trusted, accurate answers for every request. It starts by understanding the user intent and scope of the problem, deciding what data is needed and what actions are required, and then autonomously executes those actions to complete the task.",
+      bg: agentforcebg,
+      img: agent3,
+      links: [{ text: "Get Started", icon: <Headphones size={18} /> }],
+    },
+    {
+      title: "Trust and guardrails, out-of-the-box.",
+      desc: "Agentforce contains a powerful set of low code guardrails and security tools designed to keep data secure, prevent abuse, and reduce hallucinated and biased responses. These guardrails are on by default and are easily configurable by admins and business users to ensure Agentforce performs the way they should and not deviate from their instructions.",
+      bg: agentforcebg,
+      img: agent4,
+      links: [{ text: "Contact", icon: <Headphones size={18} /> }],
+    },
+  ];
+
   // 🔹 Agents Data
   const agents = [
     {
@@ -133,12 +172,73 @@ export default function AgentforcePage() {
   const [selected, setSelected] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showMore, setShowMore] = useState(false);
+  const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const [isPaused, setIsPaused] = useState(false);
+  const navigate = useNavigate();
+  const nextSlide = () => {
+    setDirection(1);
+    setIndex((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setDirection(-1);
+    setIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  // Auto-slide (pause when hovered)
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(nextSlide, 6000);
+    return () => clearInterval(timer);
+  }, [isPaused]);
+
+  const imageVariants = {
+    enter: (direction) => ({
+      x: direction > 0 ? "100%" : "-100%",
+      scale: 1.1,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      scale: 1,
+      opacity: 1,
+      transition: { duration: 1, ease: [0.6, 0.01, 0.05, 0.95] },
+    },
+    exit: (direction) => ({
+      x: direction > 0 ? "-50%" : "50%",
+      scale: 0.9,
+      opacity: 0,
+      transition: { duration: 0.9, ease: [0.6, 0.01, 0.05, 0.95] },
+    }),
+  };
+
+  const textVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, delay: 0.4, ease: "easeOut" },
+    },
+    exit: { opacity: 0, y: -20, transition: { duration: 0.5 } },
+  };
 
   return (
     <>
       <Navbar />
       {/* ========================== Section 1 ========================== */}
-      <section className="bg-[#0D1117] text-white pt-32  px-6 py-16 grid md:grid-cols-2 gap-10 items-center relative">
+      <section
+        className=" text-black {styles.agentForceSection} pt-32 px-6 py-16 grid lg:grid-cols-2 md:grid-cols-1  gap-10 items-center relative"
+        style={{
+          backgroundImage: `
+      linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0)),
+      url(${agentbg2})
+    `,
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         {/* Left Content */}
         <ServiceDyanamic serviceKey="agentforce" />
         {/* Right Form */}
@@ -147,161 +247,133 @@ export default function AgentforcePage() {
 
       {/* ========================== Section 2 - Agentforce Features ========================== */}
       <motion.section
-        className="bg-[#0b1221] text-white py-16 px-6"
+        className="py-16 px-6 md:px-20 "
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         transition={{ staggerChildren: 0.2 }}
       >
         {/* Top Banner Image */}
-        <motion.div variants={fadeInUp} className="max-w-4xl mx-auto mb-12">
+        <motion.div
+          variants={fadeInUp}
+          className="max-w-4xl mx-auto mt-[-60px] mb-12"
+        >
           <img
             src={agentforceimg4}
             alt="What is Agentforce"
-            className="rounded-lg shadow-lg "
+            className="rounded-2xl h-[280px] sm:h-[400px] md:h-[500px] w-full  shadow-xl"
           />
         </motion.div>
 
         {/* Title */}
         <motion.div variants={fadeInUp} className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Tailored AI Agents Aligned with <br /> Your Business Needs
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">
+            Tailored AI Agents Aligned with <br className="hidden sm:block" />{" "}
+            Your Business Needs
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-black max-w-2xl mx-auto text-sm sm:text-base">
             Harness AI agents designed to fit seamlessly into your workflows and
             operations.
           </p>
         </motion.div>
 
         {/* Cards */}
-        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {agents.map((agent, index) => (
             <motion.div
               key={index}
               variants={fadeInUp}
-              className="bg-[#111a2e] border border-gray-700 rounded-lg p-6 hover:shadow-lg hover:border-blue-400 transition duration-300"
+              className="relative  border border-gray-700 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
             >
-              <div className="mb-4">{agent.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{agent.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                {agent.desc}
-              </p>
+              {/* Top Blue Bar */}
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-sky-600"></div>
+
+              {/* Card Body */}
+              <div className="p-6 flex flex-col h-full">
+                <div className="mb-4 text-black text-3xl">{agent.icon}</div>
+                <h3 className="text-xl font-semibold mb-3 text-black">
+                  {agent.title}
+                </h3>
+                <p className="text-black text-sm leading-relaxed">
+                  {agent.desc}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
       </motion.section>
 
       {/* ========================== Section 3 - Why Salesforce Agentforce ========================== */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ staggerChildren: 0.2 }}
-        className="bg-[#0D1117] text-white px-6 md:px-20 py-20 text-center"
+      <section
+        className="relative w-full py-24 px-6 md:px-16 overflow-hidden"
+        style={{
+          backgroundSize: "contain",
+          backgroundPosition: "top",
+          backgroundRepeat: "no-repeat",
+          backgroundImage: `url(${agentforce})`,
+        }}
       >
-        {/* Title */}
-        <motion.h2
-          variants={fadeInUp}
-          className="text-3xl md:text-4xl font-bold mb-4"
-        >
-          Why Salesforce Agentforce?
-        </motion.h2>
-        <motion.p
-          variants={fadeInUp}
-          className="text-gray-300 mb-12 max-w-2xl mx-auto"
-        >
-          Because your business deserves smarter, AI-powered automation.
-        </motion.p>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center gap-14">
+          {/* Left Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex justify-center lg:justify-start"
+          >
+            <img
+              src={agent5}
+              alt="Agentforce Illustration"
+              className="w-[600px] mt-[-110px] lg:mt-0 md:mt-[-90px] sm:w-[400px] md:w-[520px] lg:w-[620px] drop-shadow-2xl rounded-2xl"
+            />
+          </motion.div>
 
-        {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-          {[
-            { value: "24/7", label: "Customer Support & Engagement" },
-            { value: "30%", label: "Acceleration in the Sales Cycle" },
-            { value: "40%", label: "Increase in Case Deflection" },
-            { value: "45%", label: "Increase in Overall ROI" },
-          ].map((item, idx) => (
-            <motion.div
-              key={idx}
-              variants={fadeInUp}
-              className="bg-blue-600 hover:bg-blue-700 transition p-6 rounded-xl shadow-lg"
-            >
-              <h3 className="text-3xl font-bold">{item.value}</h3>
-              <p className="mt-2 text-sm text-gray-100">{item.label}</p>
-            </motion.div>
-          ))}
+          {/* Right Text */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center md:text-left md:mt-36 lg:mt-[-90px] px-2 md:px-0"
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 md:mb-8 leading-tight text-gray-900">
+              Why <span className="text-sky-600">Salesforce Agentforce?</span>
+            </h2>
+            <div className="w-20 h-[3px] bg-sky-500 mx-auto md:mx-0 mb-6 rounded-full"></div>
+
+            <p className="text-black text-base sm:text-lg text-left md:text-lg mb-4 md:mb-5 leading-relaxed">
+              Salesforce Agentforce redefines the future of customer engagement
+              by seamlessly combining the power of
+              <span className="font-semibold text-sky-600">
+                {" "}
+                Artificial Intelligence, Automation, and Real-time Insights
+              </span>
+              . It transforms every customer interaction into a meaningful,
+              data-driven experience that drives loyalty and efficiency.
+            </p>
+
+            <p className="text-black text-left text-base sm:text-lg md:text-lg mb-4 md:mb-5 leading-relaxed">
+              At{" "}
+              <span className="font-semibold text-sky-600">
+                Univmaa Technologies
+              </span>
+              , we leverage Agentforce to unify your service, sales, and
+              marketing workflows under a single intelligent layer — delivering
+              hyper-personalized support, faster resolutions, and proactive
+              engagement powered by trusted AI.
+            </p>
+
+            <p className="text-black text-left text-base sm:text-lg md:text-lg mb-8 leading-relaxed">
+              From intelligent routing to predictive recommendations, Agentforce
+              helps businesses of all scales operate with agility, accuracy, and
+              measurable impact in a fast-evolving digital economy.
+            </p>
+          </motion.div>
         </div>
 
-        {/* Image  */}
-
-        <motion.div
-          variants={fadeInUp}
-          className="max-w-3xl mx-auto rounded-xl overflow-hidden shadow-lg"
-        >
-          <img
-            src={agentforceimg5}
-            alt="Salesforce Updated Platform"
-            className="w-full h-auto object-cover"
-          />
-        </motion.div>
-      </motion.section>
-
-      {/* ========================== Section 4 - Univmaa Effect ========================== */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ staggerChildren: 0.2 }}
-        className="bg-[#0D1117] text-white px-6 md:px-1 py-20 text-center"
-      >
-        {/* Title */}
-        <motion.h2
-          variants={fadeInUp}
-          className="text-3xl md:text-4xl font-bold mb-4"
-        >
-          Explore the <span className="text-sky-400">UNIVMAA Effect”</span>
-        </motion.h2>
-
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-          {[
-            {
-              title: "Consultation",
-              desc: "Assessing your business needs and create a tailored plan for deploying AI agents aligned with your objectives.",
-              icon: "👨‍💼",
-              bg: "bg-gradient-to-b from-purple-600 to-black text-white",
-            },
-            {
-              title: "Implementation",
-              desc: "Configuring Salesforce Agentforce and seamlessly integrating AI agents into workflows to meet customer engagement goals.",
-              icon: "⚙️",
-              bg: "bg-gradient-to-b from-purple-600 to-black text-white",
-            },
-            {
-              title: "Customization",
-              desc: "Designing specialized AI agents with custom features and integrations with a no/low-code approach, enabling fast and efficient deployment.",
-              icon: "🛠️",
-              bg: "bg-gradient-to-b from-purple-600 to-black text-white",
-            },
-            {
-              title: "Training and Support",
-              desc: "Providing your team with the necessary training and resources to effectively manage, optimize, and scale AI agents for ongoing success.",
-              icon: "📘",
-              bg: "bg-gradient-to-b from-purple-600 to-black text-white",
-            },
-          ].map((item, idx) => (
-            <motion.div
-              key={idx}
-              variants={fadeInUp}
-              className={`${item.bg} p-8 rounded-2xl shadow-lg hover:scale-105 transform transition duration-300`}
-            >
-              <div className="text-4xl mb-4">{item.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-              <p className="text-sm opacity-90">{item.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
+        {/* Decorative Gradients */}
+        <div className="absolute top-0 right-0 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-sky-200/40 blur-3xl rounded-full"></div>
+        <div className="absolute bottom-0 left-0 w-[200px] sm:w-[300px] h-[200px] sm:h-[300px] bg-indigo-200/30 blur-2xl rounded-full"></div>
+      </section>
 
       {/* ========================== Section 5 - Univmaa Difference ========================== */}
       <motion.section
@@ -309,19 +381,16 @@ export default function AgentforcePage() {
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
         transition={{ staggerChildren: 0.2 }}
-        className="bg-[#0D1117] text-white px-6 md:px-20 py-20 grid md:grid-cols-2 gap-12 items-center"
+        className={`${styles.agentForceSection} text-black px-6 md:px-20 bg-no-repeat bg-center lg:mt-0 mt-[-70px] py-20 grid md:grid-cols-1 lg:grid-cols-2 gap-12 items-center`}
+        style={{
+          backgroundImage: `url(${agentbg3})`,
+        }}
       >
-        {/* Left Image */}
-        <motion.div variants={fadeInUp} className="flex justify-center">
-          <img
-            src={marketingimg2}
-            alt="Univmaa Salesforce Agentforce"
-            className="rounded-xl shadow-lg max-h-[400px] object-contain"
-          />
-        </motion.div>
-
         {/* Right Content */}
-        <motion.div variants={fadeInUp}>
+        <motion.div
+          variants={fadeInUp}
+          className="lg:ms-80 lg:mt-[-60px]  mt-[-90px] lg:w-[600px]"
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-snug">
             What sets <span className="text-sky-400">UNIVMAA</span> apart as the
             go-to partner for Salesforce Agentforce?
@@ -355,13 +424,13 @@ export default function AgentforcePage() {
                   {/* Header */}
                   <button
                     onClick={() => setOpen(!open)}
-                    className="w-full px-6 py-4 bg-[#111827] flex justify-between items-center text-left font-semibold text-sky-400"
+                    className="w-full px-6 py-4 hover:text-white hover:bg-blue-500 flex justify-between items-center text-left font-semibold "
                   >
                     {item.title}
                     <motion.span
                       animate={{ rotate: open ? 45 : 0 }}
                       transition={{ duration: 0.3 }}
-                      className="ml-2 text-gray-400 text-xl"
+                      className="ml-2 text-black text-xl"
                     >
                       +
                     </motion.span>
@@ -377,9 +446,7 @@ export default function AgentforcePage() {
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 py-4 text-gray-300 bg-[#1F2937]">
-                      {item.content}
-                    </div>
+                    <div className="px-6 py-4 text-black">{item.content}</div>
                   </motion.div>
                 </div>
               );
@@ -389,104 +456,162 @@ export default function AgentforcePage() {
       </motion.section>
 
       {/* ========================== Section 6 - Agentforce Capabilities ========================== */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ staggerChildren: 0.2 }}
-        className="bg-black text-white px-6 md:px-20 py-20"
+      <section
+        className="relative w-full overflow-hidden md:mt-[-40px]  lg:mt-0 py-12 sm:py-16 md:py-20 text-white"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
       >
-        {/* Heading */}
-        <motion.div
-          variants={fadeInUp}
-          className="text-center max-w-3xl mx-auto mb-16"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold leading-snug">
-            Agentforce can transform any team and workflow with{" "}
-            <span className="text-sky-300">AI agents</span>.
-          </h2>
-        </motion.div>
+        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
+          {/* Left Arrow */}
+          <button
+            onClick={prevSlide}
+            className="hidden sm:flex border border-sky-500 rounded-full p-3 hover:bg-sky-500/20 transition-all"
+          >
+            <ChevronLeft size={28} className="text-sky-400" />
+          </button>
 
-        {/* Features Grid */}
-        <motion.div
-          variants={fadeInUp}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 "
-        >
-          {[
-            {
-              img: agentforceImg7,
-              title: "The most complete enterprise agentic platform.",
-              desc: "Agentforce is a complete, extensible, and open platform, letting you build and deploy digital labour for your customers and employees leveraging the existing workflows, data, and integrations that power your business today. Agentforce can take action across every channel and be integrated into any system, making it easy to add agentic automation across your entire business.",
-            },
-            {
-              img: agentforceImg6,
-              title: "Tools to manage the entire agent lifecycle.",
-              desc: "Build, test, and supervise Agentforce with low-code and pro-code tools to deploy AI agents with confidence. AI powered assistance helps you configure Agentforce from natural language, and helps batch test at scale. Powerful supervision tools help you understand how Agentforce is performing and gives suggestions on how to refine the configuration.",
-            },
-            {
-              img: agentforceImg8,
-              title: "Relevant, accurate results for every business.",
-              desc: "The Atlas Reasoning Engine is how Agentforce understands, decides, and acts autonomously to provide trusted, accurate answers for every request. It starts by understanding the user intent and scope of the problem, deciding what data is needed and what actions are required, and then autonomously executes those actions to complete the task.",
-            },
-            {
-              img: agentforceImg9,
-              title: "Trust and guardrails, out-of-the-box.",
-              desc: "Agentforce contains a powerful set of low code guardrails and security tools designed to keep data secure, prevent abuse, and reduce hallucinated and biased responses. These guardrails are on by default and are easily configurable by admins and business users to ensure Agentforce performs the way they should and not deviate from their instructions.",
-            },
-          ].map((item, idx) => (
-            <motion.div
-              key={idx}
-              variants={fadeInUp}
-              whileHover={{ y: -8, scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white/5 rounded-2xl shadow-lg overflow-hidden p-6  w-full"
-            >
-              <img
-                src={item.img}
-                alt={item.title}
-                className="h-40 mx-auto mb-6 object-contain"
-              />
-              <h3 className="text-lg font-semibold mb-3">{item.title}</h3>
-              <p className="text-gray-200 text-sm leading-relaxed">
-                {item.desc}
-              </p>
-            </motion.div>
+          {/* Main Slide */}
+          <div className="relative w-full max-w-6xl rounded-3xl shadow-xl overflow-hidden">
+            <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[540px]">
+              {/* Background Image */}
+              <AnimatePresence mode="wait" custom={direction}>
+                <motion.img
+                  key={index}
+                  src={slides[index].bg}
+                  custom={direction}
+                  variants={imageVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  className="absolute inset-0 w-full h-full object-cover rounded-3xl"
+                />
+              </AnimatePresence>
+
+              {/* Overlay Gradient */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-[#020617]/90 via-[#030a16]/70 to-transparent"
+                animate={{
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                style={{ backgroundSize: "200% 200%" }}
+              ></motion.div>
+
+              {/* Content */}
+              <div className="absolute inset-0 mt-8 sm:mt-10 md:mt-12 flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start p-4 sm:p-6 md:p-10 lg:p-12 text-white gap-6 md:gap-10">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={index}
+                    variants={textVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    className="max-w-full sm:max-w-md md:max-w-lg"
+                  >
+                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 leading-tight text-sky-300">
+                      {slides[index].title}
+                    </h2>
+
+                    <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-200 mb-4 sm:mb-6 leading-relaxed">
+                      {slides[index].desc}
+                    </p>
+
+                    <div className="flex flex-wrap gap-4 sm:gap-6">
+                      {slides[index].links.map((link, i) => (
+                        <button
+                          key={i}
+                          onClick={() => {
+                            navigate("/contactus");
+                            window.scrollTo(0, 0);
+                          }}
+                          className="flex items-center gap-2 font-semibold underline hover:text-sky-300 transition-colors text-xs sm:text-sm md:text-base"
+                        >
+                          {link.text}
+                          {link.icon}
+                        </button>
+                      ))}
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Right Image */}
+                {/* Right Image - only visible on desktop */}
+                <motion.img
+                  key={`img-${index}`}
+                  src={slides[index].img}
+                  alt="Agentforce"
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="hidden md:block w-36 lg:w-80 object-contain mt-4 md:mt-10"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Right Arrow */}
+          <button
+            onClick={nextSlide}
+            className="hidden sm:flex border border-sky-500 rounded-full p-3 hover:bg-sky-500/20 transition-all"
+          >
+            <ChevronRight size={28} className="text-sky-400" />
+          </button>
+        </div>
+
+        {/* Pagination Dots */}
+        <div className="flex justify-center mt-4 sm:mt-6 gap-2 sm:gap-3">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all ${
+                i === index ? "bg-sky-500 w-3 sm:w-4" : "bg-sky-700"
+              }`}
+            ></button>
           ))}
-        </motion.div>
-      </motion.section>
+        </div>
+      </section>
 
       {/* ========================== Section 7 - Featured Resources ========================== */}
-      <section className="py-20 bg-gradient-to-b from-slate-900 to-slate-800 text-white">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+      <section className="py-20 text-black md:mt-[-40px] lg:mb-0 md:mb-[-70px] mb-[-70px] relative overflow-hidden">
+        {/* Background gradient or decorative element */}
+
+        <div className="max-w-7xl mx-auto px-6 text-center relative z-10 text-white">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold mb-12"
+            className="text-3xl md:text-5xl md:mt-[-50px] mt-[-80px] font-bold mb-16 text-[#032D60]"
           >
-            Featured Resources
+            Featured <span className="text-blue-500">Resources</span>
           </motion.h2>
 
           {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {resources.map((item, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-8">
+            {resources.slice(0, 4).map((item, i) => (
               <motion.div
                 key={item.id}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
-                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.6, delay: i * 0.15 }}
+                whileHover={{ y: -5, scale: 1.02 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-b from-indigo-900 to-purple-900 rounded-xl shadow-lg overflow-hidden flex flex-col"
+                className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
               >
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  className="w-full h-40 object-cover"
-                />
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-lg font-semibold mb-3">{item.title}</h3>
+                <div className="relative">
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
+
+                <div className="p-6 flex flex-col flex-grow text-left">
+                  <h3 className="text-xl font-semibold text-[#032D60] mb-3 leading-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-700 mb-4">{item.date}</p>
                   <motion.button
                     whileTap={{ scale: 0.95 }}
                     onClick={() => {
@@ -494,9 +619,9 @@ export default function AgentforcePage() {
                       setShowMore(false);
                       setSelected(resources[i]);
                     }}
-                    className="mt-auto text-indigo-300 hover:text-white font-medium transition"
+                    className="mt-auto text-sky-600 font-semibold hover:text-blue-800 transition inline-flex items-center gap-1"
                   >
-                    Explore →
+                    Explore <span className="text-lg">→</span>
                   </motion.button>
                 </div>
               </motion.div>
@@ -508,47 +633,45 @@ export default function AgentforcePage() {
         <AnimatePresence>
           {selected && (
             <motion.div
-              className="fixed inset-0 flex items-center justify-center z-[9999] bg-black bg-opacity-50"
+              className="fixed inset-0 flex items-center justify-center z-[9999] bg-black/70 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
               <motion.div
-                className="bg-white rounded-lg shadow-2xl max-w-lg w-full p-6 relative"
-                initial={{ scale: 0.8, opacity: 0 }}
+                className="text-black mt-7 rounded-2xl bg-white shadow-2xl max-w-lg w-full p-8 relative"
+                initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
               >
-                {/* Close Button */}
                 <button
                   onClick={() => setSelected(null)}
-                  className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                  className="absolute top-4 right-4 text-black hover:text-red-700 text-2xl"
                 >
                   ✕
                 </button>
 
-                <h2 className="text-2xl font-bold mb-4 text-black">
+                <h2 className="text-2xl font-bold mb-4 text-[#032D60]">
                   {selected.title}
                 </h2>
-                <p className="text-gray-600 mb-4">{selected.desc}</p>
+                <p className="text-black mb-4">{selected.desc}</p>
                 {showMore && (
-                  <p className="text-gray-700 whitespace-pre-line">
+                  <p className="text-black whitespace-pre-line leading-relaxed">
                     {selected.more}
                   </p>
                 )}
 
-                {/* More / Back */}
                 {!showMore ? (
                   <button
                     onClick={() => setShowMore(true)}
-                    className="text-sky-500 font-semibold mt-4"
+                    className="text-sky-600 font-semibold mt-6 transition"
                   >
                     More →
                   </button>
                 ) : (
                   <button
                     onClick={() => setShowMore(false)}
-                    className="text-sky-500 font-semibold mt-4 flex items-center gap-1"
+                    className="text-sky-600 font-semibold mt-6 flex items-center  gap-1 hover:text-sky-800 transition"
                   >
                     ← Back
                   </button>
@@ -559,42 +682,8 @@ export default function AgentforcePage() {
         </AnimatePresence>
       </section>
 
-      {/* ========================== Section 8 - FAQs ========================== */}
-      <section
-        id="faqs"
-        className="relative z-50 py-20 px-6 bg-black text-white"
-      >
-        <h2 className="text-3xl font-bold text-center mb-12">FAQs</h2>
-
-        <div className="max-w-3xl mx-auto space-y-4">
-          {[
-            {
-              q: "What is Agentforce, and how does it benefit my business?",
-              a: "Agentforce is an AI-powered solution that integrates seamlessly with Salesforce to automate workflows across sales, service, and marketing, ensuring personalized customer engagement and increased efficiency.",
-            },
-            {
-              q: "What types of AI agents are available with Agentforce?",
-              a: "Agentforce provides a range of specialized AI agents designed to streamline business processes. These include a Service Agent for 24/7 support, an SDR Agent to engage leads and schedule meetings, a Sales Coach that delivers personalized coaching, a Personal Shopper Agent for product recommendations, and a Campaign Agent that automates and optimizes marketing campaigns.",
-            },
-            {
-              q: "How does UNIVMAA ensure seamless integration of Agentforce?",
-              a: "Univmaa provides consultation, implementation, customization, and training services to align AI agents with your workflows. We focus on delivering tailored solutions, integrated with Salesforce Data Cloud for seamless, data-driven interactions across all channels.",
-            },
-            {
-              q: "What measurable results can businesses expect from implementing Agentforce?",
-              a: "Businesses implementing Agentforce have achieved , 30% faster sales cycles ,  40% increase in case deflection , 45% boost in overall ROI .",
-            },
-            {
-              q: "How does Univmaa ensure data security and compliance during deployment?",
-              a: "At Univmaa, we prioritize data governance and compliance. Agentforce implementations are aligned with GDPR, FEDRAMP, and the India Privacy Act, ensuring that your operations remain secure and compliant with global standards.",
-            },
-          ].map((item, i) => (
-            <FAQItem key={i} q={item.q} a={item.a} />
-          ))}
-        </div>
-      </section>
-
       {/* ========================== Section 9 - CTA ========================== */}
+      <FaqDynamic />
       <RequestForConsultation />
       <Footer />
     </>

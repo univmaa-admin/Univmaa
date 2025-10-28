@@ -42,7 +42,7 @@ const Contact = () => {
 
   return (
     <div
-      className="bg-[#0B0E1A] px-4 sm:px-8 md:px-12 lg:px-20 py-10 md:py-20"
+      className="bg-white text-black px-4   sm:px-8 md:px-12 bg-no-repeat  md:bg-no-repeat md:bg-cover  lg:px-20 py-10 md:py-20"
       id="contact-us"
     >
       <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-20">
@@ -53,10 +53,11 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           className="lg:w-1/2 w-full space-y-6"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 bg-clip-text text-transparent">
-            Get answers to your questions
+          <h1 className="text-3xl sm:text-4xl md:text-5xl md:mt-[-25px] font-extrabold mb-6  bg-clip-text text-blue-950">
+            Get answers to{" "}
+            <span className="text-blue-500"> your questions</span>
           </h1>
-          <p className="text-white text-sm sm:text-base leading-relaxed">
+          <p className="text-black text-lg leading-relaxed">
             Transforming businesses with Salesforce-powered digital experiences.
             From CRM optimization and automation to seamless integrations, we
             deliver solutions that drive growth and efficiency. Want to
@@ -66,23 +67,25 @@ const Contact = () => {
           {/* Contact Cards */}
           {[
             {
-              icon: <IoMdMail className="text-indigo-600 text-2xl" />,
+              icon: <IoMdMail className="text-indigo-600 text-xl" />,
               text: "helpdesk@univmaa.com",
               link: "mailto:helpdesk@univmaa.com",
             },
             {
-              icon: <FiPhoneCall className="text-indigo-600 text-2xl" />,
+              icon: <FiPhoneCall className="text-indigo-600 text-xl" />,
               text: "+91-9777293266",
               link: "tel:+91-9777293266",
             },
             {
-              icon: <IoLocationOutline className="text-indigo-600 text-2xl" />,
+              icon: (
+                <IoLocationOutline className="text-indigo-600 md:text-xl text-5xl" />
+              ),
               text: (
                 <a
                   href="https://www.google.com/maps?q=Shantiniketan+Tech+Park,+10th+Floor,+Tower+B,+Prestige,+Whitefield+Bengaluru+-+560048"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:underline text-white"
+                  className="hover:underline text-black font-bold hover:text-indigo-600 transition"
                 >
                   Shantiniketan Tech Park, 10th Floor, Tower B, Prestige,
                   Whitefield Bengaluru - 560048
@@ -101,7 +104,7 @@ const Contact = () => {
               {item.link ? (
                 <a
                   href={item.link}
-                  className="text-white hover:text-indigo-600 transition"
+                  className="text-black font-bold hover:text-indigo-600 transition"
                 >
                   {item.text}
                 </a>
@@ -126,7 +129,9 @@ const Contact = () => {
               alt="WhatsApp"
               className="w-6 h-6"
             />
-            <span className="text-white">Chat on WhatsApp</span>
+            <span className="text-black font-bold hover:text-indigo-600 transition">
+              Chat on WhatsApp
+            </span>
           </motion.a>
         </motion.div>
 
@@ -135,7 +140,7 @@ const Contact = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          className="lg:w-1/2 w-full bg-[#0B0E1A] shadow-xl rounded-xl p-6 sm:p-8 border border-gray-200"
+          className="lg:w-1/2 w-full bg-slate-100 shadow-xl md:mt-[-25px]  rounded-xl p-6 sm:p-8 border border-gray-200"
         >
           <form ref={form} onSubmit={onSubmit} className="grid gap-4">
             {/* Inputs with responsive layout */}
@@ -145,14 +150,14 @@ const Contact = () => {
                 name="firstName"
                 placeholder="First Name"
                 required
-                className="p-3 border rounded-md text-sm sm:text-base"
+                className="p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white transition rounded-md text-sm sm:text-base"
               />
               <input
                 type="text"
                 name="lastName"
                 placeholder="Last Name"
                 required
-                className="p-3 border rounded-md text-sm sm:text-base"
+                className="p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white transition rounded-md text-sm sm:text-base"
               />
             </div>
 
@@ -161,14 +166,14 @@ const Contact = () => {
                 type="text"
                 name="jobTitle"
                 placeholder="Job Title"
-                className="p-3 border rounded-md text-sm sm:text-base"
+                className="p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white transition rounded-md text-sm sm:text-base"
               />
               <input
                 type="email"
                 name="workEmail"
                 placeholder="Work Email"
                 required
-                className="p-3 border rounded-md text-sm sm:text-base"
+                className="p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white transition rounded-md text-sm sm:text-base"
               />
             </div>
 
@@ -177,11 +182,11 @@ const Contact = () => {
                 type="text"
                 name="company"
                 placeholder="Company"
-                className="p-3 border rounded-md text-sm sm:text-base"
+                className="p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white transition rounded-md text-sm sm:text-base"
               />
               <select
                 name="employees"
-                className="p-3 border rounded-md text-sm sm:text-base"
+                className="p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white transition rounded-md text-sm sm:text-base"
               >
                 <option value="">Employees</option>
                 <option value="1-10">1-10</option>
@@ -196,11 +201,11 @@ const Contact = () => {
                 type="tel"
                 name="phone"
                 placeholder="Phone"
-                className="p-3 border rounded-md text-sm sm:text-base"
+                className="p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white transition rounded-md text-sm sm:text-base"
               />
               <select
                 name="country"
-                className="p-3 border rounded-md text-sm sm:text-base"
+                className="p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white transition rounded-md text-sm sm:text-base"
               >
                 <option value="India">India</option>
                 <option value="USA">USA</option>
@@ -213,12 +218,12 @@ const Contact = () => {
               name="message"
               rows="5"
               placeholder="Questions / Comments"
-              className="p-3 border rounded-md text-sm sm:text-base"
+              className="p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white transition rounded-md text-sm sm:text-base"
             />
 
             <button
               type="submit"
-              className="bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-semibold shadow-lg transition text-sm sm:text-base"
+              className=" bg-white text-[#0176d3] hover:bg-[#0176d3] hover:text-white rounded-md py-3 font-semibold shadow-lg transition text-sm sm:text-base"
             >
               CONTACT ME
             </button>
@@ -250,7 +255,7 @@ const Contact = () => {
           <div className="mt-6 text-center">
             <button
               onClick={() => setFeedbackOpen(true)}
-              className="text-white underline text-sm sm:text-base"
+              className="text-black font-semibold  hover:text-blue-500 underline text-sm sm:text-base"
             >
               Send Feedback
             </button>
@@ -264,7 +269,7 @@ const Contact = () => {
           <div className="bg-white w-full max-w-lg p-6 sm:p-8 rounded-xl shadow-lg relative">
             <button
               onClick={() => setFeedbackOpen(false)}
-              className="absolute top-3 right-3 text-gray-600 hover:text-black"
+              className="absolute top-3 right-3 text-black hover:text-red-800"
             >
               ✕
             </button>
@@ -325,7 +330,7 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-semibold shadow-lg transition"
+                className=" bg-white text-[#0176d3] hover:bg-[#0176d3] hover:text-white rounded-md font-semibold py-3 shadow-lg transition"
               >
                 SEND FEEDBACK
               </button>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import feedback from "../../assets/feedback.webp";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 
@@ -16,8 +17,12 @@ function StarRating({ name, max = 5, onChange, value, clearError = () => {} }) {
             clearError();
           }}
           className={`cursor-pointer text-3xl transition ${
-            i < value ? "text-yellow-400" : "text-white hover:text-yellow-300"
+            i < value ? "text-sky-700" : "text-white hover:text-sky-800"
           }`}
+          style={{
+            WebkitTextStroke: "1px black", // black outline
+            textStroke: "1px black", // for other browsers (fallback)
+          }}
         >
           ★
         </span>
@@ -114,10 +119,10 @@ export default function FeedbackWizard() {
       if (ratings.quality === 0) return " ⚠ Please rate quality.";
       if (ratings.ui === 0) return " ⚠ Please rate UI.";
     }
-    if (step === 4) {
-      if (!formValues.liked_feature.trim()) return " ⚠ Enter liked feature.";
-      if (!formValues.improvement.trim()) return " ⚠ Suggest an improvement.";
-    }
+    // if (step === 4) {
+    //   if (!formValues.liked_feature.trim()) return " ⚠ Enter liked feature.";
+    //   if (!formValues.improvement.trim()) return " ⚠ Suggest an improvement.";
+    // }
     if (step === 5 && (formValues.nps === "" || formValues.nps === null))
       return "⚠ Please select NPS.";
     if (step === 6 && selectedTags.length === 0)
@@ -219,14 +224,24 @@ New Feedback Received:
   return (
     <>
       <Navbar />
-      <div className="relative flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-blue-900 p-6">
+      <div
+        className="relative w-full h-[90vh] md:h-[90vh] lg:h-[110vh] md:bg-bottom flex items-center justify-center text-white"
+        style={{
+          backgroundImage: `url(${feedback})`,
+          backgroundSize: "contain",
+          backgroundPosition: "bottom",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        {/* 🔹 Top Black Shadow Overlay */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/50 to-transparent pointer-events-none"></div>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="relative w-full max-w-2xl bg-white/20 backdrop-blur-lg shadow-2xl rounded-3xl p-10 text-white"
+          className="relative w-full max-w-2xl  backdrop-blur-sm shadow-2xl rounded-3xl p-10 text-black"
         >
           {/* 🔥 Dynamic Heading */}
-          <div className="h-12 flex items-center justify-center mb-6">
+          <div className="h-12 flex items-center  justify-center mb-6">
             <AnimatePresence mode="wait">
               <motion.h2
                 key={index}
@@ -244,7 +259,7 @@ New Feedback Received:
           {/* Progress Bar */}
           <div className="w-full bg-white/30 rounded-full h-2 mb-6">
             <motion.div
-              className="bg-yellow-300 h-2 rounded-full"
+              className="bg-sky-600 h-2 rounded-full"
               initial={{ width: 0 }}
               animate={{ width: `${(step / steps.length) * 100}%` }}
               transition={{ duration: 0.5 }}
@@ -419,7 +434,7 @@ New Feedback Received:
                           onClick={() => toggleTag(tag)}
                           className={`px-3 py-1 rounded-full border ${
                             selectedTags.includes(tag)
-                              ? "bg-white text-purple-700"
+                              ? "bg-white text-sky-500"
                               : "bg-transparent border-white"
                           }`}
                         >
@@ -450,7 +465,9 @@ New Feedback Received:
             </AnimatePresence>
 
             {validationError && (
-              <p className="text-red-700 text-center mt-3">{validationError}</p>
+              <p className="text-red-600 font-bold text-center mt-3">
+                {validationError}
+              </p>
             )}
 
             {/* Navigation */}
@@ -459,7 +476,7 @@ New Feedback Received:
                 <button
                   type="button"
                   onClick={() => setStep(step - 1)}
-                  className="px-5 py-2 rounded-lg bg-white/30 text-white hover:bg-white/40"
+                  className="px-5 py-2 rounded-lg bg-sky-500 text-white hover:bg-white hover:text-sky-500"
                 >
                   ⬅ Back
                 </button>
@@ -468,7 +485,7 @@ New Feedback Received:
                 <button
                   type="button"
                   onClick={goNext}
-                  className="ml-auto px-5 py-2 rounded-lg bg-yellow-400 text-black font-bold hover:bg-yellow-300"
+                  className="ml-auto px-5 py-2 rounded-lg bg-sky-500 text-white font-bold hover:bg-white hover:text-blue-600"
                 >
                   Next ➡
                 </button>
@@ -507,7 +524,7 @@ New Feedback Received:
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="absolute inset-0 flex flex-col items-center justify-center bg-black/70 text-red-400 rounded-3xl"
+              className="absolute inset-0 flex flex-col items-center justify-center bg-black/70 text-red-500 rounded-3xl"
             >
               <h3 className="text-2xl font-bold mb-4">⚠ Oops!</h3>
               <p>{error}</p>

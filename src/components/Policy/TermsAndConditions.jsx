@@ -4,6 +4,7 @@ import { ChevronDown } from "lucide-react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function TermsAndConditions() {
   const navigate = useNavigate();
@@ -278,67 +279,121 @@ export default function TermsAndConditions() {
     <>
       <Navbar />
       {/* Banner Section */}
-      <section className="relative w-full">
+      {/* Banner Section */}
+      <section className="relative w-full overflow-hidden font-sans">
+        {/* Hero Section */}
         <div
-          className="relative flex items-center justify-start h-[50vh]  w-full sm:h-screen bg-cover  sm:bg-fixed bg-center pt-20"
+          className="relative flex items-center justify-center md:justify-start h-[70vh] md:h-screen bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/image/termsimg01.jpg')",
+            backgroundImage: "url('/image/policy.jpg')",
+            backgroundAttachment: "fixed",
           }}
         >
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/80"></div>
+          {/* Elegant Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
 
           {/* Content */}
-          <div className="relative z-10 px-6 sm:px-10 md:px-20 max-w-3xl">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#fcfcff] leading-snug">
-              <span className="text-blue-500">Univmaa</span> Website Terms{" "}
-              <br /> and Conditions
-            </h2>
-            <p className="text-sm sm:text-base md:text-lg text-white px-3 py-1 mt-4 inline-block rounded">
-              These terms and conditions were last updated in September, 2025.
-            </p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="relative z-10 text-center md:text-left px-6 sm:px-10 md:px-20 max-w-2xl md:ml-[10%]"
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight drop-shadow-lg">
+              Univmaa Technologies –{" "}
+              <span className="text-blue-400">Terms and Conditions</span>
+            </h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-gray-200 text-base sm:text-lg mt-5 leading-relaxed backdrop-blur-sm"
+            >
+              Welcome to Univmaa Technologies. Please read these Terms and
+              Conditions carefully before using our website or services. By
+              accessing or using this site, you agree to comply with and be
+              bound by the following terms and conditions of use.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="text-gray-300 mt-6 space-y-1 text-sm sm:text-base font-light"
+            >
+              <p>
+                <span className="font-semibold text-white">
+                  Effective Date:
+                </span>{" "}
+                September 1, 2025
+              </p>
+              <p>
+                <span className="font-semibold text-white">Last Updated:</span>{" "}
+                September 25, 2025
+              </p>
+              <p>
+                <span className="font-semibold text-white">Version:</span> 1.2
+              </p>
+            </motion.div>
+          </motion.div>
         </div>
 
         {/* Intro Section */}
-        <div className="bg-[#0B0E1A] py-12 px-6 md:px-20">
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-6">
-            Website Terms and Conditions — September, 2025
-          </h3>
-          <p className="text-white text-base sm:text-lg leading-relaxed max-w-4xl">
+        <div className=" py-16 px-6 md:px-20 text-center md:text-left">
+          <motion.h3
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-2xl md:text-3xl font-bold text-blue-950 mb-4"
+          >
+            Website Terms & Conditions —{" "}
+            <span className="text-blue-500"> September 2025</span>
+          </motion.h3>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-black text-base md:text-lg leading-relaxed max-w-4xl"
+          >
             Please read the following terms and conditions carefully. They
             govern your access and use of this website. By accessing, browsing,
             or using this website, you agree to be bound by these terms and
             conditions and accept them in full, as they may be modified by
-            Univmaa Technology from time to time. If you do not agree with these
-            terms, please discontinue the use of this website immediately.
-          </p>
+            Univmaa Technologies from time to time. If you do not agree with
+            these terms, please discontinue the use of this website immediately.
+          </motion.p>
         </div>
       </section>
 
       {/* Accordion Section */}
-      <section className="bg-[#0B0E1A] py-12 px-6 md:px-20">
-        <h2 className="text-3xl font-bold text-white mb-6">
-          About our Terms and Conditions
+      <section className=" py-12 px-6 mt-[-70px] md:px-20">
+        <h2 className="text-3xl  font-bold text-black mb-6">
+          About Our <span className="text-blue-500">Terms & Conditions</span>
         </h2>
 
-        <div className="rounded-lg overflow-hidden border border-gray-200 shadow">
+        <div className="rounded-lg overflow-hidden border border-gray-200 shadow-lg transition-all duration-300">
           {termsData.map((item, index) => {
             const isOpen = openIndex === index;
+
             return (
               <div
                 key={index}
-                id={`accordion-item-${index}`}
-                className="border-b border-gray-200"
+                className="border-b border-gray-200 last:border-none"
               >
                 {/* Header */}
                 <button
-                  className={`w-full flex justify-between items-center px-4 py-3 font-semibold text-white text-left transition-colors ${
-                    isOpen ? "bg-[#0B0E1A]" : "bg-[#0B0E1A]"
-                  }`}
+                  className={`w-full flex justify-between items-center px-5 py-4 font-semibold text-left transition-all duration-300 
+            ${
+              isOpen
+                ? "bg-blue-600 text-white"
+                : "bg-white text-black hover:bg-blue-500 hover:text-white"
+            }`}
                   onClick={() => toggleAccordion(index)}
                 >
-                  {item.title}
+                  <span className="text-base md:text-lg">{item.title}</span>
                   <ChevronDown
                     className={`ml-2 h-5 w-5 transform transition-transform duration-300 ${
                       isOpen ? "rotate-180 scale-125" : ""
@@ -346,13 +401,17 @@ export default function TermsAndConditions() {
                   />
                 </button>
 
-                {/* Animated Content */}
+                {/* Smooth Animated Content */}
                 <div
-                  className={`transition-all duration-500 ease-in-out overflow-hidden ${
-                    isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
-                  }`}
+                  className={`transition-all duration-500 ease-in-out overflow-hidden`}
+                  style={{
+                    maxHeight: isOpen ? "500px" : "0px",
+                    opacity: isOpen ? 1 : 0,
+                    transform: `scaleY(${isOpen ? 1 : 0.9})`,
+                    transformOrigin: "top",
+                  }}
                 >
-                  <div className="px-4 py-3 bg-white text-gray-700 text-base">
+                  <div className="px-5 py-4 bg-white text-gray-800 text-base leading-relaxed">
                     {item.content}
                   </div>
                 </div>

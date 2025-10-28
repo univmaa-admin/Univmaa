@@ -6,11 +6,14 @@ import { useNavigate } from "react-router-dom";
 import RequestForConsultation from "../RequestForConsultation";
 import marketingimg from "../../assets/marketingimg.png";
 import marketingimg2 from "../../assets/marketingimg2.png";
-import marketingimg3 from "../../assets/marketingimg3.png";
-import marketingimg4 from "../../assets/marketingimg4.png";
-import icon from "../../assets/icon.jpg";
 import FillTheForm from "../FillTheForm";
 import ServiceDyanamic from "../ServiceDyanamic.jsx";
+import FaqDynamic from "../FaqDynamic.jsx";
+
+import markeingimgnew from "../../assets/markeingimgnew.webp";
+import markeingimgnew2 from "../../assets/markeingimgnew2.webp";
+import markeingimgnew3 from "../../assets/markeingimgnew3.webp";
+import markeingimgnew4 from "../../assets/markeingimgnew4.webp";
 // 🚀 Section Variants for Smooth Scroll Animations
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
@@ -24,7 +27,7 @@ const AccordionItem = ({ title, content, isOpen, onClick }) => {
       {/* Header */}
       <button
         onClick={onClick}
-        className="w-full flex justify-between items-center py-3 px-4 text-left text-white font-medium focus:outline-none hover:bg-purple-950/40 transition-colors"
+        className="w-full flex justify-between items-center py-3 px-4 text-left text-black font-medium hover:text-white focus:outline-none hover:bg-blue-500 transition-colors"
       >
         <span>{title}</span>
 
@@ -50,7 +53,7 @@ const AccordionItem = ({ title, content, isOpen, onClick }) => {
             transition={{ duration: 0.5, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="px-4 pb-4 text-gray-200 text-sm leading-relaxed">
+            <div className="px-4 pb-4 text-black text-sm leading-relaxed">
               {content}
             </div>
           </motion.div>
@@ -137,7 +140,18 @@ export default function MarketingCloudPage() {
     <>
       <Navbar />
       {/* ========================== Section 1 ========================== */}
-      <section className="bg-[#0D1117] pt-32 text-white px-6 md:px-16 md:pr-16 py-16 grid md:grid-cols-2 gap-10 items-center relative overflow-hidden">
+      <section
+        className="pt-32 text-black px-6 md:px-16 md:pr-16 py-16 grid lg:grid-cols-2 gap-10 items-center relative overflow-hidden"
+        style={{
+          backgroundImage: `
+      linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0)),
+       url(${markeingimgnew2})
+    `,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         {/* Left Content */}
         <ServiceDyanamic serviceKey="marketing-cloud" />
         {/* Right Form */}
@@ -145,12 +159,18 @@ export default function MarketingCloudPage() {
       </section>
 
       {/* ========================== Section 2 (Accordion) ========================== */}
-      <section className="bg-[#071426] text-white px-6 md:px-20  py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Be on Top of Your Marketing Game
+      <section
+        className=" text-black px-6 md:px-20  py-16"
+        style={{
+          backgroundImage: `url(${markeingimgnew3})`,
+        }}
+      >
+        <div className="text-center mb-12 mt-[-60px]">
+          <h2 className="text-3xl md:text-4xl text-blue-950 font-bold">
+            Be on Top of Your{" "}
+            <span className="text-blue-500">Marketing Game</span>
           </h2>
-          <p className="text-gray-300 mt-3">
+          <p className="text-black mt-3">
             Create, manage, and optimize your marketing efforts efficiently with
             Studios & Builders.
           </p>
@@ -158,8 +178,8 @@ export default function MarketingCloudPage() {
 
         <div className="grid md:grid-cols-2 ">
           {/* Studios */}
-          <div className="bg-gradient-to-b from-blue-700 to-purple-900 w-full  rounded-xl shadow-lg p-6">
-            <h3 className="text-xl font-semibold mb-6 text-center">
+          <div className=" w-full  mt-[-30px] lg:mt-0 md:mt-0  rounded-xl shadow-lg p-6">
+            <h3 className="text-xl text-black font-semibold mb-6 text-center">
               Marketing Cloud Studios
             </h3>
             <img
@@ -181,14 +201,14 @@ export default function MarketingCloudPage() {
           </div>
 
           {/* Builders */}
-          <div className="bg-gradient-to-b from-blue-700 to-purple-900 w-full md:ms-6 rounded-xl shadow-lg p-6">
+          <div className="text-black  mt-5 md:mt-0 w-full md:ms-6 rounded-xl shadow-lg p-6">
             <h3 className="text-xl font-semibold mb-6 text-center">
               Marketing Cloud Builders
             </h3>
             <img
               src={marketingimg2}
               alt="Marketing Cloud Builders"
-              className="w-40 md:w-52 mx-auto mb-6"
+              className="w-40 md:w-52 mx-auto mb-6 "
             />
             {builders.map((item, i) => (
               <AccordionItem
@@ -207,11 +227,14 @@ export default function MarketingCloudPage() {
 
       {/* ========================== Section 3 ========================== */}
       <motion.section
-        className="bg-black text-white px-6 md:px-20 py-16 grid md:grid-cols-2 gap-10 items-center"
+        className=" text-black px-6 md:px-20 py-16 grid lg:z-10 lg:grid-cols-2 gap-10 items-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         transition={{ staggerChildren: 0.3 }}
+        style={{
+          backgroundImage: `url(${markeingimgnew3})`,
+        }}
       >
         {/* Left Illustration */}
         <motion.div
@@ -220,9 +243,9 @@ export default function MarketingCloudPage() {
           className="flex justify-center"
         >
           <img
-            src={marketingimg3}
+            src={markeingimgnew}
             alt="Data-Driven Selling"
-            className="w-80 md:w-[420px]"
+            className="w-80 md:w-[620px]"
           />
         </motion.div>
 
@@ -232,12 +255,12 @@ export default function MarketingCloudPage() {
             Unlock Multi-Channel{" "}
             <span className="text-blue-400">Marketing </span> Excellence
           </h2>
-          <p className="text-gray-300 mb-4 text-lg">
+          <p className="text-black mb-4 text-lg">
             The rules for customer engagement have changed ! <br />
             Today’s buyers are informed, discerning, and expect personalized
             experiences.
           </p>
-          <p className="text-gray-300 mb-6 text-lg">
+          <p className="text-black mb-6 text-lg">
             Salesforce Sales Cloud is a powerful platform designed to empower
             your sales team and transform your sales operations with advanced
             features like AI-driven insights, predictive analytics, integration
@@ -248,8 +271,8 @@ export default function MarketingCloudPage() {
               navigate("/contactus");
               window.scrollTo(0, 0); // 👈 reset scroll
             }}
-            whileHover={{ scale: 1.05 }}
-            className="inline-block px-6 py-3 hover:cursor-pointer bg-gradient-to-r from-blue-500 to-purple-600 rounded-md font-semibold"
+            className="inline-block px-6 py-3 hover:cursor-pointer bg-white text-[#0176d3] hover:bg-[#0176d3] hover:text-white
+ rounded-md font-semibold"
           >
             Let’s Connect ➝
           </motion.a>
@@ -258,121 +281,63 @@ export default function MarketingCloudPage() {
 
       {/* ========================== Section 4 ========================== */}
       <motion.section
-        className="bg-black text-white px-6 md:px-20 py-16 grid md:grid-cols-2 gap-10 items-center"
+        className=" text-black relative lg:h-[600px] md:bg-cover lg:-z-10  md:h-[550px] h-[620px] bg-no-repeat bg-bottom bg-cover  px-6 md:px-20 py-16  gap-10 items-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         transition={{ staggerChildren: 0.3 }}
+        style={{
+          backgroundSize: "contain",
+          backgroundPosition: "contain",
+          backgroundRepeat: "no-repeat",
+          backgroundImage: `url(${markeingimgnew4})`,
+        }}
       >
         {/* Left Content */}
-        <motion.div variants={fadeInUp} transition={{ duration: 0.8 }}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+        <motion.div
+          variants={fadeInUp}
+          className="lg:ms-[500px] "
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-3xl md:text-4xl text-blue-950 font-bold mb-6">
             Key Benefits of Salesforce{" "}
-            <span className="text-blue-400">Marketing Cloud</span>
+            <span className="text-blue-500">Marketing Cloud</span>
           </h2>
-          <p className="text-gray-300 mb-4 text-lg">
+          <p className="text-black mb-4 text-lg lg:w-[600px]">
             Marketing Cloud Studios manage content and specific marketing
             channels whereas Builders take care of the data & campaign
             automation. Optimize customer engagement, and drive higher revenue
-            by centralizing your marketing efforts.
+            by centralizing your marketing efforts. Einstein AI transforms this
+            data into actionable insights, predicting customer behavior,
+            automating tasks, and personalizing interactions. Let AI do the
+            heavy lifting for revenue growth and customer satisfaction.
           </p>
-          <p className="text-gray-300 mb-6 text-lg">
-            Einstein AI transforms this data into actionable insights,
-            predicting customer behavior, automating tasks, and personalizing
-            interactions. Let AI do the heavy lifting for revenue growth and
-            customer satisfaction.
-          </p>
+          <p className="text-black mb-6 text-lg"></p>
         </motion.div>
-
-        {/* Right Image */}
-        <motion.div
-          variants={fadeInUp}
-          transition={{ duration: 0.8 }}
-          className="flex justify-center"
-        >
-          <img
-            src={marketingimg4}
-            alt="Data & AI"
-            className="w-96 md:w-[500px]"
-          />
-        </motion.div>
-      </motion.section>
-
-      {/* ========================== Section 5 ========================== */}
-      <motion.section
-        className="bg-[#071426] text-white px-6 md:px-20 py-16 text-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        transition={{ staggerChildren: 0.2 }}
-      >
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold mb-4"
-          variants={fadeInUp}
-        >
-          Industries We Serve
-        </motion.h2>
-        <motion.p
-          className="text-gray-300 mb-10"
-          variants={fadeInUp}
-          transition={{ duration: 0.8 }}
-        >
-          As a company committed to excellence, we offer solutions that meet
-          your unique & evolving business needs.
-        </motion.p>
-
-        {/* Industries Cards */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            "Manufacturing",
-            "Finance",
-            "Healthcare",
-            "Retail",
-            "Hi-tech",
-            "Real Estate",
-          ].map((industry, i) => (
-            <motion.div
-              key={i}
-              className="p-6 bg-[#0c1b33] rounded-lg shadow hover:shadow-lg cursor-pointer"
-              variants={fadeInUp}
-              whileHover={{ scale: 1.05 }}
-            >
-              <img
-                src={icon}
-                alt={industry}
-                className="w-12 h-12 mx-auto mb-3"
-              />
-              <p className="font-semibold">{industry}</p>
-            </motion.div>
-          ))}
-        </div>
       </motion.section>
 
       {/* ========================== Section 6 ========================== */}
       <motion.section
-        className="bg-black text-white px-6 md:px-20 py-16"
+        className="bg-white text-black px-6 md:px-20 mt-[-60px] lg:mt-[-100px] lg:z-10 md:mt-[-60px]  py-16"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         transition={{ staggerChildren: 0.2 }}
       >
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-4"
+          className="text-3xl md:text-4xl lg:mt-[-20px] font-bold text-center mb-4 text-blue-950"
           variants={fadeInUp}
         >
-          Partner with Univmaa -{" "}
-          <span className="text-blue-400">Our Offerings</span>
+          Partner with Univmaa –{" "}
+          <span className="text-blue-500">Our Offerings</span>
         </motion.h2>
-        <motion.p
-          className="text-center text-gray-300 mb-12"
-          variants={fadeInUp}
-        >
-          As a Company committed to excellence, we offer solutions that meet
+        <motion.p className="text-center text-black mb-12" variants={fadeInUp}>
+          As a company committed to excellence, we offer solutions that meet
           your unique & evolving business needs.
         </motion.p>
 
         {/* Offerings Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
           {[
             {
               title: "Personalized Customer Journeys",
@@ -402,21 +367,23 @@ export default function MarketingCloudPage() {
             <motion.div
               key={i}
               variants={fadeInUp}
-              className={`p-6 rounded-lg shadow ${
-                item.highlight
-                  ? "bg-gradient-to-b from-purple-600 to-purple-800"
-                  : "bg-[#0c1b33]"
-              }`}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.03 }}
+              className="relative bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow p-8 border border-gray-100"
             >
-              <h3 className="font-bold text-lg mb-3">{item.title}</h3>
-              <p className="text-gray-300 text-sm">{item.desc}</p>
+              {/* Accent Bar */}
+              <div className="absolute top-0 left-0 w-full h-2 bg-[#f59141] rounded-t-xl" />
+
+              <h3 className="font-bold text-xl mt-4 mb-3 text-black">
+                {item.title}
+              </h3>
+              <p className="text-black text-sm mb-6">{item.desc}</p>
             </motion.div>
           ))}
         </div>
       </motion.section>
 
       {/* ========================== Section 7 - CTA ========================== */}
+      <FaqDynamic />
       <RequestForConsultation />
       <Footer />
     </>

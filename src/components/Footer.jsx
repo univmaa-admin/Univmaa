@@ -3,8 +3,8 @@ import { FiPhoneCall } from "react-icons/fi";
 import { IoLocation } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import fbLogo from "../assets/facebook.png";
-import instaLogo from "../assets/instagram.png";
+// import fbLogo from "../assets/facebook.png";
+// import instaLogo from "../assets/instagram.png";
 import twitterLogo from "../assets/twitter.png";
 import LinkedInLogo from "../assets/linkedin.png";
 import logo from "../assets/univmaalogo.png";
@@ -205,7 +205,7 @@ const Footer = () => {
 
           {/* Social Links */}
           <div className="flex gap-4 mt-4">
-            {[fbLogo, instaLogo, twitterLogo, LinkedInLogo].map((icon, i) => (
+            {[twitterLogo, LinkedInLogo].map((icon, i) => (
               <motion.a
                 key={i}
                 whileHover={{ scale: 1.2, y: -5 }}

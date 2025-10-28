@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import tabbgimg from "../assets/tabs.webp";
 
 const tabs = [
   {
@@ -12,9 +13,9 @@ const tabs = [
         "Sales Cloud",
         "Service Cloud",
         "Marketing Cloud",
+        "Health Cloud",
         "App Cloud",
         "Experience Cloud",
-        "Salesforce CPQ",
       ],
       image: "image/tabhome1.jpg",
     },
@@ -75,80 +76,90 @@ export default function SalesforceTabs() {
   const activeContent = tabs.find((tab) => tab.id === activeTab)?.content;
 
   // Animation Variants
-  const textVariants = {
-    initial: { opacity: 0, x: -60 },
-    animate: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: 60 },
-  };
-
-  const imageVariants = {
-    initial: { opacity: 0, x: 60, scale: 0.95 },
-    animate: { opacity: 1, x: 0, scale: 1 },
-    exit: { opacity: 0, x: -60, scale: 0.95 },
+  const fadeSlide = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 },
   };
 
   return (
-    <div className="bg-[#0B0E1A] text-white px-6 md:px-20 py-12 font-sans flex flex-col items-center">
+    <div
+      className=" bg-white px-6 md:px-20 py-16 pb-24 font-sans md:mt-[-90px] md:pb-32 mt-[-120px] flex flex-col items-center"
+      style={{
+        backgroundImage: `url(${tabbgimg})`,
+      }}
+    >
+      {/* Section Title */}
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-blue-950  mb-8">
+        Solutions for <span className="text-blue-500">Enterprises</span> to
+        innovate & Grow
+      </h1>
+
       {/* Capsule Buttons */}
-      <div className="flex flex-wrap gap-4 justify-center mb-10">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            className={`px-6 py-2 rounded-full border font-medium transition-all ${
-              activeTab === tab.id
-                ? "bg-blue-500 text-white border-blue-500 shadow-lg"
-                : "border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white"
-            }`}
-          >
-            {tab.label}
-          </button>
-        ))}
+      <div className="relative mb-10 w-full flex justify-center ">
+        <div className="flex flex-wrap gap-4 justify-center border-b border-blue-500/30 pb-4">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-6 py-2 rounded-full border font-medium transition-all duration-300 ${
+                activeTab === tab.id
+                  ? "bg-blue-500 text-white border-blue-500 shadow-md scale-105"
+                  : "border-blue-400 text-black hover:bg-blue-400/10 hover:text-black"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Content Section */}
-      <div className="flex flex-col md:flex-row items-center gap-12 w-full max-w-6xl">
-        <AnimatePresence mode="wait">
-          {/* Left Text */}
-          <motion.div
-            key={activeContent.title}
-            variants={textVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="flex-1"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-400">
-              {activeContent.title}
-            </h2>
-            <p className="text-gray-300 mb-4">{activeContent.text}</p>
-            <ul className="list-disc list-inside text-gray-300 space-y-2">
-              {activeContent.points.map((point, i) => (
-                <li key={i}>{point}</li>
-              ))}
-            </ul>
-          </motion.div>
+      <div className="w-full max-w-6xl border border-blue-500/30   rounded-2xl p-8 md:p-10 backdrop-blur-sm bg bg-white shadow-2xl transition-all duration-500">
+        <div className="flex flex-col md:flex-row items-center gap-10">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeContent.title}
+              variants={fadeSlide}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              className="flex-1"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-400">
+                {activeContent.title}
+              </h2>
+              <p className="text-black font-semibold mb-4 leading-relaxed">
+                {activeContent.text}
+              </p>
+              <ul className="list-disc list-inside text-black space-y-2">
+                {activeContent.points.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
+            </motion.div>
 
-          {/* Right Image */}
-          <motion.div
-            key={activeContent.image}
-            variants={imageVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="flex-1"
-          >
-            <div className="relative bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl shadow-xl p-4">
-              <img
-                src={activeContent.image}
-                alt={activeContent.title}
-                className="rounded-xl shadow-2xl w-full h-[350px] object-cover"
-              />
-            </div>
-          </motion.div>
-        </AnimatePresence>
+            {/* Right Image */}
+            <motion.div
+              key={activeContent.image}
+              variants={fadeSlide}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              className="flex-1 flex justify-center"
+            >
+              <div className="relative bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl shadow-xl p-4 border border-blue-400/20 hover:border-blue-400/40 transition-all duration-500">
+                <img
+                  src={activeContent.image}
+                  alt={activeContent.title}
+                  className="rounded-xl shadow-2xl sm:w-full sm:h-[300px] w-[300px] h-[200px] object-cover transition-transform duration-500 hover:scale-[1.03]"
+                />
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );

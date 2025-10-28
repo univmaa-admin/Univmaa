@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Briefcase, Users, Rocket, Award } from "lucide-react";
+import { motion } from "framer-motion";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import applyImg from "../assets/applyimg.jpg";
 import apply1 from "../assets/apply1.jpeg";
 import apply2 from "../assets/apply2.jpg";
 import apply3 from "../assets/apply3.jpg";
+
+import applicationformimgnew from "../assets/applicationformimgnew.webp";
+import applicationformimgnew2 from "../assets/applicationformimgnew2.webp";
 // import more images if needed
 import { X } from "lucide-react";
 import RequestForConsultation from "../components/RequestForConsultation";
@@ -37,10 +38,10 @@ export default function ApplicationForm() {
     lastName: "",
     email: "",
     phone: "",
-    education: "",
-    jobCategory: "",
+    Education: "",
+    JobCategory: "",
     experience: "",
-    country: "",
+    Country: "",
     state: "",
     city: "",
     location: "",
@@ -82,10 +83,10 @@ export default function ApplicationForm() {
           lastName: "",
           email: "",
           phone: "",
-          education: "",
-          jobCategory: "",
+          Education: "",
+          JobCategory: "",
           experience: "",
-          country: "",
+          Country: "",
           state: "",
           city: "",
           location: "",
@@ -105,54 +106,84 @@ export default function ApplicationForm() {
   return (
     <>
       <Navbar />
-      <div className="bg-[#0f172a] text-white overflow-x-hidden">
+      <div className=" text-white">
         {/* Hero Section */}
-        <div
-          className="relative bg-cover bg-center py-24 sm:py-28 px-4 sm:px-6 md:px-20"
-          style={{ backgroundImage: `url(${applyImg})` }}
-        >
-          <div className="absolute inset-0 bg-black/70"></div>
+        <div className="relative py-24 sm:py-28 lg:h-screen md:h-[600px] px-4 sm:px-6 md:px-20 overflow-hidden">
+          {/* Blurred Background Layer */}
+          <div
+            className="absolute inset-0 bg-cover bg-center scale-100"
+            style={{
+              backgroundImage: `
+                linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0)),
+                url(${applicationformimgnew})
+              
+              `,
+              backgroundPosition: "bottom",
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+            }}
+          ></div>
+
+          {/* Optional dark overlay for better text contrast */}
+          {/* <div className="absolute inset-0 bg-black/15"></div> */}
+
+          {/* Foreground Content */}
           <div className="relative z-10 text-center max-w-3xl mx-auto px-2">
             <motion.h1
               initial={{ opacity: 0, y: -40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
+              className="text-3xl sm:text-4xl md:mt-20 md:text-5xl text-blue-900 font-bold mb-4 drop-shadow-lg"
             >
-              🚀 Build Your Career with Univmaa
+              🚀 Build Your Career with{" "}
+              <span className="text-blue-500"> Univmaa</span>
             </motion.h1>
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-base sm:text-lg text-gray-200 leading-relaxed"
+              className="text-base pt-4 sm:text-lg text-black leading-relaxed"
             >
-              Join a team that values innovation, growth, and people.
-              <br /> Apply today or send your CV <br />
-              <a
-                href="mailto:helpdesk@univmaa.com"
-                className="text-sky-400 hover:underline break-words"
-              >
-                helpdesk@univmaa.com
-              </a>
+              Be part of a world-class team that drives innovation, fosters
+              professional growth, and empowers people to make an impact.
+              <br /> Submit your application or forward your CV to begin your
+              journey with us. <br />
+              <p className="mt-4">
+                <a
+                  href="mailto:helpdesk@univmaa.com"
+                  className="text-blue-800  hover:underline break-words"
+                >
+                  helpdesk@univmaa.com
+                </a>
+              </p>
             </motion.p>
           </div>
         </div>
+
         {/* Job Application Form Section */}
-        <section className="py-12 sm:py-20 px-4 sm:px-6 md:px-20 bg-[#0f172a]">
+        <section
+          className="py-16 sm:py-24  px-4 sm:px-6 mt-[-40px] md:mt-[-70px] md:px-20 lg:h-[1350px] bg-transparent"
+          style={{
+            backgroundImage: `url(${applicationformimgnew2})`,
+            backgroundPosition: "center",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="w-full max-w-4xl mx-auto bg-[#111827] rounded-xl shadow-2xl p-6 sm:p-8"
+            className="w-full max-w-6xl justify-start mx-auto bg-transparent  border border-gray-200 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-8 sm:p-12"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 bg-gradient-to-r from-sky-600 to-indigo-600 bg-clip-text text-transparent">
               Job Application Form
             </h2>
 
             <form
               onSubmit={handleSubmit}
-              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+              className="flex flex-wrap justify-between gap-6"
             >
               {[
                 {
@@ -166,13 +197,20 @@ export default function ApplicationForm() {
                   placeholder: "Email",
                   type: "email",
                   required: true,
-                  col: 2,
                 },
-                { name: "phone", placeholder: "Phone", col: 2 },
+                { name: "phone", placeholder: "Phone" },
                 {
                   name: "Education",
                   type: "select",
-                  options: ["Bachelors", "Masters", "PhD", "Other"],
+                  options: [
+                    "Bachelors",
+                    "Masters",
+                    "PhD",
+                    "BSc",
+                    "MSc",
+                    "MCA",
+                    "Other",
+                  ],
                 },
                 {
                   name: "JobCategory",
@@ -180,11 +218,23 @@ export default function ApplicationForm() {
                   options: [
                     "Salesforce Developer",
                     "Salesforce Trainee",
+                    "Salesforce Consultant",
                     "Other",
                   ],
                 },
                 { name: "experience", placeholder: "Years of Experience" },
-                { name: "country", placeholder: "Country" },
+                {
+                  name: "Country",
+                  type: "select",
+                  options: [
+                    "India",
+                    "USA",
+                    "Canada",
+                    "UK",
+                    "Australia",
+                    "Other",
+                  ],
+                },
                 { name: "state", placeholder: "State / Province" },
                 { name: "city", placeholder: "City" },
                 { name: "location", placeholder: "Preferred Location" },
@@ -193,16 +243,15 @@ export default function ApplicationForm() {
                   name: "resumeLink",
                   placeholder: "Resume Link (Google Drive / OneDrive)",
                   required: true,
-                  col: 2,
                 },
-                { name: "reference", placeholder: "Reference", col: 2 },
+                { name: "reference", placeholder: "Reference" },
               ].map((field, index) => (
                 <motion.div
                   key={field.name}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05, duration: 0.5 }}
-                  className={field.col === 2 ? "col-span-1 md:col-span-2" : ""}
+                  className="flex-1 min-w-[250px]"
                 >
                   {field.type === "select" ? (
                     <select
@@ -210,13 +259,17 @@ export default function ApplicationForm() {
                       value={form[field.name]}
                       onChange={handleChange}
                       required={field.required}
-                      className="p-3 rounded bg-[#1f2937] text-white w-full text-sm sm:text-base"
+                      className="p-3 rounded-lg border bg-white border-gray-300  focus:ring-2 focus:to-blue-800 focus:border-blue-800 w-full text-gray-800 text-sm sm:text-base hover:bg-white transition"
                     >
-                      <option value="">
+                      <option value="" className=" font-sans text-[12px]">
                         {field.placeholder || field.name}
                       </option>
                       {field.options.map((opt) => (
-                        <option key={opt} value={opt}>
+                        <option
+                          key={opt}
+                          value={opt}
+                          className="md:font-sans text-[12px]"
+                        >
                           {opt}
                         </option>
                       ))}
@@ -229,7 +282,7 @@ export default function ApplicationForm() {
                       onChange={handleChange}
                       placeholder={field.placeholder}
                       required={field.required}
-                      className="p-3 rounded bg-[#1f2937] text-white w-full text-sm sm:text-base"
+                      className="p-3 rounded-lg border focus:ring-2 focus:ring-sky-500 outline-none text-black w-full  placeholder:text-black text-sm sm:text-base  hover:bg-white transition"
                     />
                   )}
                 </motion.div>
@@ -238,21 +291,20 @@ export default function ApplicationForm() {
               <motion.button
                 type="submit"
                 disabled={status === "loading"}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="col-span-1 md:col-span-2 py-3 rounded bg-gradient-to-r from-sky-500 to-purple-600 text-white font-semibold shadow-lg hover:opacity-90 transition"
+                whileTap={{ scale: 0.97 }}
+                className="w-full py-3 rounded-lg bg-white text-[#0176d3] hover:bg-[#0176d3] hover:text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300"
               >
                 {status === "loading" ? "Submitting..." : "Submit Application"}
               </motion.button>
             </form>
 
             {status === "success" && (
-              <p className="text-green-400 text-center mt-4">
+              <p className="text-green-600 font-medium text-center mt-6">
                 ✅ Application submitted successfully!
               </p>
             )}
             {status === "error" && (
-              <p className="text-red-400 text-center mt-4">
+              <p className="text-red-600 font-medium text-center mt-6">
                 ❌ Failed to submit. Please try again.
               </p>
             )}
@@ -260,15 +312,16 @@ export default function ApplicationForm() {
         </section>
 
         {/* Life at Univmaa Section */}
-        <section className="py-20 px-6 md:px-20 bg-[#0f172a]">
+        <section className="py-20 px-6 md:px-20 lg:mt-[-560px] md:mt-[-130px] mt-[-86px]  mb-[-40px]">
           <motion.h2
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-3xl font-bold text-center mb-12"
+            className="text-3xl font-bold text-blue-950  text-center mb-12"
           >
-            Life at Univmaa 🌍
+            Life at <span className="text-blue-500">Univmaa</span>
           </motion.h2>
+
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
@@ -292,177 +345,30 @@ export default function ApplicationForm() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.2, duration: 0.8 }}
-                className="bg-[#1f2937] rounded-xl overflow-hidden shadow-lg hover:scale-105 transition"
+                className="bg-white rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden"
               >
+                {/* Card Image */}
                 <img
                   src={card.img}
                   alt={card.title}
                   className="h-48 w-full object-cover"
                 />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
-                  <p className="text-gray-300">{card.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </section>
 
-        <motion.section
-          className="px-6 md:px-20 py-20 bg-[#004d73]"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
-        >
-          <motion.h2
-            variants={fadeInLeft}
-            className="text-3xl md:text-4xl font-bold text-center mb-16 text-white"
-          >
-            Your Growth Path 🚀
-          </motion.h2>
-
-          <div className="space-y-16 max-w-5xl mx-auto">
-            {[
-              {
-                time: "Intern",
-                activity: "Kickstart your journey with hands-on training.",
-              },
-              {
-                time: "Developer",
-                activity: "Take charge of real-world Salesforce projects.",
-              },
-              {
-                time: "Team Lead",
-                activity: "Guide teams and shape product solutions.",
-              },
-              {
-                time: "Manager",
-                activity: "Drive global impact with leadership.",
-              },
-            ].map((step, i) => (
-              <motion.div
-                key={i}
-                variants={i % 2 === 0 ? fadeInLeft : fadeInRight}
-                className={`flex flex-col md:flex-row items-center gap-8 ${
-                  i % 2 !== 0 ? "md:flex-row-reverse" : ""
-                }`}
-              >
-                <div className="bg-[#111827] p-6 rounded-xl shadow-lg w-full md:w-1/2">
-                  <span className="text-sky-400 font-bold">{step.time}</span>
-                  <p className="text-gray-300 mt-2">{step.activity}</p>
-                </div>
-
-                <div className="hidden md:block w-1 md:w-2 h-16 md:h-20 bg-gradient-to-b from-sky-400 to-purple-500 rounded-full" />
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Perks & Benefits Section */}
-        <section className="py-20 px-6 md:px-20 bg-[#111827]">
-          <motion.h2
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl font-bold text-center mb-12"
-          >
-            Perks & Benefits 🎁
-          </motion.h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                icon: "💻",
-                title: "Hybrid Work",
-                desc: "Flexible work-from-home options.",
-              },
-              {
-                icon: "📈",
-                title: "Career Growth",
-                desc: "Structured learning & mentorship.",
-              },
-              {
-                icon: "🏖️",
-                title: "Paid Leaves",
-                desc: "Enjoy a healthy work-life balance.",
-              },
-              {
-                icon: "🎉",
-                title: "Events & Fun",
-                desc: "Hackathons, parties & team outings.",
-              },
-            ].map((perk, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.2, duration: 0.6 }}
-                className="bg-[#1f2937] p-6 rounded-xl text-center shadow-lg hover:scale-105 transition"
-              >
-                <div className="text-4xl mb-3">{perk.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{perk.title}</h3>
-                <p className="text-gray-300">{perk.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        {/* Why Join Us Section */}
-        <section className="py-20 px-6 md:px-20 bg-[#111827]">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-white">
-            Why Build Your Career With Us?
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                icon: <Briefcase className="w-10 h-10 text-sky-400" />,
-                title: "Challenging Projects",
-                desc: "Work on transformative projects with world-leading clients and industries.",
-                gradient: "from-sky-400/40 to-blue-600/20",
-              },
-              {
-                icon: <Users className="w-10 h-10 text-purple-400" />,
-                title: "Collaborative Culture",
-                desc: "Thrive in an inclusive environment built on teamwork and innovation.",
-                gradient: "from-purple-400/40 to-pink-600/20",
-              },
-              {
-                icon: <Rocket className="w-10 h-10 text-green-400" />,
-                title: "Career Advancement",
-                desc: "Accelerate your growth with mentorship, learning, and new opportunities.",
-                gradient: "from-green-400/40 to-emerald-600/20",
-              },
-              {
-                icon: <Award className="w-10 h-10 text-yellow-400" />,
-                title: "Recognition & Impact",
-                desc: "Be valued for your contributions while making a lasting difference.",
-                gradient: "from-yellow-400/40 to-orange-600/20",
-              },
-            ].map((card, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.2, duration: 0.6 }}
-                className={`relative group bg-[#1f2937]/80 backdrop-blur-lg p-8 rounded-2xl border border-gray-700 shadow-lg hover:shadow-2xl hover:border-transparent hover:scale-[1.05] transition duration-500`}
-              >
-                {/* Gradient Border Glow */}
-                <div
-                  className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${card.gradient} opacity-0 group-hover:opacity-100 blur-xl transition`}
-                ></div>
-
-                <div className="relative z-10 flex flex-col items-center text-center">
-                  <div className="mb-4 p-3 rounded-full bg-black/40 shadow-inner">
-                    {card.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">
+                {/* Card Content */}
+                <div className="p-6 space-y-3">
+                  <h3 className="text-lg font-semibold text-gray-900 leading-snug">
                     {card.title}
                   </h3>
-                  <p className="text-gray-300">{card.desc}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {card.desc}
+                  </p>
                 </div>
               </motion.div>
             ))}
           </div>
         </section>
+
+        {/* Perks & Benefits Section */}
       </div>
       <RequestForConsultation />
       <Footer />

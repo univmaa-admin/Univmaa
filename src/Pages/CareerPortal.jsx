@@ -22,9 +22,19 @@ import {
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer.jsx";
 import Navbar from "../components/Navbar.jsx";
-import careerImg1 from "../assets/careerimg1.png";
-import careerVideo from "../assets/career.mp4";
-import RequestForConsultation from "../components/RequestForConsultation.jsx";
+
+import careersimgnew from "../assets/careersimgnew.avif";
+import careersimgnew2 from "../assets/careersimgnew2.webp";
+import careersimgnew3 from "../assets/careersimgnew3.webp";
+import careersimgnew4 from "../assets/careersimgnew4.webp";
+import careersimgnew5 from "../assets/careersimgnew5.webp";
+import careersimgnew6 from "../assets/careersimgnew6.webp";
+import careersimgnew7 from "../assets/careersimgnew7.webp";
+import careersimgnew8 from "../assets/careersimgnew8.webp";
+import careersimgnew9 from "../assets/careersimgnew9.jpg";
+import careersimgnew10 from "../assets/careersimgnew10.webp";
+import careersimgnew11 from "../assets/careersimgnew11.webp";
+import careersimgnew12 from "../assets/careersimgnew12.webp";
 
 // ------------------- Animation variants -------------------
 const fadeInUp = {
@@ -142,25 +152,25 @@ export default function CareerPortal() {
       icon: <Users className="w-10 h-10 text-sky-600" />,
       title: "Teamwork",
       description:
-        "We embrace collaboration and honor the strengths of each team member",
+        "We embrace collaboration and honor the strengths of each team member .",
     },
     {
       icon: <UserPlus className="w-10 h-10 text-sky-600" />,
       title: "Inclusivity",
       description:
-        "We support a workplace where diverse perspectives and identities are welcome and respected",
+        "We support a workplace where diverse perspectives and identities are welcome and respected.",
     },
     {
       icon: <Lightbulb className="w-10 h-10 text-sky-600" />,
       title: "Innovation",
       description:
-        "We aggressively challenge the status quo and foster creativity",
+        "We aggressively challenge the status quo and foster creativity.",
     },
     {
       icon: <Award className="w-10 h-10 text-sky-600" />,
       title: "Excellence",
       description:
-        "We strive to deliver the highest value to our clients and colleagues",
+        "We strive to deliver the highest value to our clients and colleagues.",
     },
   ];
 
@@ -346,25 +356,23 @@ export default function CareerPortal() {
 
         {/* ---------------- HERO (video background) ---------------- */}
         <motion.section
-          className="relative h-[80vh] flex items-center justify-center text-center overflow-hidden"
+          className="relative h-screen flex items-center justify-center text-center overflow-hidden"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.25 }}
           variants={zoomIn}
         >
           {/* background video */}
-          <video
-            className="absolute inset-0 w-full h-full object-cover"
-            autoPlay
-            loop
-            muted
-            playsInline
-          >
-            <source src={careerVideo} type="video/mp4" />
-          </video>
+          <div
+            className="absolute inset-0 bg-no-repeat lg:bg-cover md:bg-cover md:bg-center bg-center z-0"
+            style={{
+              backgroundImage: `url(${careersimgnew})`,
+              backgroundAttachment: "fixed",
+            }}
+          ></div>
 
           {/* overlay */}
-          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-black/35" />
 
           {/* content */}
           <div className="relative z-10 px-6">
@@ -378,7 +386,7 @@ export default function CareerPortal() {
             <motion.p
               variants={fadeInUp}
               custom={1}
-              className="text-gray-300 max-w-3xl mx-auto mb-8"
+              className="text-white font-bold text-xl max-w-3xl mx-auto mb-8"
             >
               At Univmaa, we don’t just offer jobs — we build careers with
               purpose. Joining our team means being part of a culture that
@@ -391,7 +399,7 @@ export default function CareerPortal() {
                   window.scrollTo(0, 0); // 👈 reset scroll
                 }}
                 whileHover={{ scale: 1.03 }}
-                className="px-8 py-3 bg-gradient-to-r from-sky-500 to-purple-600 rounded-lg font-semibold shadow-lg hover:opacity-95 transition"
+                className="px-8 py-3 bg-white text-[#0176d3] hover:bg-[#0176d3] hover:text-white  rounded-lg font-semibold shadow-lg hover:opacity-95 transition"
               >
                 Take a Tour →
               </button>
@@ -400,58 +408,108 @@ export default function CareerPortal() {
         </motion.section>
 
         {/* ---------------- CAREERS BANNER (blue background with left text and right hex image) ---------------- */}
-        <section className="bg-[#004d73] py-16 px-6">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Our people power the future of connected wealth.
-              </h2>
-              <p className="text-lg text-white mb-8 leading-relaxed max-w-2xl">
-                We are committed to helping our clients solve their most
-                demanding challenges, and work every day to help them strengthen
-                the financial wellbeing of millions of investors. This
-                commitment is only possible because we invest in the brightest
-                minds in the business. Our future is full of possibility, and we
-                invite you to join us.
-              </p>
-              <a
-                href="#open-positions"
-                className="inline-flex items-center gap-2 bg-yellow-500 text-black font-semibold px-6 py-3 rounded-md hover:bg-yellow-400 transition"
-              >
-                VIEW OPEN POSITIONS <ArrowUpRight size={18} />
-              </a>
+        <section
+          className="relative w-full overflow-hidden bg-white
+           md:h-[650px]
+          "
+          style={{
+            backgroundImage: `url(${careersimgnew2})`,
+            backgroundSize: "contain",
+            backgroundPosition: "center bottom",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          {/* Gradient overlay for professional polish */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-white/90 to-transparent z-[1]"></div>
+
+          <div className="relative max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between px-6 sm:px-10 md:px-16 lg:px-24 py-20 md:py-28 z-[2]">
+            {/* Left section */}
+            <div className="relative flex flex-col justify-center w-full md:w-1/2 text-center md:text-left space-y-6">
+              {/* Einstein image */}
+              {/* <img
+                src={einsteinImg}
+                alt="Einstein mascot"
+                className="absolute -left-8 -bottom-6 w-28 sm:w-36 md:w-44 lg:w-52 object-contain drop-shadow-xl"
+              /> */}
+
+              {/* Text block */}
+              <div className="relative z-10 md:left-2  lg:pl-44 md:w-[400px] lg:w-[800px]">
+                <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-6xl font-bold text-blue-950 leading-tight">
+                  Our people power the future of{" "}
+                  <span className="text-blue-500">connected wealth.</span>
+                </h2>
+
+                <p className="text-black text-base sm:text-lg leading-relaxed md:mt-4 max-w-lg mx-auto md:mx-0">
+                  We help clients solve their most demanding challenges and
+                  improve the financial wellbeing of millions of investors. Our
+                  success is driven by investing in the brightest minds in the
+                  business. The future is full of possibilities—join us and help
+                  shape it.
+                </p>
+
+                <div className="pt-6">
+                  <a
+                    href="#open-positions"
+                    className="inline-flex items-center gap-2 bg-white text-[#0176d3] hover:bg-[#0176d3] hover:text-white  font-semibold px-6 py-3 rounded-md shadow-md hover:scale-[1.03] transition-all duration-300"
+                  >
+                    VIEW OPEN POSITIONS <ArrowUpRight size={18} />
+                  </a>
+                </div>
+              </div>
             </div>
 
-            {/* Right hexagon image */}
-            <div className="flex justify-center">
-              <div className="relative w-80 h-80">
-                <div className="absolute inset-0 clip-hex-large border-4 border-yellow-500 overflow-hidden">
+            {/* Right hex image */}
+            {/* Wrapper (acts as blue border) */}
+            <div className="flex justify-center md:justify-end md:ms-20 w-full md:w-1/2 mb-12 md:mb-0">
+              <div className="relative w-64 h-64 sm:w-72 md:h-64 sm:h-72 lg:mt-32 md:mt md:w-64  lg:w-[320px] lg:h-[300px] group">
+                {/* ✅ Outer border (blue frame) */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-sky-400 rounded-2xl"></div>
+
+                {/* ✅ Inner image slightly inset */}
+                <div className="absolute inset-[5px] rounded-2xl overflow-hidden transition-transform duration-300 group-hover:scale-105 shadow-lg">
                   <img
-                    src={careerImg1}
-                    alt="Careers Team"
+                    src={careersimgnew9}
+                    alt="Team"
                     className="w-full h-full object-cover"
                   />
                 </div>
               </div>
             </div>
           </div>
+
+          {/* Bottom gradient fade */}
+          <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white to-transparent z-[1]"></div>
         </section>
 
         {/* ---------------- Culture & Values (hexagon icons above rectangles) ---------------- */}
 
-        <section className="bg-[#040412] py-20 px-6">
-          <div className="max-w-7xl mx-auto text-center">
+        <section
+          className="relative py-24 px-6 overflow-hidden bg-gradient-to-b from-white to-blue-50"
+          style={{
+            backgroundImage: `url(${careersimgnew3})`,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center bottom",
+            backgroundSize: "contain",
+          }}
+        >
+          <div className="max-w-7xl mx-auto md:mt-[-90px] mt-[-80px] text-center">
             {/* Title */}
-            <div className="flex items-center justify-center mb-12">
-              <div className="h-[1px] w-16 bg-gray-400" />
-              <h2 className="mx-6 text-3xl md:text-4xl font-semibold text-white">
-                Our Culture and Values
+            <motion.div
+              initial={{ opacity: 0, y: -40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex items-center  justify-center mb-12"
+            >
+              <div className="h-[2px] w-16  bg-blue-400" />
+              <h2 className="mx-6 text-3xl md:text-4xl font-bold text-blue-950 tracking-tight">
+                Our <span className="text-blue-500">Culture and Values</span>
               </h2>
-              <div className="h-[1px] w-16 bg-gray-400" />
-            </div>
+              <div className="h-[2px] w-16 bg-blue-400" />
+            </motion.div>
 
             {/* Cards */}
-            <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-10 mt-32">
+            <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-4 gap-10 mt-20">
               {cultureValues.map((val, i) => (
                 <motion.div
                   key={i}
@@ -460,21 +518,20 @@ export default function CareerPortal() {
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.3 }}
                   variants={fadeInUp}
-                  className="flex flex-col items-center"
+                  className="flex flex-col pt-6 md:pt-14 items-center"
                 >
-                  {/* Card wrapper */}
-                  <div className="relative w-full mt-8">
-                    {/* Hexagon */}
-                    <div className="clip-hex absolute -top-12 left-1/2 transform -translate-x-1/2 w-24 h-24 bg-white shadow-md flex items-center justify-center border border-gray-300">
+                  <div className="relative w-full group">
+                    {/* Hexagon with hover effect */}
+                    <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 w-24 h-24 bg-transparent md:pb-8  border border-gray-200 shadow-md flex items-center justify-center rounded-2xl group-hover:scale-105 transition-transform duration-300">
                       {val.icon}
                     </div>
 
-                    {/* Rectangle card */}
-                    <div className="bg-[#004d73] text-white p-6 pt-16 min-h-[220px] flex flex-col items-center justify-start">
-                      <h3 className="text-xl font-semibold mb-3">
+                    {/* Card */}
+                    <div className="bg-transparent border border-gray-200 rounded-2xl shadow-2xl p-6 pt-16 min-h-[230px] flex flex-col items-center justify-start transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
+                      <h3 className="text-lg font-semibold mb-3 text-black">
                         {val.title}
                       </h3>
-                      <p className="text-sm leading-relaxed">
+                      <p className=" text-black text-lg leading-relaxed">
                         {val.description}
                       </p>
                     </div>
@@ -485,23 +542,18 @@ export default function CareerPortal() {
           </div>
         </section>
 
-        <style jsx>{`
-          .clip-hex {
-            clip-path: polygon(
-              50% 0%,
-              93% 25%,
-              93% 75%,
-              50% 100%,
-              7% 75%,
-              7% 25%
-            );
-          }
-        `}</style>
-
         {/* ----------------------------Our Benefits--------------------------- */}
 
-        <section className="bg-[#004d73] py-20 px-6">
-          <div className="max-w-6xl mx-auto text-center">
+        <section
+          className="bg-white md:h-[750px]  py-20 px-6"
+          style={{
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center bottom",
+            backgroundSize: "contain",
+            backgroundImage: `url(${careersimgnew4})`,
+          }}
+        >
+          <div className="max-w-6xl mx-auto text-center mt-[-60px]">
             {/* Title */}
             <motion.div
               initial={{ opacity: 0, y: -30 }}
@@ -510,11 +562,11 @@ export default function CareerPortal() {
               viewport={{ once: true }}
               className="flex items-center justify-center mb-6"
             >
-              <div className="h-[1px] w-16 bg-gray-400" />
-              <h2 className="mx-6 text-3xl md:text-4xl font-semibold text-white ">
-                Our Benefits
+              <div className="h-[1px] w-16 bg-gray-400 " />
+              <h2 className="mx-6 text-3xl md:text-4xl font-semibold text-blue-950 ">
+                Our <span className="text-blue-500">Benefits</span>
               </h2>
-              <div className="h-[1px] w-16 bg-gray-400" />
+              <div className="h-[1px] w-16 bg-gray-400"></div>
             </motion.div>
 
             <motion.p
@@ -522,7 +574,7 @@ export default function CareerPortal() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-white md:text-xl max-w-4xl mx-auto mb-14"
+              className="text-black md:text-xl max-w-4xl mx-auto mb-14"
             >
               The forward-thinking compensation and benefits programs we offer
               help our people maximize well-being, work-life balance, income,
@@ -531,7 +583,7 @@ export default function CareerPortal() {
             </motion.p>
 
             {/* Benefits Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 text-left">
+            <div className="grid grid-cols-1    md:grid-cols-2 lg:grid-cols-2 gap-10 text-left">
               {benefits.map((item, i) => (
                 <motion.div
                   key={i}
@@ -544,19 +596,19 @@ export default function CareerPortal() {
                     ease: "easeOut",
                   }}
                   viewport={{ once: true, amount: 0.3 }}
-                  className="flex items-start gap-5"
+                  className="flex items-start rounded-2xl gap-5 p-2 shadow-2xl bg-transparent"
                 >
                   {/* Hexagon icon */}
-                  <div className="clip-hex w-16 h-16 bg-[#f2b705] flex items-center justify-center shrink-0">
+                  <div className="clip-hex w-16 h-16 bg-transparent flex items-center justify-center shrink-0">
                     {item.icon}
                   </div>
 
                   {/* Text */}
                   <div>
-                    <h3 className="font-semibold text-lg text-white">
+                    <h3 className="font-semibold text-lg text-black">
                       {item.title}
                     </h3>
-                    <p className="text-white text-sm leading-relaxed">
+                    <p className="text-black text-sm leading-relaxed">
                       {item.description}
                     </p>
                   </div>
@@ -580,119 +632,108 @@ export default function CareerPortal() {
           `}</style>
         </section>
 
-        {/* ---------------- Why Work With Us (perks) ---------------- */}
-        <motion.section
-          className="px-6 md:px-20 py-20 text-center bg-[#0b0f15]"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
-        >
-          <motion.h2
-            variants={fadeInLeft}
-            className="text-3xl md:text-4xl font-bold mb-12 text-white"
-          >
-            Why Work With Us?
-          </motion.h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-            {perks.map((perk, i) => (
-              <motion.div
-                key={i}
-                variants={fadeInUp}
-                custom={i}
-                className="bg-[#111827] rounded-xl p-8 shadow-lg hover:scale-105 transition"
-              >
-                {perk.icon}
-                <h3 className="text-xl font-semibold mt-4 mb-2 text-white">
-                  {perk.title}
-                </h3>
-                <p className="text-gray-400">{perk.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
         {/* ---------------- A Day in the Life (timeline) ---------------- */}
         <motion.section
-          className="px-6 md:px-20 py-20 bg-[#004d73]"
+          className="relative overflow-hidden px-6 md:px-20 py-20 text-center "
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.2 }}
         >
+          {/* ✅ Section Background Image */}
+          <div
+            className="absolute inset-0 bg-no-repeat bg-cover bg-center z-0"
+            style={{
+              backgroundImage: `url(${careersimgnew5})`,
+              backgroundAttachment: "fixed",
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center bottom",
+            }}
+          ></div>
+
+          {/* ✅ Soft overlay to make text readable */}
+          <div className="absolute inset-0 bg-white/50 backdrop-blur-sm z-0"></div>
+
           <motion.h2
             variants={fadeInLeft}
-            className="text-3xl md:text-4xl font-bold text-center mb-16 text-white"
+            className="text-3xl md:text-4xl font-bold mb-14 text-blue-950 relative z-10"
           >
-            A Day in the Life @ Univmaa
+            Why <span className="text-blue-500">Work With Us?</span>
           </motion.h2>
 
-          <div className="space-y-16 max-w-5xl mx-auto">
-            {[
-              { time: "9:00 AM", activity: "Team Standup & Coffee Chat ☕" },
-              { time: "11:00 AM", activity: "Client Collaboration 💡" },
-              { time: "2:00 PM", activity: "Deep Work & Innovation 🚀" },
-              { time: "5:00 PM", activity: "Knowledge Sharing 📘" },
-            ].map((step, i) => (
-              <motion.div
-                key={i}
-                variants={i % 2 === 0 ? fadeInLeft : fadeInRight}
-                className={`flex flex-col md:flex-row items-center gap-8 ${
-                  i % 2 !== 0 ? "md:flex-row-reverse" : ""
-                }`}
-              >
-                <div className="bg-[#111827] p-6 rounded-xl shadow-lg w-full md:w-1/2">
-                  <span className="text-sky-400 font-bold">{step.time}</span>
-                  <p className="text-gray-300 mt-2">{step.activity}</p>
-                </div>
+          <div className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+            {perks.map((perk, i) => {
+              // ✅ Dynamic card background images
+              const bgImages = [
+                careersimgnew10,
+                careersimgnew11,
+                careersimgnew12,
+              ];
+              const bgImage = bgImages[i % bgImages.length];
 
-                <div className="hidden md:block w-1 md:w-2 h-16 md:h-20 bg-gradient-to-b from-sky-400 to-purple-500 rounded-full" />
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
+              return (
+                <motion.div
+                  key={i}
+                  variants={fadeInUp}
+                  custom={i}
+                  className="relative backdrop-blur-sm rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-transform duration-500 hover:-translate-y-2 hover:scale-[1.03]"
+                >
+                  {/* ✅ Card Background Image */}
+                  <div
+                    className="absolute inset-0  bg-no-repeat bg-cover bg-center "
+                    style={{ backgroundImage: `url(${bgImage})` }}
+                  ></div>
 
-        {/* ---------------- Growth Journey ---------------- */}
-        <motion.section
-          className="px-6 md:px-20 py-20 bg-[#0b0f15]"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-        >
-          <motion.h2
-            variants={fadeInRight}
-            className="text-3xl md:text-4xl font-bold text-center mb-16 text-white"
-          >
-            Your Growth Journey
-          </motion.h2>
+                  {/* ✅ Card overlay for readability */}
+                  <div className="absolute inset-0 bg-transparent"></div>
 
-          <div className="flex flex-wrap justify-center gap-8">
-            {journey.map((step, i) => (
-              <motion.div
-                key={i}
-                variants={fadeInUp}
-                custom={i}
-                className="bg-[#111827] rounded-xl p-6 shadow-md w-52 text-center hover:scale-105 transition"
-              >
-                <Star className="w-8 h-8 text-sky-400 mx-auto mb-3" />
-                <h3 className="font-semibold text-white">{step.stage}</h3>
-                <p className="text-gray-400 text-sm mt-2">{step.desc}</p>
-              </motion.div>
-            ))}
+                  {/* ✅ Card content */}
+                  <div className="relative flex flex-col justify-between h-full">
+                    {/* Top: icon + heading */}
+                    <div className="p-8 border-b border-gray-100">
+                      <div className="w-16 h-16 mx-auto flex items-center justify-center rounded-full  text-white text-2xl shadow-lg mb-4">
+                        {perk.icon}
+                      </div>
+                      <h3 className="text-3xl font-extrabold text-[#0B1739] mb-1">
+                        {perk.percent}
+                      </h3>
+                      <h4 className="text-lg font-semibold text-[#0B1739]">
+                        {perk.title}
+                      </h4>
+                    </div>
+
+                    {/* Bottom: description */}
+                    <div className="p-6 text-black text-sm leading-relaxed">
+                      {perk.desc}
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.section>
 
         {/* ---------------- Opportunities (jobs list) ---------------- */}
         <motion.section
-          className="px-6 md:px-20 py-20 bg-[#004d73]"
+          className="px-6 md:px-20 mt-20 md:mt-[-15px] py-20  "
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.2 }}
+          style={{
+            backgroundImage: `
+      url(${careersimgnew6})
+    `,
+            backgroundSize: "contain",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
         >
           <motion.h2
             variants={zoomIn}
-            className="text-3xl md:text-4xl font-bold text-center mb-12 text-white"
+            className="text-3xl md:text-4xl font-bold md:mt-[-60px] mt-[-100px] text-center lg:mt-[-50px] mb-12 text-black"
             id="open-positions"
           >
-            Current Opportunities
+            Current <span className="text-blue-500">Opportunities</span>
           </motion.h2>
 
           <div className="space-y-6 max-w-3xl mx-auto">
@@ -701,18 +742,18 @@ export default function CareerPortal() {
                 key={i}
                 variants={fadeInUp}
                 custom={i}
-                className="bg-[#111827] rounded-lg shadow-lg overflow-hidden border border-gray-800"
+                className="bg-transparent rounded-lg shadow-lg overflow-hidden border sm:hover:border-blue-300"
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                  className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-[#1f2937] transition"
+                  className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-transparent transition"
                 >
                   <div>
-                    <h3 className="font-semibold text-lg flex items-center gap-2 text-white">
+                    <h3 className="font-semibold text-lg flex items-center gap-2 text-black">
                       <Briefcase className="w-5 h-5 text-sky-400" />
                       {job.title}
                     </h3>
-                    <p className="text-sm text-gray-400 flex gap-4 mt-1">
+                    <p className="text-sm text-black flex gap-4 mt-1">
                       <span className="flex items-center gap-1">
                         <MapPin className="w-4 h-4" /> {job.location}
                       </span>
@@ -738,28 +779,26 @@ export default function CareerPortal() {
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                   className="px-6 overflow-hidden"
                 >
-                  <h4 className="text-white font-semibold mb-2">
+                  <h4 className="text-black font-semibold mb-2">
                     Description:
                   </h4>
-                  <p className="text-gray-300 py-4">{job.Description}</p>
+                  <p className="text-black py-4">{job.Description}</p>
 
                   {job.Responsibilities && (
                     <>
-                      <h4 className="text-white font-semibold mb-2">
+                      <h4 className="text-black font-semibold mb-2">
                         Responsibilities:
                       </h4>
-                      <p className="text-gray-300 mb-4">
-                        {job.Responsibilities}
-                      </p>
+                      <p className="text-black mb-4">{job.Responsibilities}</p>
                     </>
                   )}
 
                   {job.Skills && (
                     <>
-                      <h4 className="text-white font-semibold mb-2">
+                      <h4 className="text-black font-semibold mb-2">
                         Skills & Qualifications:
                       </h4>
-                      <p className="text-gray-300 mb-4">{job.Skills}</p>
+                      <p className="text-black mb-4">{job.Skills}</p>
                     </>
                   )}
                   <button
@@ -768,7 +807,7 @@ export default function CareerPortal() {
                       window.scrollTo(0, 0); // 👈 reset scroll
                     }}
                     whileHover={{ scale: 1.03 }}
-                    className="inline-block mb-6 px-5 py-2 bg-gradient-to-r from-sky-500 to-purple-600 rounded-md font-semibold text-white shadow hover:opacity-90 transition"
+                    className="inline-block mb-6 px-5 py-2 bg-white text-[#0176d3] hover:bg-[#0176d3] hover:text-white rounded-md font-semibold shadow hover:opacity-90 transition"
                   >
                     Apply Now →
                   </button>
@@ -780,16 +819,16 @@ export default function CareerPortal() {
 
         {/* ---------------- FAQs ---------------- */}
         <motion.section
-          className="px-6 md:px-20 py-20 bg-[#0b0f15]"
+          className="px-6 md:px-20 md:mt-[-64px] md:mb-[-30px] py-20 "
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.2 }}
         >
           <motion.h2
             variants={fadeInRight}
-            className="text-3xl md:text-4xl font-bold text-center mb-12 text-white"
+            className="text-3xl md:text-4xl font-bold text-center mb-6 mt-[-40px]  text-black"
           >
-            Candidate FAQs
+            Candidate <span className="text-blue-500"> FAQs</span>
           </motion.h2>
 
           <div className="max-w-3xl mx-auto space-y-4">
@@ -798,17 +837,17 @@ export default function CareerPortal() {
                 key={i}
                 variants={fadeInUp}
                 custom={i}
-                className="bg-[#111827] rounded-lg shadow-md"
+                className=" rounded-lg shadow-md"
               >
                 <button
                   onClick={() => setFaqIndex(faqIndex === i ? null : i)}
-                  className="w-full flex items-center justify-between px-6 py-4 font-medium text-left text-white"
+                  className="w-full flex items-center justify-between hover:bg-blue-500 hover:text-white px-6 py-4 font-medium text-left text-black"
                 >
                   {faq.q}
                   {faqIndex === i ? (
-                    <Minus className="w-5 h-5 text-sky-400" />
+                    <Minus className="w-5 h-5 text-black" />
                   ) : (
-                    <Plus className="w-5 h-5 text-sky-400" />
+                    <Plus className="w-5 h-5 text-black" />
                   )}
                 </button>
 
@@ -822,53 +861,68 @@ export default function CareerPortal() {
                   transition={{ duration: 0.3 }}
                   className="px-6 overflow-hidden"
                 >
-                  <p className="text-gray-400 pb-4">{faq.a}</p>
+                  <p className="text-black  pb-4">{faq.a}</p>
                 </motion.div>
               </motion.div>
             ))}
           </div>
         </motion.section>
         {/* ---------------- CTA ---------------- */}
+
         <motion.section
-          className="px-6 md:px-20 py-20 text-center bg-[#004d73]"
+          className="
+                          relative
+                          px-6 md:px-20 py-20 text-center
+                          bg-no-repeat bg-contain bg-bottom
+                          md:bg-contain md:bg-bottom lg:bg-cover
+                          overflow-hidden
+                                          "
+          style={{
+            backgroundImage: `url(${careersimgnew8})`,
+          }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.2 }}
         >
-          <motion.h2
-            variants={zoomIn}
-            className="text-3xl md:text-4xl font-bold mb-6 text-white"
-          >
-            Ready to Shape the Future with Us?
-          </motion.h2>
-          <motion.p
-            variants={zoomIn}
-            className="text-white max-w-2xl mx-auto mb-10"
-          >
-            Don’t just look for a job. Build a career with impact. Let’s grow
-            together at Univmaa.
-          </motion.p>
-          <motion.button
-            onClick={() => setShowModal(true)}
-            whileHover={{ scale: 1.03 }}
-            className="px-8 py-3 bg-gradient-to-r from-sky-500 to-purple-600 rounded-lg font-semibold shadow-lg hover:opacity-90 transition"
-          >
-            Apply Now →
-          </motion.button>
+          {/* Transparent white box with shadow */}
+          <div className="relative z-10  lg:max-w-2xl lg:ms-[260px] lg:mt-[-20px] mx-auto backdrop-blur-0 shadow-2xl rounded-2xl p-8">
+            <motion.h2
+              variants={zoomIn}
+              className="text-3xl md:text-4xl font-bold mb-6 text-black"
+            >
+              Ready to Shape the Future with Us?
+            </motion.h2>
+
+            <motion.p
+              variants={zoomIn}
+              className="text-black max-w-2xl mx-auto mb-10"
+            >
+              Don’t just look for a job. Build a career with impact. Let’s grow
+              together at Univmaa.
+            </motion.p>
+
+            <motion.button
+              onClick={() => setShowModal(true)}
+              className="px-8 py-3 bg-white text-[#0176d3] hover:bg-[#0176d3] hover:text-white rounded-lg font-semibold shadow-lg transition"
+            >
+              Apply Now →
+            </motion.button>
+          </div>
         </motion.section>
+
         {/* ---------------- Modal (Apply) ---------------- */}
         {showModal && (
           <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-            <div className="bg-gray-900 text-[9px] text-white rounded-2xl mt-28 shadow-xl w-[90%] max-w-lg p-10 relative">
+            <div className="bg-slate-200 text-[9px] text-white rounded-2xl mt-16 shadow-xl w-[90%] max-w-lg p-4 relative">
               <button
                 onClick={() => setShowModal(false)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-white"
+                className="absolute top-4 right-4 text-gray-400 hover:text-red-600"
                 aria-label="Close modal"
               >
                 <X size={24} />
               </button>
 
-              <h3 className="text-2xl font-bold text-center mb-4 text-white">
+              <h3 className="text-2xl font-bold text-center mb-4 text-black">
                 Submit Your Application
               </h3>
 
@@ -880,7 +934,7 @@ export default function CareerPortal() {
                 <input
                   type="text"
                   placeholder="Full Name"
-                  className="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
+                  className="w-full px-4 py-3 placeholder-black text-[12px] rounded-lg border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
                   required
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -888,7 +942,7 @@ export default function CareerPortal() {
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
+                  className="w-full px-4 py-3 rounded-lg placeholder-black text-[12px]  border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
                   required
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -896,7 +950,7 @@ export default function CareerPortal() {
                 <input
                   type="tel"
                   placeholder="Phone Number"
-                  className="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
+                  className="w-full px-4 py-3 rounded-lg placeholder-black text-[12px]  border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
                   required
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
@@ -904,7 +958,7 @@ export default function CareerPortal() {
                 <input
                   type="text"
                   placeholder="Address"
-                  className="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
+                  className="w-full px-4 py-3 rounded-lg placeholder-black text-[12px]  border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
                   required
                   value={form.address}
                   onChange={(e) =>
@@ -914,7 +968,7 @@ export default function CareerPortal() {
                 <input
                   type="text"
                   placeholder="Education"
-                  className="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
+                  className="w-full px-4 py-3 rounded-lg placeholder-black text-[12px]  border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
                   required
                   value={form.education}
                   onChange={(e) =>
@@ -924,7 +978,7 @@ export default function CareerPortal() {
                 <input
                   type="text"
                   placeholder="Skills"
-                  className="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
+                  className="w-full px-4 py-3 rounded-lg placeholder-black text-[12px]  border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
                   required
                   value={form.skills}
                   onChange={(e) => setForm({ ...form, skills: e.target.value })}
@@ -932,7 +986,7 @@ export default function CareerPortal() {
                 <input
                   type="text"
                   placeholder="Years of Passout"
-                  className="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
+                  className="w-full px-4 py-3 rounded-lg placeholder-black text-[12px] border border-gray-700 focus:ring-2 focus:ring-sky-500 outline-none text-white"
                   required
                   value={form.passout}
                   onChange={(e) =>
@@ -943,14 +997,14 @@ export default function CareerPortal() {
                   type="url"
                   value={form.resume}
                   placeholder="Resume Link (Google Drive/Dropbox/OneDrive)"
-                  className="w-full px-4 py-3 rounded-lg bg-[#1f2937] border border-gray-700 text-gray-400"
+                  className="w-full px-4 py-3 rounded-lg placeholder-black text-[12px]  border border-gray-700  focus:ring-2 focus:ring-sky-500 outline-none text-white"
                   required
                   onChange={(e) => setForm({ ...form, resume: e.target.value })}
                 />
 
                 <button
                   type="submit"
-                  className="w-full py-3 bg-gradient-to-r from-sky-500 to-purple-600 rounded-lg font-semibold hover:opacity-90 transition text-white"
+                  className="w-full py-3 bg-white text-[#0176d3] hover:bg-[#0176d3] hover:text-white text-sm rounded-lg font-semibold hover:opacity-90 transition"
                 >
                   Submit Application →
                 </button>

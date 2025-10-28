@@ -3,10 +3,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 import { useNavigate } from "react-router-dom";
-import marketingimg from "../../assets/marketingimg.png";
-import marketingimg2 from "../../assets/marketingimg2.png";
-import marketingimg3 from "../../assets/marketingimg3.png";
+
+import advisoryimgnew from "../../assets/advisoryimgnew.webp";
+import advisoryimgnew2 from "../../assets/advisoryimgnew2.webp";
+import advisoryimgnew3 from "../../assets/advisoryimgnew3.webp";
+import advisory from "../../assets/advisory.jpg";
+
 import RequestForConsultation from "../RequestForConsultation.jsx";
+import FaqDynamic from "../FaqDynamic.jsx";
 
 /* ---------------- Accordion Data ---------------- */
 const accordionData = [
@@ -55,18 +59,24 @@ const Accordion = () => {
       {accordionData.map((item, index) => (
         <div
           key={index}
-          className="border border-gray-700 rounded-xl overflow-hidden bg-black/90"
+          className="border border-gray-700 rounded-xl overflow-hidden"
         >
           {/* Header */}
           <button
             onClick={() => toggleAccordion(index)}
-            className="w-full flex justify-between items-center px-5 py-4 text-left font-medium bg-black hover:bg-gray-900 transition-all duration-300"
+            className={`w-full flex justify-between items-center px-5 py-4 text-left font-medium duration-300
+          ${
+            activeIndex === index
+              ? "bg-blue-500 text-white"
+              : "bg-white text-black"
+          }
+          hover:bg-blue-500 hover:text-white`}
           >
-            <span className="text-white">{item.title}</span>
+            <span>{item.title}</span>
             <motion.span
               animate={{ rotate: activeIndex === index ? 45 : 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="text-2xl text-white"
+              className="text-2xl"
             >
               +
             </motion.span>
@@ -84,7 +94,7 @@ const Accordion = () => {
                 className="overflow-hidden"
               >
                 <motion.div
-                  className="px-5 py-4 bg-gray-950 text-gray-300 text-sm leading-relaxed"
+                  className="px-5 py-4 text-left bg-white text-sm leading-relaxed"
                   initial={{ opacity: 0, y: -5 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -5 }}
@@ -109,26 +119,71 @@ const fadeInUp = {
 
 /* ---------------- Main Page ---------------- */
 const SalesforceAdvisory = () => {
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "a658a2c1-720d-4ddf-875a-07a7c955d2ec");
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    }).then((res) => res.json());
+
+    if (res.success) {
+      setSuccess(true);
+      setError(null);
+      event.target.reset();
+    } else {
+      setError("Something went wrong!");
+      setSuccess(false);
+    }
+  };
+
   const navigate = useNavigate();
 
   return (
     <>
       <Navbar />
-      <div className="bg-[#0B0B1A] text-white font-sans">
+      <div className=" text-black font-sans">
         {/* Hero Section */}
-        <section className="px-4 sm:px-6 lg:px-20 pt-20 sm:pt-28 md:pt-36 mb-32 py-12 grid  gap-8 items-center">
-          {/* Left */}
+        <section
+          className="relative px-4 lg:h-screen md:h-[550px]  sm:px-6 lg:px-20 
+  pt-20 text-black sm:pt-28 md:pt-36 mb-32 py-12 
+  grid grid-cols-1 lg:grid-cols-2 gap-8 items-center overflow-hidden"
+          style={{
+            backgroundImage: `
+      linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0)),
+      url(${advisory})
+    `,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+          }}
+        >
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#001233]/95 via-[#001233]/70 to-transparent z-0"></div>
+
+          {/* Left - Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
-            className="text-center sm:ps-24 md:text-left mt-12"
+            className="relative z-10 md:mt-[-80px] w-full sm:w-[90%] md:w-[700px] text-left sm:ps-6 md:ps-10 lg:ps-0 mt-12"
           >
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Salesforce Advisory
+            <h1 className="text-2xl text-white sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+              Salesforce <span className="text-blue-400">Advisory</span>
             </h1>
-            <p className="text-gray-300 mb-6 text-sm sm:text-base">
+
+            <p className="text-white mb-6 text-base sm:text-lg md:text-xl leading-relaxed">
               Unlock unmatched success with our Salesforce Advisory & Consulting
               Services. Make informed, strategic decisions that maximize the
               value of your Salesforce investment. Our Salesforce Advisory team
@@ -138,8 +193,9 @@ const SalesforceAdvisory = () => {
               guide you at every step to ensure your Salesforce ecosystem aligns
               with your business goals.
             </p>
+
             <button
-              className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-medium shadow-md hover:opacity-90 transition"
+              className="px-6 py-3 bg-white text-[#0176d3] hover:bg-[#0176d3]  hover:text-white rounded-lg font-medium shadow-md hover:opacity-90 transition"
               onClick={() => {
                 navigate("/contactus");
                 window.scrollTo(0, 0);
@@ -148,79 +204,60 @@ const SalesforceAdvisory = () => {
               Contact Us ➜
             </button>
           </motion.div>
-
-          {/* Right Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 80 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-            className="flex justify-center"
-          >
-            <img
-              src={marketingimg3}
-              alt="Advisory Illustration"
-              className="w-full sm:w-[70%] md:w-[65%] lg:w-[55%] mx-auto"
-            />
-          </motion.div>
         </section>
 
         {/* Accordion + Form Section */}
-        <section className="px-4 sm:px-6  lg:px-20 py-12 grid md:grid-cols-2 gap-8 items-start">
-          {/* Accordion */}
+        <section
+          className="px-4 sm:px-6 lg:px-20 mt-[-130px] py-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-no-repeat bg-bottom bg-contain"
+          style={{
+            backgroundImage: `url(${advisoryimgnew})`,
+          }}
+        >
+          {/* Accordion Section */}
           <motion.div
             initial={{ opacity: 0, x: -80 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
+            className="w-full md:max-w-xl lg:ms-32 text-center md:text-left"
           >
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 max-w-md">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-blue-950 font-bold mb-6">
               Accelerate your journey to success with our{" "}
               <span className="text-blue-600">Salesforce experts</span>
             </h2>
             <Accordion />
           </motion.div>
 
-          {/* Form */}
+          {/* Form Section */}
           <motion.div
-            initial={{ opacity: 0, x: 80 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="relative bg-slate-200 p-6 lg:mt-32 md:mt-44 sm:p-8 rounded-2xl shadow-2xl w-full max-w-md mx-auto md:mx-0 md lg:ms-36"
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-b from-purple-600 to-black p-6 sm:p-8 md:w-5/6 rounded-2xl shadow-lg w-full sm:w-3/4 max-w-md mx-auto mt-12 sm:mt-28"
           >
-            <h3 className="text-lg md:text-xl font-semibold mb-6">
-              Fill the form to get started
+            <h3 className="text-lg sm:text-xl font-semibold mb-6 text-center">
+              Let's Talk!
             </h3>
-            <form className="space-y-4">
-              <input
-                type="text"
-                placeholder="First Name *"
-                className="w-full px-4 py-3 rounded-lg bg-white text-black focus:ring-2 focus:ring-purple-500 text-sm"
-              />
-              <input
-                type="text"
-                placeholder="Last Name *"
-                className="w-full px-4 py-3 rounded-lg bg-white text-black focus:ring-2 focus:ring-purple-500 text-sm"
-              />
-              <input
-                type="text"
-                placeholder="Company *"
-                className="w-full px-4 py-3 rounded-lg bg-white text-black focus:ring-2 focus:ring-purple-500 text-sm"
-              />
-              <input
-                type="email"
-                placeholder="Business Email *"
-                className="w-full px-4 py-3 rounded-lg bg-white text-black focus:ring-2 focus:ring-purple-500 text-sm"
-              />
-              <input
-                type="text"
-                placeholder="Contact Number"
-                className="w-full px-4 py-3 rounded-lg bg-white text-black focus:ring-2 focus:ring-purple-500 text-sm"
-              />
+            <form className="space-y-4" onSubmit={onSubmit}>
+              {[
+                "First Name *",
+                "Last Name *",
+                "Company *",
+                "Business Email *",
+                "Comments",
+              ].map((placeholder, i) => (
+                <input
+                  key={i}
+                  type={placeholder.includes("Email") ? "email" : "text"}
+                  placeholder={placeholder}
+                  required={!placeholder.includes("Contact")}
+                  className="w-full px-4 py-3 rounded bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm sm:text-base"
+                />
+              ))}
               <button
                 type="submit"
-                className="w-full py-3 bg-blue-600 hover:bg-blue-700 transition text-white rounded-lg font-semibold"
+                className="w-full px-4 py-3 rounded bg-white text-[#0176d3] hover:bg-[#0176d3] hover:text-white font-semibold transition-colors duration-300"
               >
                 SUBMIT
               </button>
@@ -234,29 +271,28 @@ const SalesforceAdvisory = () => {
           whileInView="show"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-16 grid md:grid-cols-2 gap-10 items-center"
+          className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-16 grid md:grid-cols-1 lg:grid-cols-2  items-center"
         >
           <motion.img
-            src={marketingimg2}
+            src={advisoryimgnew2}
             alt="Why Choose"
-            className="w-full sm:w-[60%] md:w-[80%] lg:w-[70%] mx-auto"
-            whileHover={{ scale: 1.05 }}
+            className="w-[60%] mb-12  lg:ms-40 md:w-[50%] md:mb-16 lg:w-[70%] mx-auto"
             transition={{ type: "spring", stiffness: 200 }}
           />
 
           <div className="text-center md:text-left">
-            <h2 className="text-2xl md:text-3xl font-bold leading-snug mb-4">
+            <h2 className="text-2xl md:text-3xl md:w-[700px] font-bold leading-snug mb-4">
               Why Choose <span className="text-blue-800">Univmaa</span> as your{" "}
-              <br /> Salesforce Advisory Partner?
+              Salesforce Advisory Partner?
             </h2>
-            <p className="text-gray-300 mb-4 text-sm md:text-base">
+            <p className="text-black mb-4 text-sm md:text-base">
               Business processes are transforming at a lightning pace and the
               competition is cutthroat. Evolving your business digitally is the
               only way forward. As a proud Salesforce Summit Partner, we offer
               our advisory services by facilitating digital evolution and
               driving innovation for our clients.
             </p>
-            <ul className="list-disc list-inside text-gray-300  text-start space-y-2 mb-6 text-sm md:text-base">
+            <ul className="list-disc list-inside text-black  text-start space-y-2 mb-6 text-sm md:text-base">
               <li>4.9/5 Customer Satisfaction (CSAT) Score</li>
               <li>Diverse Industry Expertise</li>
               <li>95% Salesforce Certified Professionals</li>
@@ -266,8 +302,7 @@ const SalesforceAdvisory = () => {
             </ul>
             <motion.a
               onClick={() => navigate("/contactus")}
-              whileHover={{ scale: 1.05 }}
-              className="bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 rounded-lg hover:cursor-pointer font-semibold inline-block"
+              className="bg-white shadow-md text-[#0176d3] hover:bg-[#0176d3] hover:text-white px-6 py-3 rounded-lg hover:cursor-pointer font-semibold inline-block"
             >
               Contact Us →
             </motion.a>
@@ -280,13 +315,14 @@ const SalesforceAdvisory = () => {
           whileInView="show"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="bg-black container mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-16 grid md:grid-cols-2 gap-10 items-center"
+          className=" container mx-auto px-4 lg:mt-[-100px]  sm:px-6 md:px-12 lg:px-20 py-16 grid lg:grid-cols-2  md:grid-cols-1  "
         >
-          <div className="text-center md:text-left">
+          <div className="text-center md:text-left mt-[-100px] md:mt-[-70px] lg:mt-0 lg:ms-48 lg:w-[700px]">
             <h2 className="text-2xl md:text-3xl font-bold leading-snug mb-4">
-              Maximizing ROI on Your CRM System
+              Maximizing <span className="text-blue-500">ROI</span> on Your CRM
+              System
             </h2>
-            <p className="text-gray-300 mb-4 text-sm md:text-base">
+            <p className="text-black mb-4 text-sm md:text-base">
               A successful CRM implementation starts with an understanding of
               specific business requirements. Our Salesforce CRM advisors are
               industry experts who study your business processes and customize
@@ -294,7 +330,7 @@ const SalesforceAdvisory = () => {
               requirements.
             </p>
             <h3 className="font-semibold mb-3">Our Approach</h3>
-            <ul className="list-disc list-inside text-start text-gray-300 space-y-2 mb-6 text-sm md:text-base">
+            <ul className="list-disc list-inside text-start text-black space-y-2 mb-6 text-sm md:text-base">
               <li>Business Alignment & Gap Analysis</li>
               <li>Strategic Roadmap</li>
               <li>Prioritize Issues</li>
@@ -307,25 +343,24 @@ const SalesforceAdvisory = () => {
                 navigate("/contactus");
                 window.scrollTo(0, 0);
               }}
-              whileHover={{ scale: 1.05 }}
-              className="bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 rounded-lg hover:cursor-pointer font-semibold inline-block"
+              className="bg-white shadow-md text-[#0176d3] hover:bg-[#0176d3] hover:text-white  px-6 py-3 rounded-lg hover:cursor-pointer font-semibold inline-block"
             >
               Let’s Connect →
             </motion.a>
           </div>
 
           <motion.img
-            src={marketingimg}
+            src={advisoryimgnew3}
             alt="CRM ROI"
-            className="w-full sm:w-[60%] md:w-[80%] lg:w-[70%] mx-auto"
-            whileHover={{ scale: 1.05 }}
+            className=" md:w-[60%] w-[70%] mt-5 mb-[-80px] md:mb-[-70px] lg:w-[50%] lg:ms-[260px] lg:mt-9 mx-auto"
             transition={{ type: "spring", stiffness: 200 }}
           />
         </motion.section>
 
         {/* CTA Section */}
-        <RequestForConsultation />
       </div>
+      <FaqDynamic />
+      <RequestForConsultation />
       <Footer />
     </>
   );

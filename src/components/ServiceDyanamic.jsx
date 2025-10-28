@@ -60,7 +60,7 @@ const serviceData = {
     img: healthimg2,
   },
   "revenue-cloud": {
-    title: "Salesforce Revenue Cloud Advanced (RCA)",
+    title: "Salesforce Revenue Cloud ",
     shortDesc:
       "Salesforce Revenue Cloud Advanced brings direct, partner, and self-service sales into one powerful ecosystem, automating every revenue touchpoint with Agentforce.",
     modalTitle: "Salesforce Revenue Cloud",
@@ -71,7 +71,7 @@ const serviceData = {
   "cpq-cloud": {
     title: "Salesforce CPQ Consulting & Implementation",
     shortDesc:
-      "Accelerate sales process with accurate sales quotes, reduced errors and faster quote-to-cash cycles with Salesforce CPQ.",
+      "Empower your sales organization with Salesforce CPQ — a scalable, enterprise-grade Configure, Price, Quote solution built on the Salesforce platform. Enable your teams to create precise, compliant quotes in real time across any channel using guided selling flows, dynamic product bundles, and advanced pricing automation. Strengthen operational governance with embedded approval workflows, robust discount controls, and integrated compliance mechanisms — ensuring every quote aligns with business strategy and profitability goals.",
     modalTitle: "Salesforce CPQ Cloud",
     modalDesc:
       "CPQ Cloud (Configure, Price, Quote) streamlines complex sales cycles by automating product configuration, pricing, and quote generation. It helps sales teams reduce errors, ensure accurate pricing, and deliver professional quotes in minutes. Guided selling, discount management, and approval workflows improve deal velocity and profitability. Seamless integration with Sales Cloud, Service Cloud, and billing systems ensures end-to-end revenue management.",
@@ -108,8 +108,7 @@ const serviceData = {
   mulesoft: {
     title: "Salesforce MuleSoft",
     shortDesc:
-      "UNIVMAA, a Salesforce Summit Partner and MuleSoft expert, helps enterprises simplify integration challenges through API-led connectivity. Our solutions enable modularity, autonomy, and real-time orchestration, ensuring seamless collaboration across systems and the digital ecosystem. With deep industry expertise, best practices, and pre-built accelerators, we empower businesses to accelerate digital transformation, optimize processes, and future-proof their technology landscape.",
-    modalTitle: "Salesforce MuleSoft",
+      "UNIVMAA, a Salesforce Summit Partner and MuleSoft expert, helps enterprises simplify integration challenges through API-led connectivity. Our solutions enable modularity, autonomy, and real-time orchestration, ensuring seamless collaboration across systems and the digital ecosystem. ",
     modalDesc:
       "MuleSoft connects applications, data, and devices with an API-led approach. It enables businesses to accelerate digital transformation by integrating systems faster, automating workflows, and delivering connected customer experiences.",
     img: mulesoft4,
@@ -129,20 +128,20 @@ const ServiceDyanamic = ({ serviceKey }) => {
   }
 
   return (
-    <div className="space-y-6 sm:ps-14">
+    <div className="space-y-6 sm:ps-14  lg:w-[900px] md:w-[700px] lg:ms-44  md:ms-10">
       {/* Heading & Content */}
-      <h2 className="text-3xl md:text-5xl font-bold">
+      <h2 className="text-3xl md:text-5xl text-blue-950 font-bold">
         {service.title.split(" ")[0]}{" "}
-        <span className="text-sky-500">
+        <span className="text-blue-500">
           {service.title.split(" ").slice(1).join(" ")}
         </span>
       </h2>
-      <p className="text-gray-300 text-lg max-w-xl">{service.shortDesc}</p>
+      <p className="text-black text-lg max-w-xl">{service.shortDesc}</p>
 
       {/* Explore More Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="inline-block px-6 py-3 bg-gradient-to-r from-sky-500 to-purple-600 rounded-md font-semibold text-white shadow hover:opacity-90 transition"
+        className="inline-block px-6 py-3 bg-white text-[#0176d3] hover:bg-[#0176d3] hover:text-white rounded-md font-semibold   shadow hover:opacity-90 transition"
       >
         Explore More →
       </button>
@@ -175,10 +174,10 @@ const ServiceDyanamic = ({ serviceKey }) => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                 {/* Text Content */}
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-3 text-center md:text-left">
+                  <h3 className="text-2xl font-bold text-black mb-3 text-center md:text-left">
                     {service.modalTitle}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm sm:text-base text-left md:text-left">
+                  <p className="text-black leading-relaxed text-sm sm:text-base text-left md:text-left">
                     {service.modalDesc}
                   </p>
                 </div>
@@ -187,6 +186,7 @@ const ServiceDyanamic = ({ serviceKey }) => {
                 <div className="flex justify-center">
                   <img
                     src={service.img}
+                    loading="eager"
                     alt={service.modalTitle}
                     className="rounded-lg shadow-md w-full h-40 sm:h-52 md:h-64 lg:h-80 object-cover"
                   />

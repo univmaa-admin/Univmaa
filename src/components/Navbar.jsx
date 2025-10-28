@@ -2,15 +2,20 @@ import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
-import fbLogo from "../assets/facebook.png";
-import instaLogo from "../assets/instagram.png";
+import { NavLink, useLocation } from "react-router-dom";
+// import fbLogo from "../assets/facebook.png";
+// import instaLogo from "../assets/instagram.png";
 import twitterLogo from "../assets/twitter.png";
 import LinkedInLogo from "../assets/linkedin.png";
-import { NavLink } from "react-router-dom";
 import logo from "../assets/univmaalogo.png";
 import "../App.css";
 
 const Navbar = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
   const [nav, setNav] = useState(false);
   const [mobileNav, setMobileNav] = useState(false);
 
@@ -40,7 +45,7 @@ const Navbar = () => {
       <nav
         className={`${
           nav
-            ? "bg-blue-950 transition-all duration-500  fixed w-full flex justify-between items-center text-white md:px-16 sm:px-10 px-6 py-2 shadow-lg"
+            ? "bg-blue-950 transition-all duration-500 fixed w-full flex justify-between items-center text-white md:px-16 sm:px-10 px-6 py-2 shadow-lg"
             : "fixed w-full flex justify-between items-center text-white md:px-16 sm:px-10 px-6 py-4"
         } z-[999999] h-20`} // 🔹 fixed navbar height
       >
@@ -56,7 +61,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Menu */}
-        <ul className="md:flex hidden items-center gap-10 text-lg mx-auto">
+        <ul className="md:flex hidden items-center md:font-semibold gap-10 text-lg mx-auto">
           <li className="relative group">
             <NavLink
               to={"/"}
@@ -84,7 +89,6 @@ const Navbar = () => {
             </NavLink>
           </li>
 
-          {/* Services Dropdown */}
           <li className="relative group">
             <span className="cursor-pointer flex items-center relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-blue-500 after:transition-all after:duration-300 group-hover:after:w-full">
               Services ▾
@@ -93,16 +97,15 @@ const Navbar = () => {
               <li className="relative group/sub border-b border-gray-200">
                 <NavLink
                   to="/salesforceimplementation"
-                  className="block px-4 py-2 text-sm font-thin hover:bg-gray-100"
+                  className="block px-4 py-2 text-sm font-thin hover:bg-blue-500 hover:text-white"
                 >
                   Salesforce Implementation
                 </NavLink>
-                {/* Submenu */}
                 <ul className="absolute left-full top-0 bg-white text-black shadow-lg w-64 z-50 opacity-0 translate-x-2 invisible group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0 transition-all duration-300 ease-in-out max-lg:hidden">
                   <li>
                     <NavLink
                       to="/salescloud"
-                      className="block px-4 py-2 text-sm font-thin hover:bg-gray-100"
+                      className="block px-4 py-2 text-sm font-thin hover:bg-blue-500 hover:text-white"
                     >
                       Salesforce Sales Cloud
                     </NavLink>
@@ -110,7 +113,7 @@ const Navbar = () => {
                   <li>
                     <NavLink
                       to="/servicecloud"
-                      className="block px-4 py-2 text-sm font-thin hover:bg-gray-100"
+                      className="block px-4 py-2 text-sm font-thin hover:bg-blue-500 hover:text-white"
                     >
                       Salesforce Service Cloud
                     </NavLink>
@@ -118,7 +121,7 @@ const Navbar = () => {
                   <li>
                     <NavLink
                       to="/marketingcloud"
-                      className="block px-4 py-2 text-sm font-thin hover:bg-gray-100"
+                      className="block px-4 py-2 text-sm font-thin hover:bg-blue-500 hover:text-white"
                     >
                       Salesforce Marketing Cloud
                     </NavLink>
@@ -126,7 +129,7 @@ const Navbar = () => {
                   <li>
                     <NavLink
                       to="/experiencecloud"
-                      className="block px-4 py-2 text-sm font-thin hover:bg-gray-100"
+                      className="block px-4 py-2 text-sm font-thin hover:bg-blue-500 hover:text-white"
                     >
                       Salesforce Experience Cloud
                     </NavLink>
@@ -134,7 +137,7 @@ const Navbar = () => {
                   <li>
                     <NavLink
                       to="/healthcloud"
-                      className="block px-4 py-2 text-sm font-thin hover:bg-gray-100"
+                      className="block px-4 py-2 text-sm font-thin hover:bg-blue-500 hover:text-white"
                     >
                       Salesforce Health Cloud
                     </NavLink>
@@ -142,7 +145,7 @@ const Navbar = () => {
                   <li>
                     <NavLink
                       to="/revenuecloud"
-                      className="block px-4 py-2 text-sm font-thin hover:bg-gray-100"
+                      className="block px-4 py-2 text-sm font-thin hover:bg-blue-500 hover:text-white"
                     >
                       Revenue Cloud Advanced
                     </NavLink>
@@ -150,7 +153,7 @@ const Navbar = () => {
                   <li>
                     <NavLink
                       to="/cpq"
-                      className="block px-4 py-2 text-sm font-thin hover:bg-gray-100"
+                      className="block px-4 py-2 text-sm font-thin hover:bg-blue-500 hover:text-white"
                     >
                       Salesforce CPQ
                     </NavLink>
@@ -161,7 +164,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to="/datacloud"
-                  className="block px-4 py-2 text-sm font-thin hover:bg-gray-100"
+                  className="block px-4 py-2 text-sm font-thin hover:bg-blue-500 hover:text-white"
                 >
                   Salesforce Data Cloud
                 </NavLink>
@@ -169,7 +172,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to="/agentforce"
-                  className="block px-4 py-2 text-sm font-thin hover:bg-gray-100"
+                  className="block px-4 py-2 text-sm font-thin hover:bg-blue-500 hover:text-white"
                 >
                   Salesforce Agentforce
                 </NavLink>
@@ -177,7 +180,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to="/tableau"
-                  className="block px-4 py-2 text-sm font-thin hover:bg-gray-100"
+                  className="block px-4 py-2 text-sm font-thin hover:bg-blue-500 hover:text-white"
                 >
                   Salesforce Tableau
                 </NavLink>
@@ -185,7 +188,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to="/mulesoft"
-                  className="block px-4 py-2 text-sm font-thin hover:bg-gray-100"
+                  className="block px-4 py-2 text-sm font-thin hover:bg-blue-500 hover:text-white"
                 >
                   Salesforce Mulesoft Integration
                 </NavLink>
@@ -193,7 +196,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to="/salesforceadvisory"
-                  className="block px-4 py-2 text-sm font-thin hover:bg-gray-100"
+                  className="block px-4 py-2 text-sm font-thin hover:bg-blue-500 hover:text-white"
                 >
                   Salesforce Advisory
                 </NavLink>
@@ -263,12 +266,12 @@ const Navbar = () => {
           <div className="mt-6">
             <p className="mb-2">Follow us:</p>
             <div className="icons flex gap-3">
-              <Link className="hover:-translate-y-2 duration-300" to="">
+              {/* <Link className="hover:-translate-y-2 duration-300" to="">
                 <img src={fbLogo} alt="facebook icon" className="w-6" />
               </Link>
               <Link className="hover:-translate-y-2 duration-300" to="">
                 <img src={instaLogo} alt="instagram icon" className="w-6" />
-              </Link>
+              </Link> */}
               <Link className="hover:-translate-y-2 duration-300" to="">
                 <img src={twitterLogo} alt="twitter icon" className="w-6" />
               </Link>

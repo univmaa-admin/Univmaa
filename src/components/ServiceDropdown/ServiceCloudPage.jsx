@@ -1,15 +1,28 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import serviceimg from "../../assets/serviceimg.jpg";
-import serviceimg2 from "../../assets/serviceimg2.jpg";
-import serviceimg3 from "../../assets/serviceimg3.png";
-import icon from "../../assets/icon.jpg";
 import RequestForConsultation from "../RequestForConsultation";
 import FillTheForm from "../FillTheForm";
 import ServiceDyanamic from "../ServiceDyanamic";
+import FaqDynamic from "../FaqDynamic";
+
+import servicecloudimgnew from "../../assets/servicecloudimgnew.webp";
+import servicecloudimgnew2 from "../../assets/servicecloudimgnew2.webp";
+import servicecloudimgnew3 from "../../assets/servicecloudimgnew3.webp";
+import servicecloudimgnew4 from "../../assets/servicecloudimgnew4.webp";
+import servicecloudimgnew5 from "../../assets/servicecloudimgnew5.webp";
+import servicecloudimgnew6 from "../../assets/servicecloudimgnew6.webp";
+import servicecloudimgnew7 from "../../assets/servicecloudimgnew7.webp";
+import servicecloudimgnew8 from "../../assets/servicecloudimgnew8.webp";
+import servicecloudimgnew9 from "../../assets/servicecloudimgnew9.webp";
+import servicecloudimgnew10 from "../../assets/servicecloudimgnew10.webp";
+import servicecloudimgnew11 from "../../assets/servicecloudimgnew11.webp";
+import servicecloudimgnew12 from "../../assets/servicecloudimgnew12.webp";
+import servicecloudimgnew13 from "../../assets/servicecloudimgnew13.webp";
+
 // 🚀 Section Variants for Smooth Scroll Animations
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
@@ -18,12 +31,26 @@ const fadeInUp = {
 
 export default function ServiceCloudPage() {
   const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState("Innovation");
+
+  const tabs = ["Innovation", "Contents", "Events"];
 
   return (
     <>
       <Navbar />
       {/* ========================== Section 1 ========================== */}
-      <section className="bg-[#0D1117] pt-28 text-white px-6 py-16 grid md:grid-cols-2 gap-10 items-center relative overflow-hidden">
+      <section
+        className=" pt-28 px-6 py-16 grid lg:grid-cols-2 md:grid-cols-1 gap-10 items-center relative overflow-hidden"
+        style={{
+          backgroundImage: `
+      linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0)),
+      url(${servicecloudimgnew3})
+    `,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         {/* Left Content */}
         <ServiceDyanamic serviceKey="service-cloud" />
         {/* Right Form */}
@@ -32,17 +59,23 @@ export default function ServiceCloudPage() {
 
       {/* ========================== Section 2 ========================== */}
       <motion.section
-        className="bg-black text-white px-6 md:px-20 py-16 grid md:grid-cols-2 gap-10 items-center"
+        className="text-black px-6 md:px-24 mb-[-30px] lg:px-20 md:h-[470px] md:mb-36 grid lg:grid-cols-2 gap-10 items-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         transition={{ staggerChildren: 0.3 }}
+        style={{
+          backgroundSize: "contain",
+          backgroundPosition: "bottom",
+          backgroundRepeat: "no-repeat",
+          backgroundImage: `url(${servicecloudimgnew})`,
+        }}
       >
         {/* Left Illustration */}
         <motion.div
           variants={fadeInUp}
           transition={{ duration: 0.8 }}
-          className="flex justify-center"
+          className="flex justify-center lg:mt-[-100px]"
         >
           <img
             src={serviceimg}
@@ -52,16 +85,20 @@ export default function ServiceCloudPage() {
         </motion.div>
 
         {/* Right Content */}
-        <motion.div variants={fadeInUp} transition={{ duration: 0.8 }}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+        <motion.div
+          variants={fadeInUp}
+          className=" lg:mt-[-10px]"
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-3xl md:text-3xl lg:text-4xl font-bold mb-6">
             Empower Your Service Team with{" "}
             <span className="text-blue-400">to deliver more with less</span>
           </h2>
-          <p className="text-gray-300 mb-4 text-lg">
+          <p className="text-black mb-4 text-lg">
             The rules for customer engagement have changed! Today’s buyers are
             informed, discerning, and expect personalized experiences.
           </p>
-          <p className="text-gray-300 mb-6 text-lg">
+          <p className="text-black mb-6 text-lg">
             Salesforce Sales Cloud is a powerful platform designed to empower
             your sales team and transform your sales operations with advanced
             features like AI-driven insights, predictive analytics, integration
@@ -72,8 +109,8 @@ export default function ServiceCloudPage() {
               navigate("/contactus");
               window.scrollTo(0, 0); // 👈 reset scroll
             }}
-            whileHover={{ scale: 1.05 }}
-            className="inline-block px-6 py-3 hover:cursor-pointer bg-gradient-to-r from-blue-500 to-purple-600 rounded-md font-semibold"
+            className="inline-block px-6 py-3 lg:ms-0 ms-0 md:ms-48 hover:cursor-pointer bg-white shadow-md text-[#0176d3] hover:bg-[#0176d3] hover:text-white
+          rounded-md font-semibold"
           >
             Let’s Connect ➝
           </motion.a>
@@ -82,19 +119,23 @@ export default function ServiceCloudPage() {
 
       {/* ========================== Section 3 ========================== */}
       <motion.section
-        className="bg-black text-white px-6 md:px-8 py-16 grid md:grid-cols-2 gap-10 items-center"
+        className=" text-black grid-cols-1 px-6 md:px-8 py-16 grid lg:grid-cols-2 gap-10 items-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         transition={{ staggerChildren: 0.3 }}
       >
         {/* Left Content */}
-        <motion.div variants={fadeInUp} transition={{ duration: 0.8 }}>
+        <motion.div
+          variants={fadeInUp}
+          className=" lg:ms-48 lg:w-[650px] lg:mt-[-40px] md:ms-16"
+          transition={{ duration: 0.8 }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Put Customers at the Heart of Your Business with{" "}
             <span className="text-blue-400">Data & AI</span>
           </h2>
-          <p className="text-gray-300 tracking-wide mb-4 text-lg">
+          <p className="text-black tracking-wide mb-4 text-lg">
             By harnessing the power of AI, Service Cloud provides predictive
             insights, automates routine tasks, and personalizes interactions,
             allowing your service teams to focus on what matters most—resolving
@@ -104,7 +145,7 @@ export default function ServiceCloudPage() {
             recommendations and predictive analytics, enabling them to
             anticipate customer needs and offer proactive solutions.
           </p>
-          <p className="text-gray-300 mb-6 text-lg">
+          <p className="text-black mb-6 text-lg">
             Einstein AI transforms this data into actionable insights,
             predicting customer behavior, automating tasks, and personalizing
             interactions. Let AI do the heavy lifting for revenue growth and
@@ -116,120 +157,218 @@ export default function ServiceCloudPage() {
         <motion.div
           variants={fadeInUp}
           transition={{ duration: 0.8 }}
-          className="flex justify-center"
+          className="flex  md:w-[400px] md:mt-[-40px] md:ms-48 justify-center"
         >
           <img
-            src={serviceimg2}
+            src={servicecloudimgnew2}
             alt="Data & AI"
-            className="w-96 md:w-[500px]"
+            className="w-[400px]"
           />
         </motion.div>
-      </motion.section>
-
-      {/* ========================== Section 4 ========================== */}
-      <motion.section
-        className="bg-[#071426] text-white px-6 md:px-20 py-16 text-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        transition={{ staggerChildren: 0.2 }}
-      >
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold mb-4"
-          variants={fadeInUp}
-        >
-          Industries We Serve
-        </motion.h2>
-        <motion.p
-          className="text-gray-300 mb-10"
-          variants={fadeInUp}
-          transition={{ duration: 0.8 }}
-        >
-          As a company committed to excellence, we offer solutions that meet
-          your unique & evolving business needs.
-        </motion.p>
-
-        {/* Industries Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-          {[
-            "Manufacturing",
-            "Finance",
-            "Healthcare",
-            "Retail",
-            "Hi-tech",
-            "Real Estate",
-          ].map((industry, i) => (
-            <motion.div
-              key={i}
-              className="p-6 bg-[#0c1b33] rounded-lg shadow hover:shadow-lg cursor-pointer"
-              variants={fadeInUp}
-              whileHover={{ scale: 1.05 }}
-            >
-              <img
-                src={icon}
-                alt={industry}
-                className="w-12 h-12 mx-auto mb-3"
-              />
-              <p className="font-semibold">{industry}</p>
-            </motion.div>
-          ))}
-        </div>
       </motion.section>
 
       {/* ========================== Section 5 (Workspace Image) ========================== */}
-      <motion.section
-        className="bg-[#071426] text-white px-6 md:px-20 py-16 text-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        transition={{ staggerChildren: 0.2 }}
-      >
-        {/* Title */}
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold mb-4"
-          variants={fadeInUp}
-        >
-          One Workspace for Every Service Need
-        </motion.h2>
-        <motion.p
-          className="text-gray-300 mb-12 max-w-2xl mx-auto"
-          variants={fadeInUp}
-        >
-          Leverage AI and automation to create a seamless, customer-centric
-          service experience.
-        </motion.p>
+      <section className="py-20 px-6 sm:px-10 mt-[-80px] md:px-16 bg-white text-gray-900">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10">
+          Discover what's new in{" "}
+          <span className="text-[#0176D3]">Service.</span>
+        </h2>
 
-        {/* Image */}
-        <motion.div
-          className="flex justify-center"
-          variants={fadeInUp}
-          transition={{ duration: 0.8 }}
-        >
-          <img
-            src={serviceimg3}
-            alt="Workspace for Every Service Need"
-            className="w-full max-w-3xl rounded-lg "
-          />
-        </motion.div>
-      </motion.section>
+        {/* Tabs */}
+        <div className="flex justify-center mb-10 flex-wrap gap-3 sm:gap-4">
+          {tabs.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`px-3 sm:px-4 pb-2 font-semibold border-b-2 transition-all ${
+                activeTab === tab
+                  ? "text-[#0176D3] border-[#0176D3]"
+                  : "text-black border-transparent hover:text-[#0176D3]"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+
+        {/* Innovation Tab */}
+        {activeTab === "Innovation" && (
+          <motion.div
+            className="grid gap-4 sm:gap-6 md:gap-8  lg:gap-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 justify-center items-stretch"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {[
+              {
+                img: servicecloudimgnew4,
+                title: "Agentforce IT Service",
+                desc: "Deliver instant, conversational IT support with Agentforce IT Service — a scalable and secure AI-powered platform for employee success.",
+              },
+              {
+                img: servicecloudimgnew5,
+                title: "Service Cloud",
+                desc: "Transform your customer service with Service Cloud — connecting every channel, automating workflows, and personalizing experiences using AI and Data Cloud.",
+              },
+              {
+                title: "Field Service Innovation",
+                desc: "Empower your field teams with real-time insights and connected tools. With Salesforce Field Service, optimize scheduling, track inventory, and provide exceptional on-site support that enhances customer satisfaction and operational efficiency.",
+                img: servicecloudimgnew6,
+              },
+              {
+                img: servicecloudimgnew7,
+                title: "Salesforce Voice",
+                desc: "Connect your phone systems with Service Cloud. Turn every conversation into actionable insights that empower service agents to deliver exceptional support.",
+              },
+            ].map((card, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.03 }}
+                className="bg-white shadow-lg rounded-2xl overflow-hidden w-full sm:w-[280px] md:w-[320px] lg:w-[300px] mx-auto"
+              >
+                <motion.img
+                  src={card.img}
+                  alt={card.title}
+                  className="w-full h-auto"
+                />
+                <div className="p-6">
+                  <h3 className="text-lg sm:text-xl text-black font-semibold mb-3">
+                    {card.title}
+                  </h3>
+                  <p className="text-black text-sm sm:text-base">{card.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+
+        {/* Contents Tab */}
+        {activeTab === "Contents" && (
+          <motion.div
+            className="grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {[
+              {
+                img: servicecloudimgnew8,
+                tag: "Serviceblazer",
+                title: "Join the #Serviceblazer movement.",
+                desc: "Be part of the growing community for service and field service professionals across the world.",
+              },
+              {
+                img: servicecloudimgnew9,
+                tag: "Guided Tour",
+                title: "Take a tour of the #1 AI CRM for Service.",
+                desc: "Experience Salesforce Service Cloud in action and see how AI and automation drive productivity.",
+              },
+              {
+                img: servicecloudimgnew10,
+                tag: "Guide",
+                title: "Discover AI and Data in Field Service.",
+                desc: "Explore key insights from over 5,500 field service professionals worldwide.",
+              },
+              {
+                img: servicecloudimgnew11,
+                tag: "Guide",
+                title: "Prepare Your Team for Digital Labour.",
+                desc: "Learn practical steps to ready your service teams for the next wave of automation.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.03 }}
+                className="shadow-lg rounded-2xl overflow-hidden bg-white"
+              >
+                <motion.img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-full h-auto"
+                />
+                <div className="p-6">
+                  <p className="text-xs font-semibold text-[#0176D3] mb-1">
+                    {item.tag}
+                  </p>
+                  <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+                  <p className="text-black text-sm sm:text-base">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+
+        {/* Events Tab */}
+        {activeTab === "Events" && (
+          <motion.div
+            className="grid gap-8 sm:grid-cols-2 md:grid-cols-2 justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {[
+              {
+                img: servicecloudimgnew12,
+                tag: "Multiple events",
+                title: "Service Expert Series",
+                desc: "Learn how Salesforce can boost resolution speed, enhance CSAT and improve efficiency for service professionals.",
+              },
+              {
+                img: servicecloudimgnew13,
+                tag: "London, UK",
+                title: "Agentforce World Tour London",
+                date: "4/12/2025",
+                desc: "Get ready to unlock unprecedented success with the power of trusted AI, real-time data, and CRM. Discover how to transform customer experiences that drive efficiency and growth.",
+              },
+            ].map((event, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.02 }}
+                className="bg-white shadow-lg rounded-2xl overflow-hidden"
+              >
+                <img
+                  src={event.img}
+                  alt={event.title}
+                  className="w-full h-auto"
+                />
+                <div className="p-6 text-left">
+                  <p className="text-xs text-[#0176D3] font-semibold mb-1">
+                    {event.tag}
+                  </p>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-2">
+                    {event.title}
+                  </h3>
+                  {event.date && (
+                    <p className="text-gray-600 text-sm mb-2">{event.date}</p>
+                  )}
+                  <p className="text-gray-600 text-sm sm:text-base">
+                    {event.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </section>
 
       {/* ========================== Section 5 ========================== */}
       <motion.section
-        className="bg-black text-white px-6 md:px-20 py-16"
+        className="text-black px-6 md:px-20 py-16 mt-[-60px] bg-white"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         transition={{ staggerChildren: 0.2 }}
       >
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-4"
+          className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#032D60]"
           variants={fadeInUp}
         >
           Deliver Value Across Every Customer{" "}
-          <span className="text-blue-400">Touchpoint</span>
+          <span className="text-[#0176D3]">Touchpoint</span>
         </motion.h2>
+
         <motion.p
-          className="text-center text-gray-300 mb-12"
+          className="text-center text-black mb-12 max-w-3xl mx-auto"
           variants={fadeInUp}
         >
           Empower agents with a perfect set of productivity tools that deliver
@@ -237,7 +376,7 @@ export default function ServiceCloudPage() {
         </motion.p>
 
         {/* Offerings Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {[
             {
               title: "Case Management",
@@ -267,21 +406,26 @@ export default function ServiceCloudPage() {
             <motion.div
               key={i}
               variants={fadeInUp}
-              className={`p-6 rounded-lg shadow ${
-                item.highlight
-                  ? "bg-gradient-to-b from-purple-600 to-purple-800"
-                  : "bg-[#0c1b33]"
-              }`}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100"
             >
-              <h3 className="font-bold text-lg mb-3">{item.title}</h3>
-              <p className="text-gray-300 text-sm">{item.desc}</p>
+              <div className="h-2 w-full bg-[#c49cdd] rounded-t-2xl"></div>
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-[#032D60] mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-black text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
       </motion.section>
 
       {/* ========================== Section 6 - CTA ========================== */}
+      <FaqDynamic />
       <RequestForConsultation />
       <Footer />
     </>

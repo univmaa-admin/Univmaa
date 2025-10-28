@@ -52,9 +52,9 @@ const FillTheForm = () => {
     <div
       id="form"
       data-aos="fade-left"
-      className="bg-gradient-to-b from-purple-600 to-black p-8 rounded-2xl  md:w-[370px] shadow-lg w-4/4 max-w-md mx-auto mt-20"
+      className=" p-8 bg-transparent  rounded-2xl md:w-[370px] shadow-2xl w-4/4 max-w-md mx-auto mt-4"
     >
-      <h3 className="text-2xl font-bold text-center mb-6">Fill the form</h3>
+      <p className="font-medium text-2xl text-center mb-6">Let's Talk!</p>
       {success ? (
         <p className="text-green-400 font-semibold text-center">
           ✅ Thank you! We&apos;ll get back to you soon.
@@ -66,42 +66,43 @@ const FillTheForm = () => {
             name="firstName"
             placeholder="First Name"
             required
-            className="w-full px-4 py-3 rounded-md text-black h-10"
+            className="w-full px-4 py-3 rounded-md text-black h-10 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white"
           />
           <input
             type="text"
             name="lastName"
             placeholder="Last Name"
             required
-            className="w-full px-4 py-3 rounded-md text-black h-10"
+            className="w-full px-4 py-3 rounded-md text-black h-10 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white"
           />
           <input
             type="text"
             name="company"
             placeholder="Company"
             required
-            className="w-full px-4 py-3 rounded-md text-black h-10"
+            className="w-full px-4 py-3 rounded-md text-black h-10 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white"
           />
           <input
             type="email"
             name="email"
             placeholder="Business Email"
             required
-            className="w-full px-4 py-3 rounded-md text-black h-10 "
+            className="w-full px-4 py-3 rounded-md text-black h-10 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white "
           />
           <input
-            type="tel"
-            name="contactNumber"
-            placeholder="Contact Number"
+            type="text"
+            name="Comments"
+            placeholder="Comments"
             required
-            className="w-full px-4 py-3 rounded-md text-black h-10"
+            className="w-full px-4 py-3 rounded-md text-black h-10 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white"
           />
 
           {error && <p className="text-red-400 text-sm">{error}</p>}
 
           <button
             type="submit"
-            className="w-full py-3 bg-sky-500 hover:bg-sky-600 rounded-md font-semibold text-white transition"
+            className="w-full py-3 bg-white text-[#0176d3] hover:bg-[#0176d3] hover:text-white
+ rounded-md font-semibold transition"
           >
             SUBMIT
           </button>
